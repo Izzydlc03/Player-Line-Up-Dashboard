@@ -10,7 +10,7 @@
 # additionally carries a per-player "advanced" block (national stats: BPM,
 # usage%, TS%, ORtg/DRtg, etc.) that main doesn't have yet — this script
 # pulls it in when present and skips it gracefully when it's not.
-import json, os, re, unicodedata, collections
+import json, math, os, re, unicodedata, collections
 import pandas as pd
 
 POD_DIR = os.environ.get("POD_DIR", "../Player-Overview-Dashboard")
@@ -32,12 +32,31 @@ TEAM_NAME = {
 }
 TEAM_KEYS = list(TEAM_NAME.keys())
 
+# Non-conference "scouting" opponents, each with its own standalone
+# csv1-4 folder under opponents/<folder>/<season>/ (added on the
+# add-opponents-remove-hawaii-ucdavis branch). csv_name is the exact team
+# string inside that folder's own CSVs; advanced_name is how the same team
+# is spelled in opponents/overall_data/wbb_d1_processed_players.csv (the
+# national stats dataset), where it differs.
+OPPONENT_TEAMS = {
+    "lmu":        {"folder": "LMU",           "csv_name": "LMU (CA)",       "advanced_name": "Loyola Marymount", "label": "Loyola Marymount", "mascot": "Lions"},
+    "nau":        {"folder": "NAU",           "csv_name": "Northern Ariz.", "advanced_name": "Northern Arizona", "label": "Northern Arizona", "mascot": "Lumberjacks"},
+    "portlandst": {"folder": "PortlandState", "csv_name": "Portland St.",   "advanced_name": "Portland St.",     "label": "Portland State",   "mascot": "Vikings"},
+    "usd":        {"folder": "USD",           "csv_name": "San Diego",     "advanced_name": "San Diego",        "label": "San Diego",        "mascot": "Toreros"},
+    "usf":        {"folder": "USF",           "csv_name": "San Francisco", "advanced_name": "San Francisco",    "label": "San Francisco",    "mascot": "Dons"},
+    "washington": {"folder": "Washington",    "csv_name": "Washington",    "advanced_name": "Washington",       "label": "Washington",       "mascot": "Huskies"},
+}
+ALL_TEAM_NAME = dict(TEAM_NAME, **{k: v["csv_name"] for k, v in OPPONENT_TEAMS.items()})
+
 idx = pd.read_csv(f"{BASE}/csv1_game_index.csv")
 box = pd.read_csv(f"{BASE}/csv2_boxscore_players.csv")
 pbp = pd.read_csv(f"{BASE}/csv3_playbyplay.csv")
 qtr = pd.read_csv(f"{BASE}/csv4_play_analysis.csv")
 with open(JSON_PATH) as f:
     season_json = json.load(f)
+
+NATIONAL_ADV_PATH = f"{POD_DIR}/opponents/overall_data/wbb_d1_processed_players.csv"
+national_adv_df = pd.read_csv(NATIONAL_ADV_PATH) if os.path.exists(NATIONAL_ADV_PATH) else None
 
 
 def norm(name):
@@ -55,14 +74,19 @@ ADV_FIELDS = ["bpm", "adjoe", "drtg", "usg", "ts", "efg", "porpag", "cls", "pos"
 
 
 def extract_advanced(adv):
-    if not adv:
+    if adv is None:
         return None
+    def get(f):
+        v = adv.get(f) if hasattr(adv, "get") else adv[f]
+        return None if (isinstance(v, float) and math.isnan(v)) else v
     out = {}
     for f in ("cls", "pos"):
-        out[f] = adv.get(f, "")
+        v = get(f)
+        out[f] = "" if v is None else str(v)
     for f in ("bpm", "adjoe", "drtg", "usg", "ts", "efg", "porpag"):
+        v = get(f)
         try:
-            out[f] = round(float(adv.get(f)), 3)
+            out[f] = round(float(v), 3) if v is not None else None
         except (TypeError, ValueError):
             out[f] = None
     return out
@@ -155,11 +179,33 @@ def apply_event(target_box, team_col, play, prefix=""):
         target_box["blk"] += 1
 
 
-def process_team(team_key):
-    team_name = TEAM_NAME[team_key]
-    games = idx[(idx.home_team == team_name) | (idx.away_team == team_name)].copy()
+def add_resolved_team(pbp_df, box_df):
+    """Some scraped datasets (notably the standalone opponent-folder files)
+    have csv3's `team` column swapped relative to the (correct) boxscore
+    roster for a game. Resolve each named play's team from the boxscore
+    instead, via an `rteam` column, so both conference and opponent data
+    are safe to use the same way regardless of that bug."""
+    player_game_team = {}
+    for r in box_df.itertuples():
+        if r.player != "TEAM":
+            player_game_team[(r.game_id, norm(r.player))] = r.team
+
+    def resolve(row):
+        if isinstance(row.player, str) and row.player != "TEAM":
+            t = player_game_team.get((row.game_id, norm(row.player)))
+            if t:
+                return t
+        return row.team
+
+    pbp_df = pbp_df.copy()
+    pbp_df["rteam"] = pbp_df.apply(resolve, axis=1)
+    return pbp_df
+
+
+def process_team(team_key, team_name, idx_l, box_l, pbp_l, qtr_l, kind, label, mascot, advanced_lookup):
+    games = idx_l[(idx_l.home_team == team_name) | (idx_l.away_team == team_name)].copy()
     game_ids = set(games.game_id)
-    team_box = box[box.team == team_name]
+    team_box = box_l[box_l.team == team_name]
 
     roster_info = {}
     for _, r in team_box.iterrows():
@@ -179,7 +225,7 @@ def process_team(team_key):
     for _, g in games.iterrows():
         gid = g.game_id
         opp_name = g.away_team if g.home_team == team_name else g.home_team
-        rows = qtr[qtr.game_id == gid]
+        rows = qtr_l[qtr_l.game_id == gid]
         us_row, opp_row = rows[rows.team == team_name], rows[rows.team != team_name]
         if us_row.empty or opp_row.empty:
             continue
@@ -192,7 +238,7 @@ def process_team(team_key):
         n_games += 1
         game_samples[gid] = {
             "label": f"vs {opp_name} — {g.date}", "us": us_q, "opp": opp_q,
-            "conference": bool(g.is_conference_game), "opp_key": next((k for k, v in TEAM_NAME.items() if v == opp_name), None),
+            "conference": bool(g.is_conference_game), "opp_key": next((k for k, v in ALL_TEAM_NAME.items() if v == opp_name), None),
         }
     n_games = n_games or 1
     team_quarters = {"season": {
@@ -205,7 +251,7 @@ def process_team(team_key):
         team_quarters[gid] = game_samples[gid]
 
     # --- player points per quarter ---
-    team_pbp = pbp[(pbp.game_id.isin(game_ids)) & (pbp.team == team_name)].copy()
+    team_pbp = pbp_l[(pbp_l.game_id.isin(game_ids)) & (pbp_l.rteam == team_name)].copy()
     made_shots = team_pbp[team_pbp.play.fillna("").str.startswith("GOOD")].copy()
     made_shots["value"] = made_shots.play.apply(shot_value)
     made_shots["qidx"] = made_shots.period.apply(period_index)
@@ -213,16 +259,11 @@ def process_team(team_key):
     for _, r in made_shots.dropna(subset=["qidx"]).iterrows():
         player_quarters[norm(r.player)][int(r.qidx)] += r.value
 
-    adv_lookup = {
-        norm_for_match(p["name"]): p.get("advanced")
-        for p in season_json.get(team_key, {}).get("players", [])
-    }
-
     players_out = []
     for k, totals in player_quarters.items():
         info = roster_info.get(k, {"name": display_name(k), "jersey": "-"})
         gp = player_totals[k]["gp"] or 1
-        adv = extract_advanced(adv_lookup.get(norm_for_match(info["name"])))
+        adv = extract_advanced(advanced_lookup.get(norm_for_match(info["name"])))
         entry = {
             "name": info["name"], "jersey": info["jersey"],
             "ppg": round(player_totals[k]["pts"] / gp, 1),
@@ -239,17 +280,17 @@ def process_team(team_key):
     lineup_vs_opp = collections.defaultdict(lambda: {"seconds": 0.0, "for_pts": 0, "against_pts": 0})
 
     for gid in game_ids:
-        grows = pbp[pbp.game_id == gid]
+        grows = pbp_l[pbp_l.game_id == gid]
         if grows.empty:
             continue
-        ginfo = idx[idx.game_id == gid].iloc[0]
+        ginfo = idx_l[idx_l.game_id == gid].iloc[0]
         is_home = ginfo.home_team == team_name
         opp_name = ginfo.away_team if is_home else ginfo.home_team
 
-        starters_rows = box[(box.game_id == gid) & (box.team == team_name) & (box.started == True)]  # noqa: E712
+        starters_rows = box_l[(box_l.game_id == gid) & (box_l.team == team_name) & (box_l.started == True)]  # noqa: E712
         on_court = set(norm(n) for n in starters_rows.player.tolist())
         if len(on_court) != 5:
-            fallback = box[(box.game_id == gid) & (box.team == team_name)].sort_values("min", ascending=False)
+            fallback = box_l[(box_l.game_id == gid) & (box_l.team == team_name)].sort_values("min", ascending=False)
             on_court = set(norm(n) for n in fallback.player.head(5).tolist())
         if len(on_court) != 5:
             continue
@@ -273,10 +314,10 @@ def process_team(team_key):
                 last_time_mark = t
 
             key = frozenset(on_court)
-            if row.team == team_name:
-                apply_event(lineup_stats[key]["box"], row.team, row.play)
-            elif row.team == opp_name:
-                apply_event(lineup_stats[key]["box"], row.team, row.play, prefix="opp_")
+            if row.rteam == team_name:
+                apply_event(lineup_stats[key]["box"], row.rteam, row.play)
+            elif row.rteam == opp_name:
+                apply_event(lineup_stats[key]["box"], row.rteam, row.play, prefix="opp_")
 
             away_s, home_s = row.away_score, row.home_score
             if pd.notna(away_s) and pd.notna(home_s):
@@ -291,7 +332,7 @@ def process_team(team_key):
                     lineup_vs_opp[(key, opp_name)]["against_pts"] += d_opp
                 last_us_score, last_opp_score = us_score, opp_score
 
-            if row.team == team_name and isinstance(row.play, str):
+            if row.rteam == team_name and isinstance(row.play, str):
                 if row.play.startswith("SUB OUT by"):
                     on_court.discard(norm(row.player))
                 elif row.play.startswith("SUB IN by"):
@@ -324,7 +365,7 @@ def process_team(team_key):
             vmin = vstats["seconds"] / 60
             if vmin < 3:
                 continue
-            opp_key = next((ok for ok, ov in TEAM_NAME.items() if ov == opp_name), None)
+            opp_key = next((ok for ok, ov in ALL_TEAM_NAME.items() if ov == opp_name), None)
             vs_opp.append({
                 "opponent": opp_name, "opp_key": opp_key, "min": round(vmin, 1),
                 "net": int(vstats["for_pts"] - vstats["against_pts"]),
@@ -344,18 +385,33 @@ def process_team(team_key):
         })
     lineups_out.sort(key=lambda l: -l["min"])
 
-    ucsd_team_games = season_json[team_key]["games"]
-    wins = sum(1 for g in ucsd_team_games if g["win"])
-    kpis = {
-        "record": f"{wins}-{len(ucsd_team_games) - wins}",
-        "ppg": round(sum(g["pf"] for g in ucsd_team_games) / len(ucsd_team_games), 1),
-        "oppg": round(sum(g["pa"] for g in ucsd_team_games) / len(ucsd_team_games), 1),
-    }
+    if kind == "conference":
+        own_games = season_json[team_key]["games"]
+        wins = sum(1 for g in own_games if g["win"])
+        kpis = {
+            "record": f"{wins}-{len(own_games) - wins}",
+            "ppg": round(sum(g["pf"] for g in own_games) / len(own_games), 1),
+            "oppg": round(sum(g["pa"] for g in own_games) / len(own_games), 1),
+        }
+    else:
+        wins = losses = pf_total = pa_total = 0
+        for _, g in games.iterrows():
+            is_home = g.home_team == team_name
+            pf, pa = (g.home_score, g.away_score) if is_home else (g.away_score, g.home_score)
+            pf_total += pf
+            pa_total += pa
+            if g.winner == team_name:
+                wins += 1
+            else:
+                losses += 1
+        gp = max(wins + losses, 1)
+        kpis = {"record": f"{wins}-{losses}", "ppg": round(pf_total / gp, 1), "oppg": round(pa_total / gp, 1)}
 
     return {
         "key": team_key,
-        "name": season_json[team_key].get("name", team_key),
-        "mascot": season_json[team_key].get("mascot", ""),
+        "kind": kind,
+        "name": label,
+        "mascot": mascot,
         "kpis": kpis,
         "team_quarters": team_quarters,
         "roster_players": players_out,
@@ -365,10 +421,40 @@ def process_team(team_key):
     }
 
 
+def national_adv_lookup(advanced_name):
+    if national_adv_df is None:
+        return {}
+    rows = national_adv_df[national_adv_df.team == advanced_name]
+    return {norm_for_match(r["name"]): r.to_dict() for _, r in rows.iterrows()}
+
+
+pbp = add_resolved_team(pbp, box)
+
 teams_out = {}
 for tk in TEAM_KEYS:
-    print("processing", tk, "...")
-    teams_out[tk] = process_team(tk)
+    print("processing", tk, "(conference) ...")
+    adv_lookup = {
+        norm_for_match(p["name"]): p.get("advanced")
+        for p in season_json.get(tk, {}).get("players", [])
+    }
+    teams_out[tk] = process_team(
+        tk, TEAM_NAME[tk], idx, box, pbp, qtr, "conference",
+        season_json[tk].get("name", tk), season_json[tk].get("mascot", ""), adv_lookup,
+    )
+
+for tk, cfg in OPPONENT_TEAMS.items():
+    print("processing", tk, "(opponent) ...")
+    opp_base = f"{POD_DIR}/opponents/{cfg['folder']}/{SEASON}"
+    opp_idx = pd.read_csv(f"{opp_base}/csv1_game_index.csv")
+    opp_box = pd.read_csv(f"{opp_base}/csv2_boxscore_players.csv")
+    opp_pbp = pd.read_csv(f"{opp_base}/csv3_playbyplay.csv")
+    opp_qtr = pd.read_csv(f"{opp_base}/csv4_play_analysis.csv")
+    opp_pbp = add_resolved_team(opp_pbp, opp_box)
+    adv_lookup = national_adv_lookup(cfg["advanced_name"])
+    teams_out[tk] = process_team(
+        tk, cfg["csv_name"], opp_idx, opp_box, opp_pbp, opp_qtr, "opponent",
+        cfg["label"], cfg["mascot"], adv_lookup,
+    )
 
 # --- conference-wide summary (used by the Conference tab) ---
 conf_out = []

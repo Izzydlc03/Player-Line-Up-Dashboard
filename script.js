@@ -51,24 +51,33 @@
   function updateBrand(){
     var t = teamData(state.team);
     $('#brandMark').textContent = (t.name||'T').charAt(0);
-    $('#topbarSub').textContent = teamLabel(state.team) + ' · Big West Conference · Women\'s Basketball';
+    var tag = t.kind === 'opponent' ? 'Non-Conference Opponent' : 'Big West Conference';
+    $('#topbarSub').textContent = teamLabel(state.team) + ' · ' + tag + ' · Women\'s Basketball';
   }
 
   /* ---------------- Selectors ---------------- */
+  function teamGroups(){
+    var conf = [], opp = [];
+    Object.keys(DATA.teams).forEach(function(k){
+      (DATA.teams[k].kind === 'opponent' ? opp : conf).push(k);
+    });
+    return { conf: conf, opp: opp };
+  }
   function populateTeamSelector(){
     var sel = $('#teamSel');
-    sel.innerHTML = Object.keys(DATA.teams).map(function(k){
-      return '<option value="'+k+'"'+(k===state.team?' selected':'')+'>'+teamLabel(k)+'</option>';
-    }).join('');
+    var g = teamGroups();
+    function opt(k){ return '<option value="'+k+'"'+(k===state.team?' selected':'')+'>'+teamLabel(k)+'</option>'; }
+    sel.innerHTML =
+      '<optgroup label="Big West Conference">'+g.conf.map(opt).join('')+'</optgroup>' +
+      (g.opp.length ? '<optgroup label="Non-Conference Opponents">'+g.opp.map(opt).join('')+'</optgroup>' : '');
   }
   function populateCompareSelector(){
     var sel = $('#compareSel');
-    var opts = ['<option value="">Compare vs…</option>'];
-    Object.keys(DATA.teams).forEach(function(k){
-      if (k===state.team) return;
-      opts.push('<option value="'+k+'"'+(k===state.compareTeam?' selected':'')+'>'+teamLabel(k)+'</option>');
-    });
-    sel.innerHTML = opts.join('');
+    var g = teamGroups();
+    function opt(k){ return '<option value="'+k+'"'+(k===state.compareTeam?' selected':'')+'>'+teamLabel(k)+'</option>'; }
+    sel.innerHTML = '<option value="">Compare vs…</option>' +
+      '<optgroup label="Big West Conference">'+g.conf.filter(function(k){ return k!==state.team; }).map(opt).join('')+'</optgroup>' +
+      (g.opp.length ? '<optgroup label="Non-Conference Opponents">'+g.opp.filter(function(k){ return k!==state.team; }).map(opt).join('')+'</optgroup>' : '');
   }
   function populateGameSelector(){
     var sel = $('#gameSel');
