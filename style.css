@@ -191,9 +191,15 @@ select:hover{ background-color:#25406b; }
 @media (max-width:640px){ .players-grid{ grid-template-columns:repeat(2,1fr); } }
 .pcard{ border:1px solid var(--border); border-radius:var(--radius); padding:12px 13px 13px; background:var(--surface-2); cursor:pointer; text-align:left; font:inherit; }
 .pcard.selected{ border-color:var(--series-a); background:color-mix(in srgb, var(--series-a) 8%, var(--surface-2)); }
-.pcard-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:9px; gap:6px; }
+.pcard-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2px; gap:6px; }
 .pcard-head .pname{ font-size:12.3px; font-weight:800; color:var(--navy); }
 .jersey{ display:inline-flex; align-items:center; justify-content:center; width:24px; height:20px; border-radius:5px; background:#c69114bf; font-family:var(--font-mono); font-weight:700; font-size:10.5px; color:#ffd83d; flex:none; }
+.pcard-sub{ font-size:9.5px; font-weight:700; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em; margin-bottom:9px; }
+.adv-row{ display:flex; flex-wrap:wrap; gap:4px; margin-top:9px; }
+.adv-chip{ font-size:9.5px; font-weight:700; padding:2px 6px; border-radius:5px; background:var(--surface-3); color:var(--ink-muted); cursor:default; }
+.adv-chip b{ color:var(--ink); font-family:var(--font-mono); font-weight:800; }
+.adv-chip.tone-good b{ color:var(--good); }
+.adv-chip.tone-bad b{ color:var(--critical); }
 .pmini{ display:flex; align-items:flex-end; gap:5px; height:56px; position:relative; }
 .pmini .mbar{ flex:1; border-radius:3px 3px 1px 1px; background:var(--series-a); position:relative; }
 .pfoot{ display:flex; justify-content:space-between; margin-top:20px; font-size:11px; color:var(--ink-faint); font-weight:700; }
@@ -261,7 +267,7 @@ tbody tr:hover{ background:var(--surface-2); }
 .tooltip{
   position:fixed; pointer-events:none; z-index:50; background:var(--ink); color:var(--bg);
   font-size:11.5px; font-weight:600; padding:6px 9px; border-radius:7px; box-shadow:var(--shadow);
-  opacity:0; transform:translate(-50%,-115%); transition:opacity .1s; white-space:nowrap;
+  opacity:0; transform:translate(-50%,-115%); transition:opacity .1s; max-width:240px; line-height:1.4;
 }
 .tooltip.show{ opacity:1; }
 .tooltip b{ font-weight:800; }

@@ -3,7 +3,14 @@
 # sibling directory before running (or point POD_DIR at your checkout):
 #   git clone https://github.com/Izzydlc03/Player-Overview-Dashboard.git ../Player-Overview-Dashboard
 #   python3 build_lineup_data.py
-import json, os, re, collections
+#
+# Play-by-play/boxscore CSVs (csv1-4) are identical between main and the
+# add-opponents-remove-hawaii-ucdavis branch, so lineup/quarter numbers are
+# unaffected by which one you check out. That branch's data/<season>.json
+# additionally carries a per-player "advanced" block (national stats: BPM,
+# usage%, TS%, ORtg/DRtg, etc.) that main doesn't have yet — this script
+# pulls it in when present and skips it gracefully when it's not.
+import json, os, re, unicodedata, collections
 import pandas as pd
 
 POD_DIR = os.environ.get("POD_DIR", "../Player-Overview-Dashboard")
@@ -35,6 +42,30 @@ with open(JSON_PATH) as f:
 
 def norm(name):
     return re.sub(r"\s+", "", str(name)).upper()
+
+
+def norm_for_match(name):
+    """Loose match key: strip accents/periods, collapse whitespace, lowercase."""
+    name = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode("ascii")
+    name = re.sub(r"\.", "", name)
+    return re.sub(r"\s+", " ", name).strip().lower()
+
+
+ADV_FIELDS = ["bpm", "adjoe", "drtg", "usg", "ts", "efg", "porpag", "cls", "pos"]
+
+
+def extract_advanced(adv):
+    if not adv:
+        return None
+    out = {}
+    for f in ("cls", "pos"):
+        out[f] = adv.get(f, "")
+    for f in ("bpm", "adjoe", "drtg", "usg", "ts", "efg", "porpag"):
+        try:
+            out[f] = round(float(adv.get(f)), 3)
+        except (TypeError, ValueError):
+            out[f] = None
+    return out
 
 
 def display_name(last_first):
@@ -182,15 +213,24 @@ def process_team(team_key):
     for _, r in made_shots.dropna(subset=["qidx"]).iterrows():
         player_quarters[norm(r.player)][int(r.qidx)] += r.value
 
+    adv_lookup = {
+        norm_for_match(p["name"]): p.get("advanced")
+        for p in season_json.get(team_key, {}).get("players", [])
+    }
+
     players_out = []
     for k, totals in player_quarters.items():
         info = roster_info.get(k, {"name": display_name(k), "jersey": "-"})
         gp = player_totals[k]["gp"] or 1
-        players_out.append({
+        adv = extract_advanced(adv_lookup.get(norm_for_match(info["name"])))
+        entry = {
             "name": info["name"], "jersey": info["jersey"],
             "ppg": round(player_totals[k]["pts"] / gp, 1),
             "q": [round(v / gp, 2) for v in totals],
-        })
+        }
+        if adv:
+            entry["adv"] = adv
+        players_out.append(entry)
     players_out.sort(key=lambda p: -p["ppg"])
     players_out = [p for p in players_out if p["ppg"] >= 1.5][:10]
 

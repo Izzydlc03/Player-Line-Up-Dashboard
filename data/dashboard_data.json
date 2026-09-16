@@ -143,7 +143,18 @@
             2.45,
             3.64,
             2.82
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G/F",
+            "bpm": 3.372,
+            "adjoe": 107.216,
+            "drtg": 86.188,
+            "usg": 0.235,
+            "ts": 0.561,
+            "efg": 0.532,
+            "porpag": 3.632
+          }
         },
         {
           "name": "Makayla Rose",
@@ -154,7 +165,18 @@
             2.18,
             2.24,
             2.88
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": 3.25,
+            "adjoe": 94.762,
+            "drtg": 85.069,
+            "usg": 0.193,
+            "ts": 0.485,
+            "efg": 0.444,
+            "porpag": 2.311
+          }
         },
         {
           "name": "Sabrina Ma",
@@ -165,7 +187,18 @@
             1.82,
             3.27,
             1.61
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G/F",
+            "bpm": 3.004,
+            "adjoe": 94.253,
+            "drtg": 88.919,
+            "usg": 0.176,
+            "ts": 0.497,
+            "efg": 0.464,
+            "porpag": 2.07
+          }
         },
         {
           "name": "Rosa Smith",
@@ -176,7 +209,18 @@
             2.12,
             2.44,
             1.97
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": -0.354,
+            "adjoe": 93.145,
+            "drtg": 91.887,
+            "usg": 0.203,
+            "ts": 0.539,
+            "efg": 0.504,
+            "porpag": 1.753
+          }
         },
         {
           "name": "Dymonique Maxie",
@@ -187,7 +231,18 @@
             1.27,
             2.52,
             1.27
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": -0.448,
+            "adjoe": 82.227,
+            "drtg": 89.591,
+            "usg": 0.176,
+            "ts": 0.432,
+            "efg": 0.37,
+            "porpag": 0.711
+          }
         },
         {
           "name": "Lev Feiman",
@@ -198,7 +253,18 @@
             1.64,
             0.96,
             1.5
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G",
+            "bpm": 1.189,
+            "adjoe": 105.236,
+            "drtg": 88.144,
+            "usg": 0.207,
+            "ts": 0.554,
+            "efg": 0.52,
+            "porpag": 1.512
+          }
         },
         {
           "name": "Niya Price",
@@ -209,7 +275,18 @@
             0.62,
             0.31,
             1.31
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -6.751,
+            "adjoe": 84.352,
+            "drtg": 81.079,
+            "usg": 0.303,
+            "ts": 0.428,
+            "efg": 0.393,
+            "porpag": 0.184
+          }
         },
         {
           "name": "Tatum Jones",
@@ -220,7 +297,18 @@
             0.0,
             2.0,
             0.67
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G",
+            "bpm": 6.527,
+            "adjoe": 143.906,
+            "drtg": 87.07,
+            "usg": 0.054,
+            "ts": 1.0,
+            "efg": 1.0,
+            "porpag": 1.903
+          }
         },
         {
           "name": "Michaela Fairwell",
@@ -231,7 +319,18 @@
             0.06,
             0.65,
             1.0
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -5.933,
+            "adjoe": 69.573,
+            "drtg": 86.171,
+            "usg": 0.226,
+            "ts": 0.36,
+            "efg": 0.302,
+            "porpag": -0.203
+          }
         },
         {
           "name": "Nicki Polocheck",
@@ -242,7 +341,18 @@
             0.84,
             0.16,
             0.64
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "F/C",
+            "bpm": -4.12,
+            "adjoe": 82.278,
+            "drtg": 87.57,
+            "usg": 0.152,
+            "ts": 0.475,
+            "efg": 0.439,
+            "porpag": 0.163
+          }
         }
       ],
       "lineups": [
@@ -407,7 +517,7 @@
           ]
         },
         {
-          "id": "ucsd-L3",
+          "id": "ucsd-L7",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -511,7 +621,7 @@
           ]
         },
         {
-          "id": "ucsd-L4",
+          "id": "ucsd-L6",
           "players": [
             "Erin Condron",
             "Lev Feiman",
@@ -594,7 +704,7 @@
           ]
         },
         {
-          "id": "ucsd-L18",
+          "id": "ucsd-L11",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -670,7 +780,7 @@
           ]
         },
         {
-          "id": "ucsd-L2",
+          "id": "ucsd-L17",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -739,7 +849,7 @@
           ]
         },
         {
-          "id": "ucsd-L7",
+          "id": "ucsd-L5",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -808,7 +918,7 @@
           ]
         },
         {
-          "id": "ucsd-L16",
+          "id": "ucsd-L9",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -870,7 +980,7 @@
           ]
         },
         {
-          "id": "ucsd-L15",
+          "id": "ucsd-L10",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -939,7 +1049,7 @@
           ]
         },
         {
-          "id": "ucsd-L12",
+          "id": "ucsd-L24",
           "players": [
             "Damilola Sule",
             "Dymonique Maxie",
@@ -1001,7 +1111,7 @@
           ]
         },
         {
-          "id": "ucsd-L5",
+          "id": "ucsd-L16",
           "players": [
             "Damilola Sule",
             "Dymonique Maxie",
@@ -1063,7 +1173,7 @@
           ]
         },
         {
-          "id": "ucsd-L8",
+          "id": "ucsd-L21",
           "players": [
             "Erin Condron",
             "Makayla Rose",
@@ -1118,7 +1228,7 @@
           ]
         },
         {
-          "id": "ucsd-L23",
+          "id": "ucsd-L3",
           "players": [
             "Erin Condron",
             "Junae Mahan",
@@ -1157,23 +1267,23 @@
           },
           "vs_opponents": [
             {
-              "opponent": "San Francisco",
-              "opp_key": null,
-              "min": 3.9,
+              "opponent": "Cal Poly",
+              "opp_key": "calpoly",
+              "min": 4.5,
               "net": 0,
               "net_per40": 0.0
             },
             {
-              "opponent": "Cal Poly",
-              "opp_key": "calpoly",
-              "min": 4.5,
+              "opponent": "San Francisco",
+              "opp_key": null,
+              "min": 3.9,
               "net": 0,
               "net_per40": 0.0
             }
           ]
         },
         {
-          "id": "ucsd-L14",
+          "id": "ucsd-L2",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1228,7 +1338,7 @@
           ]
         },
         {
-          "id": "ucsd-L24",
+          "id": "ucsd-L18",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1281,7 +1391,7 @@
           ]
         },
         {
-          "id": "ucsd-L10",
+          "id": "ucsd-L19",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1336,7 +1446,7 @@
           ]
         },
         {
-          "id": "ucsd-L9",
+          "id": "ucsd-L20",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1384,7 +1494,7 @@
           ]
         },
         {
-          "id": "ucsd-L22",
+          "id": "ucsd-L14",
           "players": [
             "Dymonique Maxie",
             "Erika Aspajo",
@@ -1437,7 +1547,7 @@
           ]
         },
         {
-          "id": "ucsd-L6",
+          "id": "ucsd-L22",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1499,7 +1609,7 @@
           ]
         },
         {
-          "id": "ucsd-L28",
+          "id": "ucsd-L25",
           "players": [
             "Bria Shine",
             "Dymonique Maxie",
@@ -1552,7 +1662,7 @@
           ]
         },
         {
-          "id": "ucsd-L26",
+          "id": "ucsd-L23",
           "players": [
             "Brynna Pukis",
             "Dymonique Maxie",
@@ -1605,7 +1715,7 @@
           ]
         },
         {
-          "id": "ucsd-L17",
+          "id": "ucsd-L28",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1653,7 +1763,7 @@
           ]
         },
         {
-          "id": "ucsd-L21",
+          "id": "ucsd-L13",
           "players": [
             "Dymonique Maxie",
             "Erika Aspajo",
@@ -1705,7 +1815,7 @@
           ]
         },
         {
-          "id": "ucsd-L11",
+          "id": "ucsd-L4",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -1758,7 +1868,7 @@
           ]
         },
         {
-          "id": "ucsd-L29",
+          "id": "ucsd-L26",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1811,7 +1921,7 @@
           ]
         },
         {
-          "id": "ucsd-L27",
+          "id": "ucsd-L29",
           "players": [
             "Damilola Sule",
             "Junae Mahan",
@@ -1859,7 +1969,7 @@
           ]
         },
         {
-          "id": "ucsd-L20",
+          "id": "ucsd-L8",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1907,7 +2017,7 @@
           ]
         },
         {
-          "id": "ucsd-L25",
+          "id": "ucsd-L15",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -1955,55 +2065,7 @@
           ]
         },
         {
-          "id": "ucsd-L13",
-          "players": [
-            "Dymonique Maxie",
-            "Junae Mahan",
-            "Makayla Rose",
-            "Rosa Smith",
-            "Sabrina Ma"
-          ],
-          "min": 6.0,
-          "for_pts": 14,
-          "against_pts": 14,
-          "net": 0,
-          "net_per40": 0.0,
-          "per40": {
-            "fgm": 39.78,
-            "fga": 59.67,
-            "tpm": 13.26,
-            "tpa": 19.89,
-            "ftm": 0.0,
-            "fta": 0.0,
-            "oreb": 0.0,
-            "dreb": 13.26,
-            "ast": 19.89,
-            "tov": 13.26,
-            "stl": 13.26,
-            "blk": 0.0,
-            "opp_fgm": 39.78,
-            "opp_fga": 53.04,
-            "opp_tpm": 6.63,
-            "opp_tpa": 13.26,
-            "opp_ftm": 6.63,
-            "opp_fta": 13.26,
-            "opp_oreb": 6.63,
-            "opp_dreb": 19.89,
-            "opp_ast": 19.89,
-            "opp_tov": 19.89
-          },
-          "vs_opponents": [
-            {
-              "opponent": "Cal St. Fullerton",
-              "opp_key": "csuf",
-              "min": 3.9,
-              "net": 4,
-              "net_per40": 41.6
-            }
-          ]
-        },
-        {
-          "id": "ucsd-L19",
+          "id": "ucsd-L12",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -2047,6 +2109,54 @@
               "min": 3.6,
               "net": -7,
               "net_per40": -77.8
+            }
+          ]
+        },
+        {
+          "id": "ucsd-L27",
+          "players": [
+            "Dymonique Maxie",
+            "Junae Mahan",
+            "Makayla Rose",
+            "Rosa Smith",
+            "Sabrina Ma"
+          ],
+          "min": 6.0,
+          "for_pts": 14,
+          "against_pts": 14,
+          "net": 0,
+          "net_per40": 0.0,
+          "per40": {
+            "fgm": 39.78,
+            "fga": 59.67,
+            "tpm": 13.26,
+            "tpa": 19.89,
+            "ftm": 0.0,
+            "fta": 0.0,
+            "oreb": 0.0,
+            "dreb": 13.26,
+            "ast": 19.89,
+            "tov": 13.26,
+            "stl": 13.26,
+            "blk": 0.0,
+            "opp_fgm": 39.78,
+            "opp_fga": 53.04,
+            "opp_tpm": 6.63,
+            "opp_tpa": 13.26,
+            "opp_ftm": 6.63,
+            "opp_fta": 13.26,
+            "opp_oreb": 6.63,
+            "opp_dreb": 19.89,
+            "opp_ast": 19.89,
+            "opp_tov": 19.89
+          },
+          "vs_opponents": [
+            {
+              "opponent": "Cal St. Fullerton",
+              "opp_key": "csuf",
+              "min": 3.9,
+              "net": 4,
+              "net_per40": 41.6
             }
           ]
         }
@@ -2215,7 +2325,18 @@
             1.15,
             1.3,
             1.06
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G/F",
+            "bpm": 2.355,
+            "adjoe": 120.296,
+            "drtg": 86.653,
+            "usg": 0.297,
+            "ts": 0.531,
+            "efg": 0.45,
+            "porpag": 5.199
+          }
         },
         {
           "name": "Jada Wynn",
@@ -2226,7 +2347,18 @@
             0.52,
             1.15,
             1.3
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": 6.474,
+            "adjoe": 114.638,
+            "drtg": 81.999,
+            "usg": 0.242,
+            "ts": 0.574,
+            "efg": 0.492,
+            "porpag": 4.468
+          }
         },
         {
           "name": "Shirel Nahum",
@@ -2237,7 +2369,18 @@
             0.69,
             0.56,
             0.25
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": -1.216,
+            "adjoe": 89.563,
+            "drtg": 89.137,
+            "usg": 0.189,
+            "ts": 0.466,
+            "efg": 0.406,
+            "porpag": 1.301
+          }
         },
         {
           "name": "Lauryn Madsen",
@@ -2248,7 +2391,18 @@
             0.18,
             0.09,
             0.24
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": 5.29,
+            "adjoe": 92.192,
+            "drtg": 86.904,
+            "usg": 0.109,
+            "ts": 0.515,
+            "efg": 0.505,
+            "porpag": 1.823
+          }
         },
         {
           "name": "Summah Hanson",
@@ -2259,7 +2413,18 @@
             0.23,
             0.23,
             0.36
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "F/C",
+            "bpm": 3.602,
+            "adjoe": 103.167,
+            "drtg": 78.474,
+            "usg": 0.18,
+            "ts": 0.516,
+            "efg": 0.455,
+            "porpag": 1.865
+          }
         },
         {
           "name": "Nohealani Stores",
@@ -2281,7 +2446,18 @@
             0.09,
             0.0,
             0.25
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": 0.719,
+            "adjoe": 95.888,
+            "drtg": 86.046,
+            "usg": 0.183,
+            "ts": 0.576,
+            "efg": 0.555,
+            "porpag": 1.072
+          }
         },
         {
           "name": "Ameerah Grant",
@@ -2292,7 +2468,18 @@
             0.18,
             0.06,
             0.21
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G",
+            "bpm": -1.223,
+            "adjoe": 101.344,
+            "drtg": 89.618,
+            "usg": 0.191,
+            "ts": 0.572,
+            "efg": 0.453,
+            "porpag": 1.047
+          }
         }
       ],
       "lineups": [
@@ -2415,7 +2602,7 @@
           ]
         },
         {
-          "id": "ucirvine-L3",
+          "id": "ucirvine-L4",
           "players": [
             "Hunter Hernandez",
             "Jada Wynn",
@@ -2498,7 +2685,7 @@
           ]
         },
         {
-          "id": "ucirvine-L9",
+          "id": "ucirvine-L8",
           "players": [
             "Dan Falconhernandez",
             "Hunter Hernandez",
@@ -2560,7 +2747,7 @@
           ]
         },
         {
-          "id": "ucirvine-L18",
+          "id": "ucirvine-L25",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -2611,7 +2798,7 @@
           ]
         },
         {
-          "id": "ucirvine-L27",
+          "id": "ucirvine-L12",
           "players": [
             "Daniela Falcon Hernandez",
             "Hunter Hernandez",
@@ -2673,7 +2860,7 @@
           ]
         },
         {
-          "id": "ucirvine-L4",
+          "id": "ucirvine-L17",
           "players": [
             "Hunter Hernandez",
             "Jada Wynn",
@@ -2728,7 +2915,7 @@
           ]
         },
         {
-          "id": "ucirvine-L6",
+          "id": "ucirvine-L9",
           "players": [
             "Hunter Hernandez",
             "Jada Wynn",
@@ -2776,7 +2963,7 @@
           ]
         },
         {
-          "id": "ucirvine-L14",
+          "id": "ucirvine-L5",
           "players": [
             "Hunter Hernandez",
             "Jada Wynn",
@@ -2831,7 +3018,7 @@
           ]
         },
         {
-          "id": "ucirvine-L20",
+          "id": "ucirvine-L14",
           "players": [
             "Abbey Ferguson",
             "Ella Meabon",
@@ -2884,7 +3071,59 @@
           ]
         },
         {
-          "id": "ucirvine-L13",
+          "id": "ucirvine-L19",
+          "players": [
+            "Brynna Pukis",
+            "Hunter Hernandez",
+            "Jada Wynn",
+            "Kennan Ka",
+            "Lauryn Madsen",
+            "Rosie Akot",
+            "Shirel Nahum",
+            "Summah Hanson",
+            "Ta Samuel-Afolabi"
+          ],
+          "min": 9.3,
+          "for_pts": 11,
+          "against_pts": 18,
+          "net": -7,
+          "net_per40": -30.2,
+          "per40": {
+            "fgm": 21.54,
+            "fga": 43.09,
+            "tpm": 4.31,
+            "tpa": 17.24,
+            "ftm": 30.16,
+            "fta": 30.16,
+            "oreb": 4.31,
+            "dreb": 34.47,
+            "ast": 12.93,
+            "tov": 12.93,
+            "stl": 4.31,
+            "blk": 0.0,
+            "opp_fgm": 12.93,
+            "opp_fga": 47.4,
+            "opp_tpm": 0.0,
+            "opp_tpa": 12.93,
+            "opp_ftm": 21.54,
+            "opp_fta": 34.47,
+            "opp_oreb": 8.62,
+            "opp_dreb": 17.24,
+            "opp_ast": 0.0,
+            "opp_tov": 4.31
+          },
+          "vs_opponents": [
+            {
+              "opponent": "Long Beach St.",
+              "opp_key": "csulb",
+              "min": 9.3,
+              "net": -7,
+              "net_per40": -30.2
+            }
+          ]
+        },
+        {
+          "id": "ucirvine-L23",
           "players": [
             "Alyse Aby",
             "Daniela Falcon Hernandez",
@@ -2933,58 +3172,6 @@
               "min": 9.3,
               "net": 2,
               "net_per40": 8.6
-            }
-          ]
-        },
-        {
-          "id": "ucirvine-L21",
-          "players": [
-            "Brynna Pukis",
-            "Hunter Hernandez",
-            "Jada Wynn",
-            "Kennan Ka",
-            "Lauryn Madsen",
-            "Rosie Akot",
-            "Shirel Nahum",
-            "Summah Hanson",
-            "Ta Samuel-Afolabi"
-          ],
-          "min": 9.3,
-          "for_pts": 11,
-          "against_pts": 18,
-          "net": -7,
-          "net_per40": -30.2,
-          "per40": {
-            "fgm": 21.54,
-            "fga": 43.09,
-            "tpm": 4.31,
-            "tpa": 17.24,
-            "ftm": 30.16,
-            "fta": 30.16,
-            "oreb": 4.31,
-            "dreb": 34.47,
-            "ast": 12.93,
-            "tov": 12.93,
-            "stl": 4.31,
-            "blk": 0.0,
-            "opp_fgm": 12.93,
-            "opp_fga": 47.4,
-            "opp_tpm": 0.0,
-            "opp_tpa": 12.93,
-            "opp_ftm": 21.54,
-            "opp_fta": 34.47,
-            "opp_oreb": 8.62,
-            "opp_dreb": 17.24,
-            "opp_ast": 0.0,
-            "opp_tov": 4.31
-          },
-          "vs_opponents": [
-            {
-              "opponent": "Long Beach St.",
-              "opp_key": "csulb",
-              "min": 9.3,
-              "net": -7,
-              "net_per40": -30.2
             }
           ]
         },
@@ -3042,7 +3229,7 @@
           ]
         },
         {
-          "id": "ucirvine-L19",
+          "id": "ucirvine-L11",
           "players": [
             "Hunter Hernandez",
             "Jada Wynn",
@@ -3090,62 +3277,7 @@
           ]
         },
         {
-          "id": "ucirvine-L7",
-          "players": [
-            "Dan Falconhernandez",
-            "Hunter Hernandez",
-            "Jada Wynn",
-            "Naomy Zonzon-Huyghe",
-            "Shirel Nahum"
-          ],
-          "min": 8.6,
-          "for_pts": 10,
-          "against_pts": 11,
-          "net": -1,
-          "net_per40": -4.6,
-          "per40": {
-            "fgm": 18.53,
-            "fga": 41.7,
-            "tpm": 0.0,
-            "tpa": 13.9,
-            "ftm": 9.27,
-            "fta": 9.27,
-            "oreb": 4.63,
-            "dreb": 23.17,
-            "ast": 4.63,
-            "tov": 9.27,
-            "stl": 4.63,
-            "blk": 0.0,
-            "opp_fgm": 23.17,
-            "opp_fga": 64.86,
-            "opp_tpm": 4.63,
-            "opp_tpa": 23.17,
-            "opp_ftm": 0.0,
-            "opp_fta": 0.0,
-            "opp_oreb": 13.9,
-            "opp_dreb": 18.53,
-            "opp_ast": 9.27,
-            "opp_tov": 9.27
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Davis",
-              "opp_key": null,
-              "min": 3.8,
-              "net": 0,
-              "net_per40": 0.0
-            },
-            {
-              "opponent": "Hawaii",
-              "opp_key": null,
-              "min": 4.9,
-              "net": -1,
-              "net_per40": -8.2
-            }
-          ]
-        },
-        {
-          "id": "ucirvine-L8",
+          "id": "ucirvine-L18",
           "players": [
             "Hunter Hernandez",
             "Lauryn Madsen",
@@ -3200,7 +3332,7 @@
           ]
         },
         {
-          "id": "ucirvine-L17",
+          "id": "ucirvine-L24",
           "players": [
             "Erin Condron",
             "Hunter Hernandez",
@@ -3251,7 +3383,62 @@
           ]
         },
         {
-          "id": "ucirvine-L12",
+          "id": "ucirvine-L27",
+          "players": [
+            "Dan Falconhernandez",
+            "Hunter Hernandez",
+            "Jada Wynn",
+            "Naomy Zonzon-Huyghe",
+            "Shirel Nahum"
+          ],
+          "min": 8.6,
+          "for_pts": 10,
+          "against_pts": 11,
+          "net": -1,
+          "net_per40": -4.6,
+          "per40": {
+            "fgm": 18.53,
+            "fga": 41.7,
+            "tpm": 0.0,
+            "tpa": 13.9,
+            "ftm": 9.27,
+            "fta": 9.27,
+            "oreb": 4.63,
+            "dreb": 23.17,
+            "ast": 4.63,
+            "tov": 9.27,
+            "stl": 4.63,
+            "blk": 0.0,
+            "opp_fgm": 23.17,
+            "opp_fga": 64.86,
+            "opp_tpm": 4.63,
+            "opp_tpa": 23.17,
+            "opp_ftm": 0.0,
+            "opp_fta": 0.0,
+            "opp_oreb": 13.9,
+            "opp_dreb": 18.53,
+            "opp_ast": 9.27,
+            "opp_tov": 9.27
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Davis",
+              "opp_key": null,
+              "min": 3.8,
+              "net": 0,
+              "net_per40": 0.0
+            },
+            {
+              "opponent": "Hawaii",
+              "opp_key": null,
+              "min": 4.9,
+              "net": -1,
+              "net_per40": -8.2
+            }
+          ]
+        },
+        {
+          "id": "ucirvine-L22",
           "players": [
             "Alyse Aby",
             "Daniela Falcon Hernandez",
@@ -3304,7 +3491,7 @@
           ]
         },
         {
-          "id": "ucirvine-L25",
+          "id": "ucirvine-L2",
           "players": [
             "Bailey Barnhard",
             "Cj Latta",
@@ -3357,7 +3544,7 @@
           ]
         },
         {
-          "id": "ucirvine-L24",
+          "id": "ucirvine-L15",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -3410,7 +3597,7 @@
           ]
         },
         {
-          "id": "ucirvine-L30",
+          "id": "ucirvine-L29",
           "players": [
             "Alyssa Sand",
             "Daniela Falcon Hernandez",
@@ -3463,7 +3650,7 @@
           ]
         },
         {
-          "id": "ucirvine-L5",
+          "id": "ucirvine-L7",
           "players": [
             "Hunter Hernandez",
             "Lauryn Madsen",
@@ -3511,7 +3698,7 @@
           ]
         },
         {
-          "id": "ucirvine-L10",
+          "id": "ucirvine-L6",
           "players": [
             "Hunter Hernandez",
             "Jada Wynn",
@@ -3559,7 +3746,7 @@
           ]
         },
         {
-          "id": "ucirvine-L11",
+          "id": "ucirvine-L26",
           "players": [
             "Chrishawn Coleman",
             "Hunter Hernandez",
@@ -3612,59 +3799,7 @@
           ]
         },
         {
-          "id": "ucirvine-L2",
-          "players": [
-            "Anna Csenyi",
-            "Emma Christiano",
-            "Hunter Hernandez",
-            "Imani Warren",
-            "Jada Wynn",
-            "Lauryn Madsen",
-            "Morane Dossou",
-            "Shirel Nahum",
-            "Summah Hanson"
-          ],
-          "min": 6.7,
-          "for_pts": 15,
-          "against_pts": 12,
-          "net": 3,
-          "net_per40": 17.9,
-          "per40": {
-            "fgm": 11.94,
-            "fga": 29.85,
-            "tpm": 5.97,
-            "tpa": 11.94,
-            "ftm": 41.79,
-            "fta": 47.76,
-            "oreb": 0.0,
-            "dreb": 29.85,
-            "ast": 5.97,
-            "tov": 23.88,
-            "stl": 5.97,
-            "blk": 0.0,
-            "opp_fgm": 29.85,
-            "opp_fga": 65.67,
-            "opp_tpm": 17.91,
-            "opp_tpa": 41.79,
-            "opp_ftm": 11.94,
-            "opp_fta": 11.94,
-            "opp_oreb": 0.0,
-            "opp_dreb": 17.91,
-            "opp_ast": 17.91,
-            "opp_tov": 5.97
-          },
-          "vs_opponents": [
-            {
-              "opponent": "New Mexico St.",
-              "opp_key": null,
-              "min": 6.7,
-              "net": 3,
-              "net_per40": 17.9
-            }
-          ]
-        },
-        {
-          "id": "ucirvine-L23",
+          "id": "ucirvine-L21",
           "players": [
             "Brynna Pukis",
             "Hunter Hernandez",
@@ -3716,7 +3851,59 @@
           ]
         },
         {
-          "id": "ucirvine-L15",
+          "id": "ucirvine-L30",
+          "players": [
+            "Anna Csenyi",
+            "Emma Christiano",
+            "Hunter Hernandez",
+            "Imani Warren",
+            "Jada Wynn",
+            "Lauryn Madsen",
+            "Morane Dossou",
+            "Shirel Nahum",
+            "Summah Hanson"
+          ],
+          "min": 6.7,
+          "for_pts": 15,
+          "against_pts": 12,
+          "net": 3,
+          "net_per40": 17.9,
+          "per40": {
+            "fgm": 11.94,
+            "fga": 29.85,
+            "tpm": 5.97,
+            "tpa": 11.94,
+            "ftm": 41.79,
+            "fta": 47.76,
+            "oreb": 0.0,
+            "dreb": 29.85,
+            "ast": 5.97,
+            "tov": 23.88,
+            "stl": 5.97,
+            "blk": 0.0,
+            "opp_fgm": 29.85,
+            "opp_fga": 65.67,
+            "opp_tpm": 17.91,
+            "opp_tpa": 41.79,
+            "opp_ftm": 11.94,
+            "opp_fta": 11.94,
+            "opp_oreb": 0.0,
+            "opp_dreb": 17.91,
+            "opp_ast": 17.91,
+            "opp_tov": 5.97
+          },
+          "vs_opponents": [
+            {
+              "opponent": "New Mexico St.",
+              "opp_key": null,
+              "min": 6.7,
+              "net": 3,
+              "net_per40": 17.9
+            }
+          ]
+        },
+        {
+          "id": "ucirvine-L10",
           "players": [
             "Dan Falconhernandez",
             "Hunter Hernandez",
@@ -3812,7 +3999,7 @@
           ]
         },
         {
-          "id": "ucirvine-L26",
+          "id": "ucirvine-L3",
           "players": [
             "Bailey Barnhard",
             "Hunter Hernandez",
@@ -3865,59 +4052,7 @@
           ]
         },
         {
-          "id": "ucirvine-L22",
-          "players": [
-            "Christy Reynoso",
-            "Hunter Hernandez",
-            "Jada Wynn",
-            "Kennan Ka",
-            "Khylee Pepe",
-            "Lauryn Madsen",
-            "Rosie Akot",
-            "Shirel Nahum",
-            "Summah Hanson"
-          ],
-          "min": 6.2,
-          "for_pts": 15,
-          "against_pts": 12,
-          "net": 3,
-          "net_per40": 19.3,
-          "per40": {
-            "fgm": 19.25,
-            "fga": 51.34,
-            "tpm": 0.0,
-            "tpa": 12.83,
-            "ftm": 38.5,
-            "fta": 38.5,
-            "oreb": 6.42,
-            "dreb": 19.25,
-            "ast": 12.83,
-            "tov": 6.42,
-            "stl": 6.42,
-            "blk": 6.42,
-            "opp_fgm": 38.5,
-            "opp_fga": 57.75,
-            "opp_tpm": 6.42,
-            "opp_tpa": 19.25,
-            "opp_ftm": 12.83,
-            "opp_fta": 12.83,
-            "opp_oreb": 0.0,
-            "opp_dreb": 25.67,
-            "opp_ast": 19.25,
-            "opp_tov": 12.83
-          },
-          "vs_opponents": [
-            {
-              "opponent": "Long Beach St.",
-              "opp_key": "csulb",
-              "min": 6.2,
-              "net": 3,
-              "net_per40": 19.3
-            }
-          ]
-        },
-        {
-          "id": "ucirvine-L29",
+          "id": "ucirvine-L13",
           "players": [
             "Chance Bucher",
             "Emma Johansson",
@@ -3966,6 +4101,58 @@
               "min": 6.2,
               "net": 0,
               "net_per40": 0.0
+            }
+          ]
+        },
+        {
+          "id": "ucirvine-L20",
+          "players": [
+            "Christy Reynoso",
+            "Hunter Hernandez",
+            "Jada Wynn",
+            "Kennan Ka",
+            "Khylee Pepe",
+            "Lauryn Madsen",
+            "Rosie Akot",
+            "Shirel Nahum",
+            "Summah Hanson"
+          ],
+          "min": 6.2,
+          "for_pts": 15,
+          "against_pts": 12,
+          "net": 3,
+          "net_per40": 19.3,
+          "per40": {
+            "fgm": 19.25,
+            "fga": 51.34,
+            "tpm": 0.0,
+            "tpa": 12.83,
+            "ftm": 38.5,
+            "fta": 38.5,
+            "oreb": 6.42,
+            "dreb": 19.25,
+            "ast": 12.83,
+            "tov": 6.42,
+            "stl": 6.42,
+            "blk": 6.42,
+            "opp_fgm": 38.5,
+            "opp_fga": 57.75,
+            "opp_tpm": 6.42,
+            "opp_tpa": 19.25,
+            "opp_ftm": 12.83,
+            "opp_fta": 12.83,
+            "opp_oreb": 0.0,
+            "opp_dreb": 25.67,
+            "opp_ast": 19.25,
+            "opp_tov": 12.83
+          },
+          "vs_opponents": [
+            {
+              "opponent": "Long Beach St.",
+              "opp_key": "csulb",
+              "min": 6.2,
+              "net": 3,
+              "net_per40": 19.3
             }
           ]
         }
@@ -4134,7 +4321,18 @@
             1.04,
             0.63,
             0.48
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -3.379,
+            "adjoe": 97.65,
+            "drtg": 107.866,
+            "usg": 0.269,
+            "ts": 0.506,
+            "efg": 0.447,
+            "porpag": 2.43
+          }
         },
         {
           "name": "Charish Thompson",
@@ -4145,7 +4343,18 @@
             0.33,
             1.2,
             1.0
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -1.859,
+            "adjoe": 103.722,
+            "drtg": 105.68,
+            "usg": 0.255,
+            "ts": 0.548,
+            "efg": 0.473,
+            "porpag": 2.915
+          }
         },
         {
           "name": "Nora Perez",
@@ -4156,7 +4365,18 @@
             0.15,
             0.19,
             0.19
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -3.664,
+            "adjoe": 77.426,
+            "drtg": 106.68,
+            "usg": 0.179,
+            "ts": 0.438,
+            "efg": 0.432,
+            "porpag": 0.093
+          }
         },
         {
           "name": "Dulci Vail",
@@ -4167,7 +4387,18 @@
             0.11,
             0.22,
             0.56
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "F",
+            "bpm": -6.253,
+            "adjoe": 80.409,
+            "drtg": 108.161,
+            "usg": 0.218,
+            "ts": 0.48,
+            "efg": 0.428,
+            "porpag": 0.264
+          }
         },
         {
           "name": "Madison Butcher",
@@ -4178,7 +4409,18 @@
             0.12,
             0.31,
             0.0
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G/F",
+            "bpm": -2.126,
+            "adjoe": 87.48,
+            "drtg": 107.261,
+            "usg": 0.117,
+            "ts": 0.595,
+            "efg": 0.57,
+            "porpag": 0.889
+          }
         },
         {
           "name": "Alana Goosby",
@@ -4189,7 +4431,18 @@
             0.57,
             0.18,
             0.29
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": -6.361,
+            "adjoe": 59.066,
+            "drtg": 107.2,
+            "usg": 0.164,
+            "ts": 0.377,
+            "efg": 0.363,
+            "porpag": -1.831
+          }
         },
         {
           "name": "Avery Knapp",
@@ -4200,7 +4453,18 @@
             0.21,
             0.17,
             0.33
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -1.564,
+            "adjoe": 97.922,
+            "drtg": 105.94,
+            "usg": 0.182,
+            "ts": 0.521,
+            "efg": 0.4,
+            "porpag": 0.927
+          }
         },
         {
           "name": "Katie Peiffer",
@@ -4211,7 +4475,18 @@
             0.32,
             0.5,
             0.45
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -4.973,
+            "adjoe": 79.658,
+            "drtg": 106.118,
+            "usg": 0.202,
+            "ts": 0.38,
+            "efg": 0.34,
+            "porpag": 0.13
+          }
         },
         {
           "name": "Gabby Robinson",
@@ -4222,7 +4497,18 @@
             0.18,
             0.36,
             0.55
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -7.013,
+            "adjoe": 53.893,
+            "drtg": 107.264,
+            "usg": 0.13,
+            "ts": 0.344,
+            "efg": 0.311,
+            "porpag": -1.97
+          }
         },
         {
           "name": "Arissa Garcia",
@@ -4233,12 +4519,23 @@
             0.17,
             0.39,
             0.48
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": -8.144,
+            "adjoe": 50.53,
+            "drtg": 104.313,
+            "usg": 0.189,
+            "ts": 0.339,
+            "efg": 0.289,
+            "porpag": -1.886
+          }
         }
       ],
       "lineups": [
         {
-          "id": "calpoly-L1",
+          "id": "calpoly-L4",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -4328,7 +4625,7 @@
           ]
         },
         {
-          "id": "calpoly-L7",
+          "id": "calpoly-L8",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -4457,7 +4754,7 @@
           ]
         },
         {
-          "id": "calpoly-L23",
+          "id": "calpoly-L22",
           "players": [
             "Alana Goosby",
             "Avery Sussex",
@@ -4509,7 +4806,7 @@
           ]
         },
         {
-          "id": "calpoly-L19",
+          "id": "calpoly-L2",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -4564,7 +4861,7 @@
           ]
         },
         {
-          "id": "calpoly-L20",
+          "id": "calpoly-L18",
           "players": [
             "Alana Goosby",
             "Caitie Gingras",
@@ -4617,7 +4914,7 @@
           ]
         },
         {
-          "id": "calpoly-L10",
+          "id": "calpoly-L11",
           "players": [
             "Alana Goosby",
             "Ameerah Grant",
@@ -4670,7 +4967,7 @@
           ]
         },
         {
-          "id": "calpoly-L11",
+          "id": "calpoly-L20",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -4725,7 +5022,7 @@
           ]
         },
         {
-          "id": "calpoly-L21",
+          "id": "calpoly-L3",
           "players": [
             "Alana Goosby",
             "Alyse Aby",
@@ -4778,7 +5075,7 @@
           ]
         },
         {
-          "id": "calpoly-L13",
+          "id": "calpoly-L12",
           "players": [
             "Alana Goosby",
             "Aliyah Carter",
@@ -4831,60 +5128,7 @@
           ]
         },
         {
-          "id": "calpoly-L3",
-          "players": [
-            "Alana Goosby",
-            "Arissa Garcia",
-            "Bria Shine",
-            "Charish Thompson",
-            "Hannah Wickstrom",
-            "Kaylani Polk",
-            "Madison Butcher",
-            "Maya Chocano",
-            "Seneca Hackley",
-            "Vanessa Mcmanus"
-          ],
-          "min": 9.0,
-          "for_pts": 7,
-          "against_pts": 16,
-          "net": -9,
-          "net_per40": -40.0,
-          "per40": {
-            "fgm": 31.11,
-            "fga": 57.78,
-            "tpm": 8.89,
-            "tpa": 26.67,
-            "ftm": 0.0,
-            "fta": 0.0,
-            "oreb": 4.44,
-            "dreb": 22.22,
-            "ast": 17.78,
-            "tov": 13.33,
-            "stl": 8.89,
-            "blk": 0.0,
-            "opp_fgm": 8.89,
-            "opp_fga": 40.0,
-            "opp_tpm": 0.0,
-            "opp_tpa": 8.89,
-            "opp_ftm": 13.33,
-            "opp_fta": 22.22,
-            "opp_oreb": 8.89,
-            "opp_dreb": 22.22,
-            "opp_ast": 8.89,
-            "opp_tov": 26.67
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Riverside",
-              "opp_key": "ucr",
-              "min": 9.0,
-              "net": -9,
-              "net_per40": -40.0
-            }
-          ]
-        },
-        {
-          "id": "calpoly-L18",
+          "id": "calpoly-L9",
           "players": [
             "Alana Goosby",
             "Aliyahna Morris",
@@ -4937,7 +5181,60 @@
           ]
         },
         {
-          "id": "calpoly-L4",
+          "id": "calpoly-L17",
+          "players": [
+            "Alana Goosby",
+            "Arissa Garcia",
+            "Bria Shine",
+            "Charish Thompson",
+            "Hannah Wickstrom",
+            "Kaylani Polk",
+            "Madison Butcher",
+            "Maya Chocano",
+            "Seneca Hackley",
+            "Vanessa Mcmanus"
+          ],
+          "min": 9.0,
+          "for_pts": 7,
+          "against_pts": 16,
+          "net": -9,
+          "net_per40": -40.0,
+          "per40": {
+            "fgm": 31.11,
+            "fga": 57.78,
+            "tpm": 8.89,
+            "tpa": 26.67,
+            "ftm": 0.0,
+            "fta": 0.0,
+            "oreb": 4.44,
+            "dreb": 22.22,
+            "ast": 17.78,
+            "tov": 13.33,
+            "stl": 8.89,
+            "blk": 0.0,
+            "opp_fgm": 8.89,
+            "opp_fga": 40.0,
+            "opp_tpm": 0.0,
+            "opp_tpa": 8.89,
+            "opp_ftm": 13.33,
+            "opp_fta": 22.22,
+            "opp_oreb": 8.89,
+            "opp_dreb": 22.22,
+            "opp_ast": 8.89,
+            "opp_tov": 26.67
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Riverside",
+              "opp_key": "ucr",
+              "min": 9.0,
+              "net": -9,
+              "net_per40": -40.0
+            }
+          ]
+        },
+        {
+          "id": "calpoly-L5",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -4985,7 +5282,7 @@
           ]
         },
         {
-          "id": "calpoly-L9",
+          "id": "calpoly-L10",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -5033,7 +5330,7 @@
           ]
         },
         {
-          "id": "calpoly-L25",
+          "id": "calpoly-L24",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -5085,7 +5382,7 @@
           ]
         },
         {
-          "id": "calpoly-L12",
+          "id": "calpoly-L21",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -5133,7 +5430,7 @@
           ]
         },
         {
-          "id": "calpoly-L22",
+          "id": "calpoly-L19",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -5181,7 +5478,7 @@
           ]
         },
         {
-          "id": "calpoly-L8",
+          "id": "calpoly-L14",
           "players": [
             "Ava Uhrich",
             "Charish Thompson",
@@ -5234,7 +5531,7 @@
           ]
         },
         {
-          "id": "calpoly-L14",
+          "id": "calpoly-L13",
           "players": [
             "Alana Goosby",
             "Aliyah Carter",
@@ -5287,7 +5584,7 @@
           ]
         },
         {
-          "id": "calpoly-L5",
+          "id": "calpoly-L6",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -5335,7 +5632,7 @@
           ]
         },
         {
-          "id": "calpoly-L24",
+          "id": "calpoly-L23",
           "players": [
             "Alana Goosby",
             "Avery Sussex",
@@ -5387,7 +5684,7 @@
           ]
         },
         {
-          "id": "calpoly-L17",
+          "id": "calpoly-L26",
           "players": [
             "Alana Goosby",
             "Bria Tate",
@@ -5440,7 +5737,7 @@
           ]
         },
         {
-          "id": "calpoly-L26",
+          "id": "calpoly-L25",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -5492,7 +5789,7 @@
           ]
         },
         {
-          "id": "calpoly-L16",
+          "id": "calpoly-L1",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -5540,7 +5837,55 @@
           ]
         },
         {
-          "id": "calpoly-L2",
+          "id": "calpoly-L7",
+          "players": [
+            "Alana Goosby",
+            "Arissa Garcia",
+            "Avery Knapp",
+            "Charish Thompson",
+            "Katie Peiffer"
+          ],
+          "min": 6.0,
+          "for_pts": 8,
+          "against_pts": 5,
+          "net": 3,
+          "net_per40": 20.0,
+          "per40": {
+            "fgm": 20.0,
+            "fga": 46.67,
+            "tpm": 0.0,
+            "tpa": 13.33,
+            "ftm": 13.33,
+            "fta": 13.33,
+            "oreb": 0.0,
+            "dreb": 40.0,
+            "ast": 6.67,
+            "tov": 13.33,
+            "stl": 13.33,
+            "blk": 0.0,
+            "opp_fgm": 13.33,
+            "opp_fga": 53.33,
+            "opp_tpm": 0.0,
+            "opp_tpa": 33.33,
+            "opp_ftm": 6.67,
+            "opp_fta": 13.33,
+            "opp_oreb": 6.67,
+            "opp_dreb": 26.67,
+            "opp_ast": 6.67,
+            "opp_tov": 13.33
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Santa Barbara",
+              "opp_key": "ucsb",
+              "min": 3.8,
+              "net": 3,
+              "net_per40": 31.4
+            }
+          ]
+        },
+        {
+          "id": "calpoly-L16",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -5589,54 +5934,6 @@
               "min": 6.0,
               "net": -15,
               "net_per40": -99.2
-            }
-          ]
-        },
-        {
-          "id": "calpoly-L6",
-          "players": [
-            "Alana Goosby",
-            "Arissa Garcia",
-            "Avery Knapp",
-            "Charish Thompson",
-            "Katie Peiffer"
-          ],
-          "min": 6.0,
-          "for_pts": 8,
-          "against_pts": 5,
-          "net": 3,
-          "net_per40": 20.0,
-          "per40": {
-            "fgm": 20.0,
-            "fga": 46.67,
-            "tpm": 0.0,
-            "tpa": 13.33,
-            "ftm": 13.33,
-            "fta": 13.33,
-            "oreb": 0.0,
-            "dreb": 40.0,
-            "ast": 6.67,
-            "tov": 13.33,
-            "stl": 13.33,
-            "blk": 0.0,
-            "opp_fgm": 13.33,
-            "opp_fga": 53.33,
-            "opp_tpm": 0.0,
-            "opp_tpa": 33.33,
-            "opp_ftm": 6.67,
-            "opp_fta": 13.33,
-            "opp_oreb": 6.67,
-            "opp_dreb": 26.67,
-            "opp_ast": 6.67,
-            "opp_tov": 13.33
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Santa Barbara",
-              "opp_key": "ucsb",
-              "min": 3.8,
-              "net": 3,
-              "net_per40": 31.4
             }
           ]
         }
@@ -5805,7 +6102,18 @@
             3.03,
             3.9,
             3.1
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": -2.545,
+            "adjoe": 97.486,
+            "drtg": 94.279,
+            "usg": 0.32,
+            "ts": 0.475,
+            "efg": 0.405,
+            "porpag": 2.121
+          }
         },
         {
           "name": "Marley Langi",
@@ -5816,7 +6124,18 @@
             2.23,
             2.97,
             2.3
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G/F",
+            "bpm": -6.398,
+            "adjoe": 85.59,
+            "drtg": 98.518,
+            "usg": 0.253,
+            "ts": 0.442,
+            "efg": 0.397,
+            "porpag": 0.825
+          }
         },
         {
           "name": "Maria Dias",
@@ -5827,7 +6146,18 @@
             1.8,
             2.07,
             2.3
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G/F",
+            "bpm": -6.216,
+            "adjoe": 84.331,
+            "drtg": 101.014,
+            "usg": 0.235,
+            "ts": 0.42,
+            "efg": 0.401,
+            "porpag": 0.714
+          }
         },
         {
           "name": "Morgan Hawkins",
@@ -5838,7 +6168,18 @@
             2.3,
             1.78,
             1.78
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": -1.737,
+            "adjoe": 88.609,
+            "drtg": 99.422,
+            "usg": 0.146,
+            "ts": 0.524,
+            "efg": 0.463,
+            "porpag": 1.466
+          }
         },
         {
           "name": "Tena Ikidi",
@@ -5849,7 +6190,18 @@
             0.97,
             1.07,
             1.4
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "F/C",
+            "bpm": -1.604,
+            "adjoe": 82.547,
+            "drtg": 90.18,
+            "usg": 0.197,
+            "ts": 0.409,
+            "efg": 0.387,
+            "porpag": 0.486
+          }
         },
         {
           "name": "Aliyah Carter",
@@ -5860,7 +6212,18 @@
             1.35,
             0.54,
             0.85
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -2.771,
+            "adjoe": 72.432,
+            "drtg": 95.477,
+            "usg": 0.154,
+            "ts": 0.41,
+            "efg": 0.338,
+            "porpag": -0.316
+          }
         },
         {
           "name": "Tianna Sutherland",
@@ -5871,7 +6234,18 @@
             0.67,
             0.29,
             0.46
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": -3.77,
+            "adjoe": 80.643,
+            "drtg": 98.974,
+            "usg": 0.127,
+            "ts": 0.519,
+            "efg": 0.482,
+            "porpag": 0.185
+          }
         },
         {
           "name": "Dae'Jaidence Kincade",
@@ -5887,7 +6261,7 @@
       ],
       "lineups": [
         {
-          "id": "csub-L5",
+          "id": "csub-L4",
           "players": [
             "Chrishawn Coleman",
             "Maria Dias",
@@ -6005,7 +6379,7 @@
           ]
         },
         {
-          "id": "csub-L6",
+          "id": "csub-L1",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -6109,7 +6483,7 @@
           ]
         },
         {
-          "id": "csub-L9",
+          "id": "csub-L17",
           "players": [
             "Chrishawn Coleman",
             "Dae'Jaidence Kincade",
@@ -6192,7 +6566,7 @@
           ]
         },
         {
-          "id": "csub-L14",
+          "id": "csub-L19",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -6261,7 +6635,7 @@
           ]
         },
         {
-          "id": "csub-L27",
+          "id": "csub-L7",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -6323,7 +6697,7 @@
           ]
         },
         {
-          "id": "csub-L7",
+          "id": "csub-L11",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -6378,7 +6752,7 @@
           ]
         },
         {
-          "id": "csub-L1",
+          "id": "csub-L6",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -6447,7 +6821,7 @@
           ]
         },
         {
-          "id": "csub-L11",
+          "id": "csub-L3",
           "players": [
             "Aliyah Carter",
             "Maria Dias",
@@ -6502,69 +6876,7 @@
           ]
         },
         {
-          "id": "csub-L8",
-          "players": [
-            "Chrishawn Coleman",
-            "Dae'Jaidence Kincade",
-            "Maria Dias",
-            "Morgan Hawkins",
-            "Tena Ikidi"
-          ],
-          "min": 24.4,
-          "for_pts": 48,
-          "against_pts": 52,
-          "net": -4,
-          "net_per40": -6.6,
-          "per40": {
-            "fgm": 29.55,
-            "fga": 73.87,
-            "tpm": 4.92,
-            "tpa": 22.98,
-            "ftm": 14.77,
-            "fta": 19.7,
-            "oreb": 16.42,
-            "dreb": 21.34,
-            "ast": 13.13,
-            "tov": 13.13,
-            "stl": 6.57,
-            "blk": 1.64,
-            "opp_fgm": 27.91,
-            "opp_fga": 54.17,
-            "opp_tpm": 8.21,
-            "opp_tpa": 19.7,
-            "opp_ftm": 21.34,
-            "opp_fta": 29.55,
-            "opp_oreb": 6.57,
-            "opp_dreb": 26.27,
-            "opp_ast": 16.42,
-            "opp_tov": 18.06
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Santa Barbara",
-              "opp_key": "ucsb",
-              "min": 3.2,
-              "net": 2,
-              "net_per40": 25.3
-            },
-            {
-              "opponent": "Omaha",
-              "opp_key": null,
-              "min": 4.2,
-              "net": -6,
-              "net_per40": -56.9
-            },
-            {
-              "opponent": "Arizona",
-              "opp_key": null,
-              "min": 3.4,
-              "net": -8,
-              "net_per40": -95.5
-            }
-          ]
-        },
-        {
-          "id": "csub-L13",
+          "id": "csub-L9",
           "players": [
             "Chrishawn Coleman",
             "Maria Dias",
@@ -6626,7 +6938,69 @@
           ]
         },
         {
-          "id": "csub-L31",
+          "id": "csub-L12",
+          "players": [
+            "Chrishawn Coleman",
+            "Dae'Jaidence Kincade",
+            "Maria Dias",
+            "Morgan Hawkins",
+            "Tena Ikidi"
+          ],
+          "min": 24.4,
+          "for_pts": 48,
+          "against_pts": 52,
+          "net": -4,
+          "net_per40": -6.6,
+          "per40": {
+            "fgm": 29.55,
+            "fga": 73.87,
+            "tpm": 4.92,
+            "tpa": 22.98,
+            "ftm": 14.77,
+            "fta": 19.7,
+            "oreb": 16.42,
+            "dreb": 21.34,
+            "ast": 13.13,
+            "tov": 13.13,
+            "stl": 6.57,
+            "blk": 1.64,
+            "opp_fgm": 27.91,
+            "opp_fga": 54.17,
+            "opp_tpm": 8.21,
+            "opp_tpa": 19.7,
+            "opp_ftm": 21.34,
+            "opp_fta": 29.55,
+            "opp_oreb": 6.57,
+            "opp_dreb": 26.27,
+            "opp_ast": 16.42,
+            "opp_tov": 18.06
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Santa Barbara",
+              "opp_key": "ucsb",
+              "min": 3.2,
+              "net": 2,
+              "net_per40": 25.3
+            },
+            {
+              "opponent": "Omaha",
+              "opp_key": null,
+              "min": 4.2,
+              "net": -6,
+              "net_per40": -56.9
+            },
+            {
+              "opponent": "Arizona",
+              "opp_key": null,
+              "min": 3.4,
+              "net": -8,
+              "net_per40": -95.5
+            }
+          ]
+        },
+        {
+          "id": "csub-L8",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -6681,7 +7055,7 @@
           ]
         },
         {
-          "id": "csub-L32",
+          "id": "csub-L10",
           "players": [
             "Aliyah Carter",
             "Dae'Jaidence Kincade",
@@ -6736,7 +7110,7 @@
           ]
         },
         {
-          "id": "csub-L29",
+          "id": "csub-L13",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -6791,7 +7165,7 @@
           ]
         },
         {
-          "id": "csub-L12",
+          "id": "csub-L18",
           "players": [
             "Chrishawn Coleman",
             "Dae'Jaidence Kincade",
@@ -6839,7 +7213,7 @@
           ]
         },
         {
-          "id": "csub-L21",
+          "id": "csub-L24",
           "players": [
             "Chrishawn Coleman",
             "Dae\u2019Jaidence Kincade",
@@ -6902,7 +7276,7 @@
           ]
         },
         {
-          "id": "csub-L10",
+          "id": "csub-L2",
           "players": [
             "Aliyah Carter",
             "Dae'Jaidence Kincade",
@@ -6957,7 +7331,7 @@
           ]
         },
         {
-          "id": "csub-L18",
+          "id": "csub-L31",
           "players": [
             "Aliyah Carter",
             "Maria Dias",
@@ -7005,7 +7379,55 @@
           ]
         },
         {
-          "id": "csub-L3",
+          "id": "csub-L27",
+          "players": [
+            "Adrienne Puletasi",
+            "Chrishawn Coleman",
+            "Maria Dias",
+            "Marley Langi",
+            "Morgan Hawkins"
+          ],
+          "min": 12.4,
+          "for_pts": 21,
+          "against_pts": 25,
+          "net": -4,
+          "net_per40": -12.9,
+          "per40": {
+            "fgm": 22.61,
+            "fga": 58.14,
+            "tpm": 6.46,
+            "tpa": 22.61,
+            "ftm": 16.15,
+            "fta": 22.61,
+            "oreb": 9.69,
+            "dreb": 25.84,
+            "ast": 6.46,
+            "tov": 19.38,
+            "stl": 0.0,
+            "blk": 0.0,
+            "opp_fgm": 32.3,
+            "opp_fga": 74.29,
+            "opp_tpm": 3.23,
+            "opp_tpa": 22.61,
+            "opp_ftm": 12.92,
+            "opp_fta": 22.61,
+            "opp_oreb": 22.61,
+            "opp_dreb": 29.07,
+            "opp_ast": 12.92,
+            "opp_tov": 9.69
+          },
+          "vs_opponents": [
+            {
+              "opponent": "Utah Valley",
+              "opp_key": null,
+              "min": 5.6,
+              "net": -7,
+              "net_per40": -49.7
+            }
+          ]
+        },
+        {
+          "id": "csub-L29",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -7060,55 +7482,7 @@
           ]
         },
         {
-          "id": "csub-L16",
-          "players": [
-            "Adrienne Puletasi",
-            "Chrishawn Coleman",
-            "Maria Dias",
-            "Marley Langi",
-            "Morgan Hawkins"
-          ],
-          "min": 12.4,
-          "for_pts": 21,
-          "against_pts": 25,
-          "net": -4,
-          "net_per40": -12.9,
-          "per40": {
-            "fgm": 22.61,
-            "fga": 58.14,
-            "tpm": 6.46,
-            "tpa": 22.61,
-            "ftm": 16.15,
-            "fta": 22.61,
-            "oreb": 9.69,
-            "dreb": 25.84,
-            "ast": 6.46,
-            "tov": 19.38,
-            "stl": 0.0,
-            "blk": 0.0,
-            "opp_fgm": 32.3,
-            "opp_fga": 74.29,
-            "opp_tpm": 3.23,
-            "opp_tpa": 22.61,
-            "opp_ftm": 12.92,
-            "opp_fta": 22.61,
-            "opp_oreb": 22.61,
-            "opp_dreb": 29.07,
-            "opp_ast": 12.92,
-            "opp_tov": 9.69
-          },
-          "vs_opponents": [
-            {
-              "opponent": "Utah Valley",
-              "opp_key": null,
-              "min": 5.6,
-              "net": -7,
-              "net_per40": -49.7
-            }
-          ]
-        },
-        {
-          "id": "csub-L20",
+          "id": "csub-L35",
           "players": [
             "Aliyah Carter",
             "Bria Shine",
@@ -7161,7 +7535,7 @@
           ]
         },
         {
-          "id": "csub-L22",
+          "id": "csub-L25",
           "players": [
             "Aliyah Carter",
             "Dae\u2019Jaidence Kincade",
@@ -7210,7 +7584,7 @@
           ]
         },
         {
-          "id": "csub-L2",
+          "id": "csub-L15",
           "players": [
             "Adrienne Puletasi",
             "Aliyah Carter",
@@ -7265,7 +7639,7 @@
           ]
         },
         {
-          "id": "csub-L4",
+          "id": "csub-L5",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -7305,7 +7679,7 @@
           "vs_opponents": []
         },
         {
-          "id": "csub-L17",
+          "id": "csub-L21",
           "players": [
             "Chrishawn Coleman",
             "Dae'Jaidence Kincade",
@@ -7345,7 +7719,7 @@
           "vs_opponents": []
         },
         {
-          "id": "csub-L34",
+          "id": "csub-L30",
           "players": [
             "Chrishawn Coleman",
             "Dae'Jaidence Kincade",
@@ -7393,7 +7767,7 @@
           ]
         },
         {
-          "id": "csub-L25",
+          "id": "csub-L23",
           "players": [
             "Chrishawn Coleman",
             "Marley Langi",
@@ -7441,7 +7815,7 @@
           ]
         },
         {
-          "id": "csub-L33",
+          "id": "csub-L28",
           "players": [
             "Alana Goosby",
             "Aliyah Carter",
@@ -7494,7 +7868,7 @@
           ]
         },
         {
-          "id": "csub-L15",
+          "id": "csub-L20",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -7534,7 +7908,7 @@
           "vs_opponents": []
         },
         {
-          "id": "csub-L19",
+          "id": "csub-L34",
           "players": [
             "Aliyah Carter",
             "Bria Shine",
@@ -7587,7 +7961,7 @@
           ]
         },
         {
-          "id": "csub-L28",
+          "id": "csub-L16",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -7635,7 +8009,7 @@
           ]
         },
         {
-          "id": "csub-L30",
+          "id": "csub-L14",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -7675,7 +8049,7 @@
           "vs_opponents": []
         },
         {
-          "id": "csub-L35",
+          "id": "csub-L33",
           "players": [
             "Alondra Lizama",
             "Amya Moody",
@@ -7728,7 +8102,7 @@
           ]
         },
         {
-          "id": "csub-L23",
+          "id": "csub-L32",
           "players": [
             "Aliyah Carter",
             "Chrishawn Coleman",
@@ -7779,7 +8153,55 @@
           ]
         },
         {
-          "id": "csub-L24",
+          "id": "csub-L22",
+          "players": [
+            "Chrishawn Coleman",
+            "Maria Dias",
+            "Marley Langi",
+            "Morgan Hawkins",
+            "Tianna Sutherland"
+          ],
+          "min": 6.2,
+          "for_pts": 15,
+          "against_pts": 15,
+          "net": 0,
+          "net_per40": 0.0,
+          "per40": {
+            "fgm": 32.35,
+            "fga": 77.63,
+            "tpm": 6.47,
+            "tpa": 19.41,
+            "ftm": 25.88,
+            "fta": 32.35,
+            "oreb": 0.0,
+            "dreb": 12.94,
+            "ast": 0.0,
+            "tov": 6.47,
+            "stl": 19.41,
+            "blk": 0.0,
+            "opp_fgm": 25.88,
+            "opp_fga": 45.28,
+            "opp_tpm": 12.94,
+            "opp_tpa": 12.94,
+            "opp_ftm": 32.35,
+            "opp_fta": 51.75,
+            "opp_oreb": 12.94,
+            "opp_dreb": 51.75,
+            "opp_ast": 12.94,
+            "opp_tov": 38.81
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Davis",
+              "opp_key": null,
+              "min": 4.2,
+              "net": 4,
+              "net_per40": 38.2
+            }
+          ]
+        },
+        {
+          "id": "csub-L26",
           "players": [
             "Chrishawn Coleman",
             "Dae'Jaidence Kincade",
@@ -7824,54 +8246,6 @@
               "min": 6.2,
               "net": 2,
               "net_per40": 13.0
-            }
-          ]
-        },
-        {
-          "id": "csub-L26",
-          "players": [
-            "Chrishawn Coleman",
-            "Maria Dias",
-            "Marley Langi",
-            "Morgan Hawkins",
-            "Tianna Sutherland"
-          ],
-          "min": 6.2,
-          "for_pts": 15,
-          "against_pts": 15,
-          "net": 0,
-          "net_per40": 0.0,
-          "per40": {
-            "fgm": 32.35,
-            "fga": 77.63,
-            "tpm": 6.47,
-            "tpa": 19.41,
-            "ftm": 25.88,
-            "fta": 32.35,
-            "oreb": 0.0,
-            "dreb": 12.94,
-            "ast": 0.0,
-            "tov": 6.47,
-            "stl": 19.41,
-            "blk": 0.0,
-            "opp_fgm": 25.88,
-            "opp_fga": 45.28,
-            "opp_tpm": 12.94,
-            "opp_tpa": 12.94,
-            "opp_ftm": 32.35,
-            "opp_fta": 51.75,
-            "opp_oreb": 12.94,
-            "opp_dreb": 51.75,
-            "opp_ast": 12.94,
-            "opp_tov": 38.81
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Davis",
-              "opp_key": null,
-              "min": 4.2,
-              "net": 4,
-              "net_per40": 38.2
             }
           ]
         }
@@ -8040,7 +8414,18 @@
             1.97,
             3.6,
             3.57
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": 3.677,
+            "adjoe": 101.194,
+            "drtg": 80.9,
+            "usg": 0.28,
+            "ts": 0.456,
+            "efg": 0.424,
+            "porpag": 2.716
+          }
         },
         {
           "name": "Nicole Steiner",
@@ -8051,7 +8436,18 @@
             2.38,
             2.38,
             1.79
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": 1.089,
+            "adjoe": 99.597,
+            "drtg": 88.856,
+            "usg": 0.227,
+            "ts": 0.484,
+            "efg": 0.438,
+            "porpag": 2.049
+          }
         },
         {
           "name": "Maddy Tauro",
@@ -8062,7 +8458,18 @@
             0.96,
             2.43,
             1.46
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": -2.914,
+            "adjoe": 88.533,
+            "drtg": 87.161,
+            "usg": 0.252,
+            "ts": 0.412,
+            "efg": 0.373,
+            "porpag": 0.986
+          }
         },
         {
           "name": "Kya Pearson",
@@ -8073,7 +8480,18 @@
             1.34,
             1.38,
             2.38
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": 0.007,
+            "adjoe": 85.887,
+            "drtg": 87.067,
+            "usg": 0.198,
+            "ts": 0.481,
+            "efg": 0.414,
+            "porpag": 0.899
+          }
         },
         {
           "name": "Dylan Swindle",
@@ -8084,7 +8502,18 @@
             1.22,
             2.03,
             1.25
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G",
+            "bpm": -3.903,
+            "adjoe": 83.092,
+            "drtg": 94.972,
+            "usg": 0.17,
+            "ts": 0.455,
+            "efg": 0.362,
+            "porpag": 0.622
+          }
         },
         {
           "name": "Talia Maxwell",
@@ -8095,7 +8524,18 @@
             1.97,
             1.16,
             1.25
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G/F",
+            "bpm": 1.023,
+            "adjoe": 103.147,
+            "drtg": 90.5,
+            "usg": 0.163,
+            "ts": 0.547,
+            "efg": 0.488,
+            "porpag": 1.842
+          }
         },
         {
           "name": "Jana Falsdottir",
@@ -8106,7 +8546,18 @@
             0.82,
             0.96,
             0.93
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": -0.909,
+            "adjoe": 79.869,
+            "drtg": 91.679,
+            "usg": 0.146,
+            "ts": 0.413,
+            "efg": 0.393,
+            "porpag": 0.3
+          }
         },
         {
           "name": "Maxine Sutisna",
@@ -8117,7 +8568,18 @@
             0.9,
             1.45,
             0.79
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -4.633,
+            "adjoe": 86.626,
+            "drtg": 92.093,
+            "usg": 0.219,
+            "ts": 0.446,
+            "efg": 0.409,
+            "porpag": 0.406
+          }
         },
         {
           "name": "Madelynn Muniz",
@@ -8128,7 +8590,18 @@
             1.52,
             0.68,
             0.65
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -4.071,
+            "adjoe": 73.687,
+            "drtg": 96.849,
+            "usg": 0.111,
+            "ts": 0.407,
+            "efg": 0.396,
+            "porpag": -0.17
+          }
         },
         {
           "name": "Mimi Moon",
@@ -8139,12 +8612,23 @@
             0.79,
             0.28,
             0.48
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -7.701,
+            "adjoe": 78.543,
+            "drtg": 94.799,
+            "usg": 0.204,
+            "ts": 0.364,
+            "efg": 0.285,
+            "porpag": 0.056
+          }
         }
       ],
       "lineups": [
         {
-          "id": "csuf-L1",
+          "id": "csuf-L7",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8241,7 +8725,7 @@
           ]
         },
         {
-          "id": "csuf-L15",
+          "id": "csuf-L14",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8324,7 +8808,7 @@
           ]
         },
         {
-          "id": "csuf-L25",
+          "id": "csuf-L29",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8407,7 +8891,7 @@
           ]
         },
         {
-          "id": "csuf-L35",
+          "id": "csuf-L22",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8476,7 +8960,7 @@
           ]
         },
         {
-          "id": "csuf-L9",
+          "id": "csuf-L12",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8538,7 +9022,7 @@
           ]
         },
         {
-          "id": "csuf-L10",
+          "id": "csuf-L4",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -8614,7 +9098,7 @@
           ]
         },
         {
-          "id": "csuf-L2",
+          "id": "csuf-L6",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8669,7 +9153,7 @@
           ]
         },
         {
-          "id": "csuf-L21",
+          "id": "csuf-L30",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8731,7 +9215,7 @@
           ]
         },
         {
-          "id": "csuf-L4",
+          "id": "csuf-L36",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8786,7 +9270,7 @@
           ]
         },
         {
-          "id": "csuf-L27",
+          "id": "csuf-L40",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -8841,7 +9325,7 @@
           ]
         },
         {
-          "id": "csuf-L8",
+          "id": "csuf-L10",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -8896,7 +9380,7 @@
           ]
         },
         {
-          "id": "csuf-L28",
+          "id": "csuf-L2",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -8951,7 +9435,7 @@
           ]
         },
         {
-          "id": "csuf-L20",
+          "id": "csuf-L19",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -9006,7 +9490,7 @@
           ]
         },
         {
-          "id": "csuf-L32",
+          "id": "csuf-L45",
           "players": [
             "Bria Shine",
             "Cristina Jones",
@@ -9059,7 +9543,7 @@
           ]
         },
         {
-          "id": "csuf-L7",
+          "id": "csuf-L24",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -9169,7 +9653,7 @@
           ]
         },
         {
-          "id": "csuf-L19",
+          "id": "csuf-L20",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -9224,7 +9708,7 @@
           ]
         },
         {
-          "id": "csuf-L23",
+          "id": "csuf-L26",
           "players": [
             "Cristina Jones",
             "Kya Pearson",
@@ -9272,7 +9756,7 @@
           ]
         },
         {
-          "id": "csuf-L29",
+          "id": "csuf-L13",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -9327,7 +9811,7 @@
           ]
         },
         {
-          "id": "csuf-L5",
+          "id": "csuf-L17",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -9375,7 +9859,47 @@
           ]
         },
         {
-          "id": "csuf-L11",
+          "id": "csuf-L16",
+          "players": [
+            "Cristina Jones",
+            "Kya Pearson",
+            "Madelynn Muniz",
+            "Maxine Sutisna",
+            "Talia Maxwell"
+          ],
+          "min": 12.5,
+          "for_pts": 19,
+          "against_pts": 13,
+          "net": 6,
+          "net_per40": 19.3,
+          "per40": {
+            "fgm": 22.46,
+            "fga": 86.63,
+            "tpm": 6.42,
+            "tpa": 22.46,
+            "ftm": 9.63,
+            "fta": 16.04,
+            "oreb": 25.67,
+            "dreb": 16.04,
+            "ast": 19.25,
+            "tov": 12.83,
+            "stl": 12.83,
+            "blk": 0.0,
+            "opp_fgm": 9.63,
+            "opp_fga": 38.5,
+            "opp_tpm": 3.21,
+            "opp_tpa": 16.04,
+            "opp_ftm": 19.25,
+            "opp_fta": 22.46,
+            "opp_oreb": 9.63,
+            "opp_dreb": 41.71,
+            "opp_ast": 6.42,
+            "opp_tov": 35.29
+          },
+          "vs_opponents": []
+        },
+        {
+          "id": "csuf-L32",
           "players": [
             "Dylan Swindle",
             "Kya Pearson",
@@ -9430,47 +9954,7 @@
           ]
         },
         {
-          "id": "csuf-L18",
-          "players": [
-            "Cristina Jones",
-            "Kya Pearson",
-            "Madelynn Muniz",
-            "Maxine Sutisna",
-            "Talia Maxwell"
-          ],
-          "min": 12.5,
-          "for_pts": 19,
-          "against_pts": 13,
-          "net": 6,
-          "net_per40": 19.3,
-          "per40": {
-            "fgm": 22.46,
-            "fga": 86.63,
-            "tpm": 6.42,
-            "tpa": 22.46,
-            "ftm": 9.63,
-            "fta": 16.04,
-            "oreb": 25.67,
-            "dreb": 16.04,
-            "ast": 19.25,
-            "tov": 12.83,
-            "stl": 12.83,
-            "blk": 0.0,
-            "opp_fgm": 9.63,
-            "opp_fga": 38.5,
-            "opp_tpm": 3.21,
-            "opp_tpa": 16.04,
-            "opp_ftm": 19.25,
-            "opp_fta": 22.46,
-            "opp_oreb": 9.63,
-            "opp_dreb": 41.71,
-            "opp_ast": 6.42,
-            "opp_tov": 35.29
-          },
-          "vs_opponents": []
-        },
-        {
-          "id": "csuf-L16",
+          "id": "csuf-L21",
           "players": [
             "Cristina Jones",
             "Kya Pearson",
@@ -9518,7 +10002,7 @@
           ]
         },
         {
-          "id": "csuf-L37",
+          "id": "csuf-L9",
           "players": [
             "Dylan Swindle",
             "Jana Falsdottir",
@@ -9573,7 +10057,7 @@
           ]
         },
         {
-          "id": "csuf-L12",
+          "id": "csuf-L33",
           "players": [
             "Dylan Swindle",
             "Kya Pearson",
@@ -9621,7 +10105,7 @@
           ]
         },
         {
-          "id": "csuf-L41",
+          "id": "csuf-L18",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -9676,7 +10160,7 @@
           ]
         },
         {
-          "id": "csuf-L36",
+          "id": "csuf-L41",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -9724,7 +10208,7 @@
           ]
         },
         {
-          "id": "csuf-L44",
+          "id": "csuf-L39",
           "players": [
             "Basak Orhan",
             "Lilliana Petersen",
@@ -9772,7 +10256,7 @@
           ]
         },
         {
-          "id": "csuf-L26",
+          "id": "csuf-L42",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -9825,7 +10309,7 @@
           ]
         },
         {
-          "id": "csuf-L14",
+          "id": "csuf-L35",
           "players": [
             "Jana Falsdottir",
             "Lilliana Petersen",
@@ -9873,7 +10357,7 @@
           ]
         },
         {
-          "id": "csuf-L6",
+          "id": "csuf-L23",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -9928,7 +10412,7 @@
           ]
         },
         {
-          "id": "csuf-L42",
+          "id": "csuf-L37",
           "players": [
             "Dylan Swindle",
             "Jana Falsdottir",
@@ -10036,55 +10520,7 @@
           ]
         },
         {
-          "id": "csuf-L30",
-          "players": [
-            "Dylan Swindle",
-            "Kya Pearson",
-            "Maddy Tauro",
-            "Maxine Sutisna",
-            "Nicole Steiner"
-          ],
-          "min": 8.7,
-          "for_pts": 13,
-          "against_pts": 15,
-          "net": -2,
-          "net_per40": -9.2,
-          "per40": {
-            "fgm": 18.43,
-            "fga": 73.7,
-            "tpm": 4.61,
-            "tpa": 4.61,
-            "ftm": 18.43,
-            "fta": 18.43,
-            "oreb": 18.43,
-            "dreb": 27.64,
-            "ast": 13.82,
-            "tov": 9.21,
-            "stl": 13.82,
-            "blk": 0.0,
-            "opp_fgm": 32.25,
-            "opp_fga": 64.49,
-            "opp_tpm": 4.61,
-            "opp_tpa": 13.82,
-            "opp_ftm": 0.0,
-            "opp_fta": 9.21,
-            "opp_oreb": 9.21,
-            "opp_dreb": 36.85,
-            "opp_ast": 32.25,
-            "opp_tov": 18.43
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC San Diego",
-              "opp_key": "ucsd",
-              "min": 8.7,
-              "net": -2,
-              "net_per40": -9.2
-            }
-          ]
-        },
-        {
-          "id": "csuf-L47",
+          "id": "csuf-L1",
           "players": [
             "Cristina Jones",
             "Jana Falsdottir",
@@ -10128,6 +10564,54 @@
               "min": 7.0,
               "net": 20,
               "net_per40": 115.1
+            }
+          ]
+        },
+        {
+          "id": "csuf-L43",
+          "players": [
+            "Dylan Swindle",
+            "Kya Pearson",
+            "Maddy Tauro",
+            "Maxine Sutisna",
+            "Nicole Steiner"
+          ],
+          "min": 8.7,
+          "for_pts": 13,
+          "against_pts": 15,
+          "net": -2,
+          "net_per40": -9.2,
+          "per40": {
+            "fgm": 18.43,
+            "fga": 73.7,
+            "tpm": 4.61,
+            "tpa": 4.61,
+            "ftm": 18.43,
+            "fta": 18.43,
+            "oreb": 18.43,
+            "dreb": 27.64,
+            "ast": 13.82,
+            "tov": 9.21,
+            "stl": 13.82,
+            "blk": 0.0,
+            "opp_fgm": 32.25,
+            "opp_fga": 64.49,
+            "opp_tpm": 4.61,
+            "opp_tpa": 13.82,
+            "opp_ftm": 0.0,
+            "opp_fta": 9.21,
+            "opp_oreb": 9.21,
+            "opp_dreb": 36.85,
+            "opp_ast": 32.25,
+            "opp_tov": 18.43
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC San Diego",
+              "opp_key": "ucsd",
+              "min": 8.7,
+              "net": -2,
+              "net_per40": -9.2
             }
           ]
         },
@@ -10185,55 +10669,7 @@
           ]
         },
         {
-          "id": "csuf-L3",
-          "players": [
-            "Cristina Jones",
-            "Dylan Swindle",
-            "Jana Falsdottir",
-            "Maddy Tauro",
-            "Madelynn Muniz"
-          ],
-          "min": 8.5,
-          "for_pts": 20,
-          "against_pts": 23,
-          "net": -3,
-          "net_per40": -14.1,
-          "per40": {
-            "fgm": 33.01,
-            "fga": 56.58,
-            "tpm": 18.86,
-            "tpa": 18.86,
-            "ftm": 9.43,
-            "fta": 18.86,
-            "oreb": 18.86,
-            "dreb": 14.15,
-            "ast": 23.58,
-            "tov": 18.86,
-            "stl": 4.72,
-            "blk": 9.43,
-            "opp_fgm": 37.72,
-            "opp_fga": 75.44,
-            "opp_tpm": 14.15,
-            "opp_tpa": 23.58,
-            "opp_ftm": 18.86,
-            "opp_fta": 18.86,
-            "opp_oreb": 23.58,
-            "opp_dreb": 9.43,
-            "opp_ast": 33.01,
-            "opp_tov": 4.72
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Riverside",
-              "opp_key": "ucr",
-              "min": 6.0,
-              "net": 2,
-              "net_per40": 13.3
-            }
-          ]
-        },
-        {
-          "id": "csuf-L45",
+          "id": "csuf-L5",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -10281,7 +10717,55 @@
           ]
         },
         {
-          "id": "csuf-L24",
+          "id": "csuf-L47",
+          "players": [
+            "Cristina Jones",
+            "Dylan Swindle",
+            "Jana Falsdottir",
+            "Maddy Tauro",
+            "Madelynn Muniz"
+          ],
+          "min": 8.5,
+          "for_pts": 20,
+          "against_pts": 23,
+          "net": -3,
+          "net_per40": -14.1,
+          "per40": {
+            "fgm": 33.01,
+            "fga": 56.58,
+            "tpm": 18.86,
+            "tpa": 18.86,
+            "ftm": 9.43,
+            "fta": 18.86,
+            "oreb": 18.86,
+            "dreb": 14.15,
+            "ast": 23.58,
+            "tov": 18.86,
+            "stl": 4.72,
+            "blk": 9.43,
+            "opp_fgm": 37.72,
+            "opp_fga": 75.44,
+            "opp_tpm": 14.15,
+            "opp_tpa": 23.58,
+            "opp_ftm": 18.86,
+            "opp_fta": 18.86,
+            "opp_oreb": 23.58,
+            "opp_dreb": 9.43,
+            "opp_ast": 33.01,
+            "opp_tov": 4.72
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Riverside",
+              "opp_key": "ucr",
+              "min": 6.0,
+              "net": 2,
+              "net_per40": 13.3
+            }
+          ]
+        },
+        {
+          "id": "csuf-L15",
           "players": [
             "Dylan Swindle",
             "Jana Falsdottir",
@@ -10329,7 +10813,7 @@
           ]
         },
         {
-          "id": "csuf-L22",
+          "id": "csuf-L27",
           "players": [
             "Cristina Jones",
             "Kya Pearson",
@@ -10377,7 +10861,7 @@
           ]
         },
         {
-          "id": "csuf-L43",
+          "id": "csuf-L38",
           "players": [
             "Basak Orhan",
             "Madelynn Muniz",
@@ -10425,7 +10909,47 @@
           ]
         },
         {
-          "id": "csuf-L38",
+          "id": "csuf-L8",
+          "players": [
+            "Cristina Jones",
+            "Jana Falsdottir",
+            "Kya Pearson",
+            "Madelynn Muniz",
+            "Talia Maxwell"
+          ],
+          "min": 7.9,
+          "for_pts": 6,
+          "against_pts": 10,
+          "net": -4,
+          "net_per40": -20.3,
+          "per40": {
+            "fgm": 5.06,
+            "fga": 55.7,
+            "tpm": 0.0,
+            "tpa": 20.25,
+            "ftm": 20.25,
+            "fta": 50.63,
+            "oreb": 25.32,
+            "dreb": 30.38,
+            "ast": 0.0,
+            "tov": 30.38,
+            "stl": 30.38,
+            "blk": 0.0,
+            "opp_fgm": 20.25,
+            "opp_fga": 65.82,
+            "opp_tpm": 5.06,
+            "opp_tpa": 35.44,
+            "opp_ftm": 5.06,
+            "opp_fta": 10.13,
+            "opp_oreb": 15.19,
+            "opp_dreb": 40.51,
+            "opp_ast": 10.13,
+            "opp_tov": 40.51
+          },
+          "vs_opponents": []
+        },
+        {
+          "id": "csuf-L11",
           "players": [
             "Dylan Swindle",
             "Jana Falsdottir",
@@ -10473,47 +10997,7 @@
           ]
         },
         {
-          "id": "csuf-L46",
-          "players": [
-            "Cristina Jones",
-            "Jana Falsdottir",
-            "Kya Pearson",
-            "Madelynn Muniz",
-            "Talia Maxwell"
-          ],
-          "min": 7.9,
-          "for_pts": 6,
-          "against_pts": 10,
-          "net": -4,
-          "net_per40": -20.3,
-          "per40": {
-            "fgm": 5.06,
-            "fga": 55.7,
-            "tpm": 0.0,
-            "tpa": 20.25,
-            "ftm": 20.25,
-            "fta": 50.63,
-            "oreb": 25.32,
-            "dreb": 30.38,
-            "ast": 0.0,
-            "tov": 30.38,
-            "stl": 30.38,
-            "blk": 0.0,
-            "opp_fgm": 20.25,
-            "opp_fga": 65.82,
-            "opp_tpm": 5.06,
-            "opp_tpa": 35.44,
-            "opp_ftm": 5.06,
-            "opp_fta": 10.13,
-            "opp_oreb": 15.19,
-            "opp_dreb": 40.51,
-            "opp_ast": 10.13,
-            "opp_tov": 40.51
-          },
-          "vs_opponents": []
-        },
-        {
-          "id": "csuf-L34",
+          "id": "csuf-L28",
           "players": [
             "Dylan Swindle",
             "Jana Falsdottir",
@@ -10561,7 +11045,7 @@
           ]
         },
         {
-          "id": "csuf-L33",
+          "id": "csuf-L25",
           "players": [
             "Kya Pearson",
             "Maddy Tauro",
@@ -10609,7 +11093,7 @@
           ]
         },
         {
-          "id": "csuf-L39",
+          "id": "csuf-L3",
           "players": [
             "Dylan Swindle",
             "Jana Falsdottir",
@@ -10649,7 +11133,7 @@
           "vs_opponents": []
         },
         {
-          "id": "csuf-L17",
+          "id": "csuf-L31",
           "players": [
             "Cristina Jones",
             "Kya Pearson",
@@ -10697,7 +11181,7 @@
           ]
         },
         {
-          "id": "csuf-L31",
+          "id": "csuf-L44",
           "players": [
             "Dylan Swindle",
             "Kya Pearson",
@@ -10846,7 +11330,7 @@
           ]
         },
         {
-          "id": "csuf-L40",
+          "id": "csuf-L46",
           "players": [
             "Brynna Pukis",
             "Cristina Jones",
@@ -10898,7 +11382,7 @@
           ]
         },
         {
-          "id": "csuf-L13",
+          "id": "csuf-L34",
           "players": [
             "Jana Falsdottir",
             "Kya Pearson",
@@ -11102,7 +11586,18 @@
             0.27,
             0.4,
             0.93
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": 1.337,
+            "adjoe": 92.693,
+            "drtg": 91.775,
+            "usg": 0.226,
+            "ts": 0.522,
+            "efg": 0.467,
+            "porpag": 1.492
+          }
         },
         {
           "name": "Jite Gbemuotor",
@@ -11113,7 +11608,18 @@
             0.33,
             0.33,
             0.2
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "F/C",
+            "bpm": 1.169,
+            "adjoe": 98.488,
+            "drtg": 83.735,
+            "usg": 0.229,
+            "ts": 0.545,
+            "efg": 0.531,
+            "porpag": 1.619
+          }
         },
         {
           "name": "Rita Nazario",
@@ -11135,7 +11641,18 @@
             0.79,
             0.58,
             0.29
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": -2.937,
+            "adjoe": 74.438,
+            "drtg": 90.627,
+            "usg": 0.22,
+            "ts": 0.498,
+            "efg": 0.449,
+            "porpag": -0.178
+          }
         },
         {
           "name": "Morgan Edwards",
@@ -11146,7 +11663,18 @@
             0.13,
             0.2,
             0.37
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": -7.177,
+            "adjoe": 69.334,
+            "drtg": 97.738,
+            "usg": 0.218,
+            "ts": 0.389,
+            "efg": 0.368,
+            "porpag": -0.45
+          }
         },
         {
           "name": "Alondra Lizama",
@@ -11157,7 +11685,18 @@
             0.5,
             0.21,
             0.58
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G/F",
+            "bpm": -2.17,
+            "adjoe": 99.811,
+            "drtg": 96.363,
+            "usg": 0.189,
+            "ts": 0.612,
+            "efg": 0.574,
+            "porpag": 1.058
+          }
         },
         {
           "name": "Nadia Bernard",
@@ -11168,7 +11707,18 @@
             0.46,
             0.08,
             0.0
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G/F",
+            "bpm": -3.666,
+            "adjoe": 90.294,
+            "drtg": 94.123,
+            "usg": 0.179,
+            "ts": 0.563,
+            "efg": 0.53,
+            "porpag": 0.698
+          }
         },
         {
           "name": "Mariona Cos-Morales",
@@ -11179,7 +11729,18 @@
             0.28,
             0.34,
             0.38
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G/F",
+            "bpm": -1.187,
+            "adjoe": 69.598,
+            "drtg": 94.393,
+            "usg": 0.153,
+            "ts": 0.428,
+            "efg": 0.427,
+            "porpag": -0.533
+          }
         },
         {
           "name": "Amya Moody",
@@ -11190,7 +11751,18 @@
             0.25,
             0.07,
             0.39
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G",
+            "bpm": -10.312,
+            "adjoe": 70.017,
+            "drtg": 101.372,
+            "usg": 0.224,
+            "ts": 0.352,
+            "efg": 0.336,
+            "porpag": -0.25
+          }
         },
         {
           "name": "Kelly Tumlin",
@@ -11201,12 +11773,23 @@
             0.39,
             0.17,
             0.09
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": -7.982,
+            "adjoe": 53.41,
+            "drtg": 96.299,
+            "usg": 0.166,
+            "ts": 0.389,
+            "efg": 0.368,
+            "porpag": -1.217
+          }
         }
       ],
       "lineups": [
         {
-          "id": "csun-L1",
+          "id": "csun-L4",
           "players": [
             "Erika Aspajo",
             "Jite Gbemuotor",
@@ -11303,7 +11886,7 @@
           ]
         },
         {
-          "id": "csun-L21",
+          "id": "csun-L20",
           "players": [
             "Erika Aspajo",
             "Mariona Cos-Morales",
@@ -11358,7 +11941,7 @@
           ]
         },
         {
-          "id": "csun-L29",
+          "id": "csun-L5",
           "players": [
             "Bria Shine",
             "Erika Aspajo",
@@ -11411,7 +11994,7 @@
           ]
         },
         {
-          "id": "csun-L27",
+          "id": "csun-L23",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -11464,7 +12047,7 @@
           ]
         },
         {
-          "id": "csun-L7",
+          "id": "csun-L13",
           "players": [
             "Kelly Tumlin",
             "Laini Dahlin",
@@ -11526,7 +12109,7 @@
           ]
         },
         {
-          "id": "csun-L15",
+          "id": "csun-L21",
           "players": [
             "Cristina Jones",
             "Dylan Swindle",
@@ -11579,7 +12162,7 @@
           ]
         },
         {
-          "id": "csun-L20",
+          "id": "csun-L15",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -11632,7 +12215,7 @@
           ]
         },
         {
-          "id": "csun-L11",
+          "id": "csun-L26",
           "players": [
             "Avery Sussex",
             "Kelly Tumlin",
@@ -11685,7 +12268,7 @@
           ]
         },
         {
-          "id": "csun-L17",
+          "id": "csun-L16",
           "players": [
             "Dymonique Maxie",
             "Erika Aspajo",
@@ -11737,7 +12320,7 @@
           ]
         },
         {
-          "id": "csun-L30",
+          "id": "csun-L6",
           "players": [
             "Bria Shine",
             "Erika Aspajo",
@@ -11790,7 +12373,7 @@
           ]
         },
         {
-          "id": "csun-L2",
+          "id": "csun-L11",
           "players": [
             "Erika Aspajo",
             "Jite Gbemuotor",
@@ -11838,7 +12421,7 @@
           ]
         },
         {
-          "id": "csun-L5",
+          "id": "csun-L3",
           "players": [
             "Alondra Lizama",
             "Erika Aspajo",
@@ -11886,7 +12469,7 @@
           ]
         },
         {
-          "id": "csun-L6",
+          "id": "csun-L34",
           "players": [
             "Bailey Flavell",
             "Erika Aspajo",
@@ -11939,7 +12522,7 @@
           ]
         },
         {
-          "id": "csun-L24",
+          "id": "csun-L9",
           "players": [
             "Erika Aspajo",
             "Jaquoia Jones-Brown",
@@ -11992,7 +12575,7 @@
           ]
         },
         {
-          "id": "csun-L4",
+          "id": "csun-L12",
           "players": [
             "Erika Aspajo",
             "Jite Gbemuotor",
@@ -12047,7 +12630,7 @@
           ]
         },
         {
-          "id": "csun-L23",
+          "id": "csun-L10",
           "players": [
             "Brynna Pukis",
             "Erika Aspajo",
@@ -12100,7 +12683,7 @@
           ]
         },
         {
-          "id": "csun-L25",
+          "id": "csun-L8",
           "players": [
             "Christy Reynoso",
             "Erika Aspajo",
@@ -12153,7 +12736,7 @@
           ]
         },
         {
-          "id": "csun-L32",
+          "id": "csun-L30",
           "players": [
             "Erika Aspajo",
             "Jite Gbemuotor",
@@ -12203,7 +12786,7 @@
           ]
         },
         {
-          "id": "csun-L3",
+          "id": "csun-L2",
           "players": [
             "Erika Aspajo",
             "Mariona Cos-Morales",
@@ -12251,7 +12834,7 @@
           ]
         },
         {
-          "id": "csun-L18",
+          "id": "csun-L17",
           "players": [
             "Dymonique Maxie",
             "Erika Aspajo",
@@ -12303,7 +12886,7 @@
           ]
         },
         {
-          "id": "csun-L9",
+          "id": "csun-L1",
           "players": [
             "Erika Aspajo",
             "Jana Canadell",
@@ -12351,60 +12934,7 @@
           ]
         },
         {
-          "id": "csun-L19",
-          "players": [
-            "Allie Cummins",
-            "Kaliyah Dillard",
-            "Katarina Anderson",
-            "Kelly Tumlin",
-            "Laini Dahlin",
-            "Mariona Cos-Morales",
-            "Maya Anderson",
-            "Nadia Bernard",
-            "Rita Naz\u00e1rio",
-            "Stella Sgro"
-          ],
-          "min": 7.5,
-          "for_pts": 9,
-          "against_pts": 14,
-          "net": -5,
-          "net_per40": -26.5,
-          "per40": {
-            "fgm": 26.49,
-            "fga": 79.47,
-            "tpm": 10.6,
-            "tpa": 26.49,
-            "ftm": 10.6,
-            "fta": 15.89,
-            "oreb": 15.89,
-            "dreb": 26.49,
-            "ast": 10.6,
-            "tov": 5.3,
-            "stl": 5.3,
-            "blk": 5.3,
-            "opp_fgm": 10.6,
-            "opp_fga": 31.79,
-            "opp_tpm": 5.3,
-            "opp_tpa": 21.19,
-            "opp_ftm": 21.19,
-            "opp_fta": 31.79,
-            "opp_oreb": 0.0,
-            "opp_dreb": 37.09,
-            "opp_ast": 10.6,
-            "opp_tov": 26.49
-          },
-          "vs_opponents": [
-            {
-              "opponent": "San Jose St.",
-              "opp_key": null,
-              "min": 7.5,
-              "net": -5,
-              "net_per40": -26.5
-            }
-          ]
-        },
-        {
-          "id": "csun-L22",
+          "id": "csun-L7",
           "players": [
             "Erika Aspajo",
             "Laini Dahlin",
@@ -12459,7 +12989,60 @@
           ]
         },
         {
-          "id": "csun-L33",
+          "id": "csun-L18",
+          "players": [
+            "Allie Cummins",
+            "Kaliyah Dillard",
+            "Katarina Anderson",
+            "Kelly Tumlin",
+            "Laini Dahlin",
+            "Mariona Cos-Morales",
+            "Maya Anderson",
+            "Nadia Bernard",
+            "Rita Naz\u00e1rio",
+            "Stella Sgro"
+          ],
+          "min": 7.5,
+          "for_pts": 9,
+          "against_pts": 14,
+          "net": -5,
+          "net_per40": -26.5,
+          "per40": {
+            "fgm": 26.49,
+            "fga": 79.47,
+            "tpm": 10.6,
+            "tpa": 26.49,
+            "ftm": 10.6,
+            "fta": 15.89,
+            "oreb": 15.89,
+            "dreb": 26.49,
+            "ast": 10.6,
+            "tov": 5.3,
+            "stl": 5.3,
+            "blk": 5.3,
+            "opp_fgm": 10.6,
+            "opp_fga": 31.79,
+            "opp_tpm": 5.3,
+            "opp_tpa": 21.19,
+            "opp_ftm": 21.19,
+            "opp_fta": 31.79,
+            "opp_oreb": 0.0,
+            "opp_dreb": 37.09,
+            "opp_ast": 10.6,
+            "opp_tov": 26.49
+          },
+          "vs_opponents": [
+            {
+              "opponent": "San Jose St.",
+              "opp_key": null,
+              "min": 7.5,
+              "net": -5,
+              "net_per40": -26.5
+            }
+          ]
+        },
+        {
+          "id": "csun-L31",
           "players": [
             "Erika Aspajo",
             "Jada Wynn",
@@ -12510,7 +13093,7 @@
           ]
         },
         {
-          "id": "csun-L14",
+          "id": "csun-L29",
           "players": [
             "Amya Moody",
             "Jite Gbemuotor",
@@ -12558,7 +13141,7 @@
           ]
         },
         {
-          "id": "csun-L26",
+          "id": "csun-L33",
           "players": [
             "Ameerah Grant",
             "Despoina Baltzi",
@@ -12611,7 +13194,7 @@
           ]
         },
         {
-          "id": "csun-L8",
+          "id": "csun-L14",
           "players": [
             "Adrianna Torres",
             "Ebony Cooper",
@@ -12664,7 +13247,7 @@
           ]
         },
         {
-          "id": "csun-L28",
+          "id": "csun-L24",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -12717,7 +13300,7 @@
           ]
         },
         {
-          "id": "csun-L12",
+          "id": "csun-L27",
           "players": [
             "Jite Gbemuotor",
             "Kelly Tumlin",
@@ -12765,7 +13348,55 @@
           ]
         },
         {
-          "id": "csun-L10",
+          "id": "csun-L19",
+          "players": [
+            "Erika Aspajo",
+            "Kelly Tumlin",
+            "Laini Dahlin",
+            "Mariona Cos-Morales",
+            "Saray White"
+          ],
+          "min": 6.4,
+          "for_pts": 12,
+          "against_pts": 12,
+          "net": 0,
+          "net_per40": 0.0,
+          "per40": {
+            "fgm": 31.09,
+            "fga": 55.96,
+            "tpm": 6.22,
+            "tpa": 12.44,
+            "ftm": 6.22,
+            "fta": 18.65,
+            "oreb": 0.0,
+            "dreb": 12.44,
+            "ast": 18.65,
+            "tov": 6.22,
+            "stl": 12.44,
+            "blk": 6.22,
+            "opp_fgm": 31.09,
+            "opp_fga": 49.74,
+            "opp_tpm": 6.22,
+            "opp_tpa": 12.44,
+            "opp_ftm": 6.22,
+            "opp_fta": 6.22,
+            "opp_oreb": 6.22,
+            "opp_dreb": 18.65,
+            "opp_ast": 18.65,
+            "opp_tov": 24.87
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Santa Barbara",
+              "opp_key": "ucsb",
+              "min": 6.4,
+              "net": 0,
+              "net_per40": 0.0
+            }
+          ]
+        },
+        {
+          "id": "csun-L22",
           "players": [
             "Alondra Lizama",
             "Erika Aspajo",
@@ -12813,7 +13444,7 @@
           ]
         },
         {
-          "id": "csun-L16",
+          "id": "csun-L25",
           "players": [
             "Elli Guiney",
             "Kelly Tumlin",
@@ -12866,55 +13497,7 @@
           ]
         },
         {
-          "id": "csun-L31",
-          "players": [
-            "Erika Aspajo",
-            "Kelly Tumlin",
-            "Laini Dahlin",
-            "Mariona Cos-Morales",
-            "Saray White"
-          ],
-          "min": 6.4,
-          "for_pts": 12,
-          "against_pts": 12,
-          "net": 0,
-          "net_per40": 0.0,
-          "per40": {
-            "fgm": 31.09,
-            "fga": 55.96,
-            "tpm": 6.22,
-            "tpa": 12.44,
-            "ftm": 6.22,
-            "fta": 18.65,
-            "oreb": 0.0,
-            "dreb": 12.44,
-            "ast": 18.65,
-            "tov": 6.22,
-            "stl": 12.44,
-            "blk": 6.22,
-            "opp_fgm": 31.09,
-            "opp_fga": 49.74,
-            "opp_tpm": 6.22,
-            "opp_tpa": 12.44,
-            "opp_ftm": 6.22,
-            "opp_fta": 6.22,
-            "opp_oreb": 6.22,
-            "opp_dreb": 18.65,
-            "opp_ast": 18.65,
-            "opp_tov": 24.87
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Santa Barbara",
-              "opp_key": "ucsb",
-              "min": 6.4,
-              "net": 0,
-              "net_per40": 0.0
-            }
-          ]
-        },
-        {
-          "id": "csun-L13",
+          "id": "csun-L28",
           "players": [
             "Kelly Tumlin",
             "Mariona Cos Morales",
@@ -12962,7 +13545,7 @@
           ]
         },
         {
-          "id": "csun-L34",
+          "id": "csun-L32",
           "players": [
             "Erika Aspajo",
             "Hunter Hernandez",
@@ -13179,7 +13762,18 @@
             0.57,
             0.97,
             0.6
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -1.031,
+            "adjoe": 105.489,
+            "drtg": 103.58,
+            "usg": 0.261,
+            "ts": 0.51,
+            "efg": 0.443,
+            "porpag": 3.772
+          }
         },
         {
           "name": "Khylee Pepe",
@@ -13190,7 +13784,18 @@
             0.39,
             0.23,
             0.97
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G/F",
+            "bpm": -2.955,
+            "adjoe": 81.919,
+            "drtg": 98.895,
+            "usg": 0.238,
+            "ts": 0.437,
+            "efg": 0.396,
+            "porpag": 0.584
+          }
         },
         {
           "name": "Kennan Ka",
@@ -13201,7 +13806,18 @@
             0.29,
             0.35,
             0.26
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": -4.687,
+            "adjoe": 79.247,
+            "drtg": 107.424,
+            "usg": 0.148,
+            "ts": 0.51,
+            "efg": 0.492,
+            "porpag": 0.33
+          }
         },
         {
           "name": "Rosie Akot",
@@ -13212,7 +13828,18 @@
             0.1,
             0.58,
             0.19
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -7.91,
+            "adjoe": 72.38,
+            "drtg": 95.582,
+            "usg": 0.281,
+            "ts": 0.426,
+            "efg": 0.399,
+            "porpag": -0.261
+          }
         },
         {
           "name": "Brynna Pukis",
@@ -13223,7 +13850,18 @@
             0.16,
             0.13,
             0.61
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G",
+            "bpm": -5.246,
+            "adjoe": 81.201,
+            "drtg": 108.844,
+            "usg": 0.137,
+            "ts": 0.511,
+            "efg": 0.477,
+            "porpag": 0.448
+          }
         },
         {
           "name": "Morgan Mack",
@@ -13234,7 +13872,18 @@
             0.0,
             0.1,
             0.0
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G",
+            "bpm": -6.68,
+            "adjoe": 61.181,
+            "drtg": 103.856,
+            "usg": 0.138,
+            "ts": 0.394,
+            "efg": 0.366,
+            "porpag": -0.929
+          }
         },
         {
           "name": "Christy Reynoso",
@@ -13245,12 +13894,23 @@
             0.07,
             0.1,
             0.24
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": -7.514,
+            "adjoe": 65.918,
+            "drtg": 107.961,
+            "usg": 0.137,
+            "ts": 0.362,
+            "efg": 0.357,
+            "porpag": -0.47
+          }
         }
       ],
       "lineups": [
         {
-          "id": "csulb-L5",
+          "id": "csulb-L7",
           "players": [
             "Brynna Pukis",
             "Jaquoia Jones-Brown",
@@ -13437,7 +14097,7 @@
           ]
         },
         {
-          "id": "csulb-L2",
+          "id": "csulb-L10",
           "players": [
             "Brynna Pukis",
             "Jaquoia Jones-Brown",
@@ -13506,7 +14166,7 @@
           ]
         },
         {
-          "id": "csulb-L10",
+          "id": "csulb-L4",
           "players": [
             "Jaquoia Jones-Brown",
             "Kennan Ka",
@@ -13575,59 +14235,7 @@
           ]
         },
         {
-          "id": "csulb-L4",
-          "players": [
-            "Bria Shine",
-            "Brynna Pukis",
-            "Jaquoia Jones-Brown",
-            "Kaylani Polk",
-            "Kennan Ka",
-            "Khylee Pepe",
-            "Makayla Minshall",
-            "Maya Chocano",
-            "Morgan Mack"
-          ],
-          "min": 17.9,
-          "for_pts": 38,
-          "against_pts": 26,
-          "net": 12,
-          "net_per40": 26.8,
-          "per40": {
-            "fgm": 15.63,
-            "fga": 49.12,
-            "tpm": 4.47,
-            "tpa": 17.86,
-            "ftm": 22.33,
-            "fta": 26.79,
-            "oreb": 6.7,
-            "dreb": 15.63,
-            "ast": 8.93,
-            "tov": 15.63,
-            "stl": 13.4,
-            "blk": 2.23,
-            "opp_fgm": 22.33,
-            "opp_fga": 40.19,
-            "opp_tpm": 15.63,
-            "opp_tpa": 20.09,
-            "opp_ftm": 24.56,
-            "opp_fta": 24.56,
-            "opp_oreb": 2.23,
-            "opp_dreb": 31.26,
-            "opp_ast": 17.86,
-            "opp_tov": 20.09
-          },
-          "vs_opponents": [
-            {
-              "opponent": "UC Riverside",
-              "opp_key": "ucr",
-              "min": 17.9,
-              "net": 12,
-              "net_per40": 26.8
-            }
-          ]
-        },
-        {
-          "id": "csulb-L6",
+          "id": "csulb-L11",
           "players": [
             "Brynna Pukis",
             "Jaquoia Jones-Brown",
@@ -13682,7 +14290,59 @@
           ]
         },
         {
-          "id": "csulb-L8",
+          "id": "csulb-L14",
+          "players": [
+            "Bria Shine",
+            "Brynna Pukis",
+            "Jaquoia Jones-Brown",
+            "Kaylani Polk",
+            "Kennan Ka",
+            "Khylee Pepe",
+            "Makayla Minshall",
+            "Maya Chocano",
+            "Morgan Mack"
+          ],
+          "min": 17.9,
+          "for_pts": 38,
+          "against_pts": 26,
+          "net": 12,
+          "net_per40": 26.8,
+          "per40": {
+            "fgm": 15.63,
+            "fga": 49.12,
+            "tpm": 4.47,
+            "tpa": 17.86,
+            "ftm": 22.33,
+            "fta": 26.79,
+            "oreb": 6.7,
+            "dreb": 15.63,
+            "ast": 8.93,
+            "tov": 15.63,
+            "stl": 13.4,
+            "blk": 2.23,
+            "opp_fgm": 22.33,
+            "opp_fga": 40.19,
+            "opp_tpm": 15.63,
+            "opp_tpa": 20.09,
+            "opp_ftm": 24.56,
+            "opp_fta": 24.56,
+            "opp_oreb": 2.23,
+            "opp_dreb": 31.26,
+            "opp_ast": 17.86,
+            "opp_tov": 20.09
+          },
+          "vs_opponents": [
+            {
+              "opponent": "UC Riverside",
+              "opp_key": "ucr",
+              "min": 17.9,
+              "net": 12,
+              "net_per40": 26.8
+            }
+          ]
+        },
+        {
+          "id": "csulb-L18",
           "players": [
             "Alana Goosby",
             "Charish Thompson",
@@ -13735,7 +14395,7 @@
           ]
         },
         {
-          "id": "csulb-L21",
+          "id": "csulb-L12",
           "players": [
             "Brynna Pukis",
             "Eiley Tippins",
@@ -13788,7 +14448,7 @@
           ]
         },
         {
-          "id": "csulb-L13",
+          "id": "csulb-L6",
           "players": [
             "Christy Reynoso",
             "Jaquoia Jones-Brown",
@@ -13850,7 +14510,7 @@
           ]
         },
         {
-          "id": "csulb-L14",
+          "id": "csulb-L19",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -13901,7 +14561,7 @@
           ]
         },
         {
-          "id": "csulb-L23",
+          "id": "csulb-L5",
           "players": [
             "Erika Aspajo",
             "Jaquoia Jones-Brown",
@@ -13954,7 +14614,7 @@
           ]
         },
         {
-          "id": "csulb-L9",
+          "id": "csulb-L21",
           "players": [
             "Bailey Flavell",
             "Brynna Pukis",
@@ -14007,7 +14667,7 @@
           ]
         },
         {
-          "id": "csulb-L22",
+          "id": "csulb-L9",
           "players": [
             "Benthe Versteeg",
             "Brooklyn Taylor",
@@ -14060,7 +14720,7 @@
           ]
         },
         {
-          "id": "csulb-L26",
+          "id": "csulb-L24",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -14113,7 +14773,7 @@
           ]
         },
         {
-          "id": "csulb-L19",
+          "id": "csulb-L16",
           "players": [
             "Brynna Pukis",
             "Jaquoia Jones-Brown",
@@ -14165,7 +14825,7 @@
           ]
         },
         {
-          "id": "csulb-L7",
+          "id": "csulb-L27",
           "players": [
             "Brynna Pukis",
             "Erika Aspajo",
@@ -14218,7 +14878,7 @@
           ]
         },
         {
-          "id": "csulb-L20",
+          "id": "csulb-L17",
           "players": [
             "Brynna Pukis",
             "Dae'Jaidence Kincade",
@@ -14270,7 +14930,7 @@
           ]
         },
         {
-          "id": "csulb-L17",
+          "id": "csulb-L8",
           "players": [
             "Avery Sussex",
             "Brynna Pukis",
@@ -14322,7 +14982,7 @@
           ]
         },
         {
-          "id": "csulb-L3",
+          "id": "csulb-L13",
           "players": [
             "Bria Shine",
             "Brynna Pukis",
@@ -14374,7 +15034,7 @@
           ]
         },
         {
-          "id": "csulb-L27",
+          "id": "csulb-L26",
           "players": [
             "Ally Schimel",
             "Brynna Pukis",
@@ -14427,7 +15087,7 @@
           ]
         },
         {
-          "id": "csulb-L15",
+          "id": "csulb-L20",
           "players": [
             "Dymonique Maxie",
             "Erin Condron",
@@ -14478,7 +15138,7 @@
           ]
         },
         {
-          "id": "csulb-L16",
+          "id": "csulb-L25",
           "players": [
             "Brynna Pukis",
             "Jaquoia Jones-Brown",
@@ -14531,7 +15191,7 @@
           ]
         },
         {
-          "id": "csulb-L12",
+          "id": "csulb-L3",
           "players": [
             "Aliyah Gonzalez",
             "Amira Austin",
@@ -14584,7 +15244,7 @@
           ]
         },
         {
-          "id": "csulb-L18",
+          "id": "csulb-L15",
           "players": [
             "Brynna Pukis",
             "Dae'Jaidence Kincade",
@@ -14636,7 +15296,7 @@
           ]
         },
         {
-          "id": "csulb-L24",
+          "id": "csulb-L22",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -14689,7 +15349,7 @@
           ]
         },
         {
-          "id": "csulb-L11",
+          "id": "csulb-L2",
           "players": [
             "Amira Austin",
             "Andrea Javier",
@@ -14742,7 +15402,7 @@
           ]
         },
         {
-          "id": "csulb-L25",
+          "id": "csulb-L23",
           "players": [
             "Alana Goosby",
             "Brynna Pukis",
@@ -14959,7 +15619,18 @@
             2.0,
             1.34,
             2.66
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": 7.304,
+            "adjoe": 122.184,
+            "drtg": 88.978,
+            "usg": 0.327,
+            "ts": 0.574,
+            "efg": 0.517,
+            "porpag": 5.495
+          }
         },
         {
           "name": "Seneca Hackley",
@@ -14970,7 +15641,18 @@
             0.56,
             0.78,
             0.69
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": 0.484,
+            "adjoe": 96.037,
+            "drtg": 95.063,
+            "usg": 0.198,
+            "ts": 0.477,
+            "efg": 0.402,
+            "porpag": 1.99
+          }
         },
         {
           "name": "Kaylani Polk",
@@ -14981,7 +15663,18 @@
             0.62,
             0.44,
             0.38
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": -3.569,
+            "adjoe": 81.905,
+            "drtg": 99.261,
+            "usg": 0.179,
+            "ts": 0.471,
+            "efg": 0.43,
+            "porpag": 0.64
+          }
         },
         {
           "name": "Taylor Swanson",
@@ -14992,7 +15685,18 @@
             0.16,
             0.25,
             0.22
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -4.731,
+            "adjoe": 76.863,
+            "drtg": 92.6,
+            "usg": 0.202,
+            "ts": 0.435,
+            "efg": 0.391,
+            "porpag": 0.04
+          }
         },
         {
           "name": "Maya Chocano",
@@ -15003,7 +15707,18 @@
             0.09,
             0.16,
             0.16
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G/F",
+            "bpm": -4.437,
+            "adjoe": 76.375,
+            "drtg": 95.541,
+            "usg": 0.163,
+            "ts": 0.45,
+            "efg": 0.422,
+            "porpag": 0.013
+          }
         },
         {
           "name": "Bria Shine",
@@ -15014,7 +15729,18 @@
             0.44,
             0.22,
             0.41
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G/F",
+            "bpm": -1.186,
+            "adjoe": 73.127,
+            "drtg": 94.422,
+            "usg": 0.129,
+            "ts": 0.41,
+            "efg": 0.416,
+            "porpag": -0.3
+          }
         },
         {
           "name": "Makayla Minshall",
@@ -15025,12 +15751,23 @@
             0.25,
             0.06,
             0.31
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G/F",
+            "bpm": -5.668,
+            "adjoe": 73.685,
+            "drtg": 99.75,
+            "usg": 0.167,
+            "ts": 0.506,
+            "efg": 0.51,
+            "porpag": -0.135
+          }
         }
       ],
       "lineups": [
         {
-          "id": "ucr-L3",
+          "id": "ucr-L1",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15169,7 +15906,7 @@
           ]
         },
         {
-          "id": "ucr-L5",
+          "id": "ucr-L2",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15259,7 +15996,7 @@
           ]
         },
         {
-          "id": "ucr-L17",
+          "id": "ucr-L3",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15321,7 +16058,7 @@
           ]
         },
         {
-          "id": "ucr-L16",
+          "id": "ucr-L14",
           "players": [
             "Hannah Wickstrom",
             "Kaylani Polk",
@@ -15383,7 +16120,7 @@
           ]
         },
         {
-          "id": "ucr-L22",
+          "id": "ucr-L28",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15435,7 +16172,7 @@
           ]
         },
         {
-          "id": "ucr-L19",
+          "id": "ucr-L27",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15490,7 +16227,7 @@
           ]
         },
         {
-          "id": "ucr-L8",
+          "id": "ucr-L24",
           "players": [
             "Bria Shine",
             "Cristina Jones",
@@ -15543,7 +16280,7 @@
           ]
         },
         {
-          "id": "ucr-L18",
+          "id": "ucr-L5",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15591,7 +16328,7 @@
           ]
         },
         {
-          "id": "ucr-L10",
+          "id": "ucr-L18",
           "players": [
             "Alana Goosby",
             "Arissa Garcia",
@@ -15644,7 +16381,7 @@
           ]
         },
         {
-          "id": "ucr-L14",
+          "id": "ucr-L4",
           "players": [
             "Hannah Wickstrom",
             "Kaylani Polk",
@@ -15684,7 +16421,7 @@
           "vs_opponents": []
         },
         {
-          "id": "ucr-L9",
+          "id": "ucr-L6",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15724,7 +16461,7 @@
           "vs_opponents": []
         },
         {
-          "id": "ucr-L2",
+          "id": "ucr-L16",
           "players": [
             "Aaliyah Stanton",
             "Bria Shine",
@@ -15777,7 +16514,7 @@
           ]
         },
         {
-          "id": "ucr-L15",
+          "id": "ucr-L21",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -15832,7 +16569,7 @@
           ]
         },
         {
-          "id": "ucr-L23",
+          "id": "ucr-L25",
           "players": [
             "Bria Shine",
             "Damilola Sule",
@@ -15883,7 +16620,7 @@
           ]
         },
         {
-          "id": "ucr-L24",
+          "id": "ucr-L26",
           "players": [
             "Bria Shine",
             "Dymonique Maxie",
@@ -15935,7 +16672,7 @@
           ]
         },
         {
-          "id": "ucr-L4",
+          "id": "ucr-L15",
           "players": [
             "Avery Sussex",
             "Bria Shine",
@@ -15988,7 +16725,7 @@
           ]
         },
         {
-          "id": "ucr-L27",
+          "id": "ucr-L12",
           "players": [
             "Aaliyah Stanton",
             "Abigail Shoff",
@@ -16041,7 +16778,7 @@
           ]
         },
         {
-          "id": "ucr-L12",
+          "id": "ucr-L20",
           "players": [
             "Bria Shine",
             "Chyra Evans",
@@ -16094,7 +16831,7 @@
           ]
         },
         {
-          "id": "ucr-L25",
+          "id": "ucr-L10",
           "players": [
             "Bria Shine",
             "Dani Bayes",
@@ -16147,7 +16884,7 @@
           ]
         },
         {
-          "id": "ucr-L26",
+          "id": "ucr-L22",
           "players": [
             "Allie Turner",
             "Bria Shine",
@@ -16200,7 +16937,7 @@
           ]
         },
         {
-          "id": "ucr-L20",
+          "id": "ucr-L9",
           "players": [
             "Bria Shine",
             "Brynna Pukis",
@@ -16253,7 +16990,7 @@
           ]
         },
         {
-          "id": "ucr-L28",
+          "id": "ucr-L19",
           "players": [
             "Amya Moody",
             "Bria Shine",
@@ -16306,55 +17043,7 @@
           ]
         },
         {
-          "id": "ucr-L1",
-          "players": [
-            "Aaliyah Stanton",
-            "Bria Shine",
-            "Seneca Hackley",
-            "Shelley Duchemin",
-            "Taylor Swanson"
-          ],
-          "min": 6.8,
-          "for_pts": 9,
-          "against_pts": 7,
-          "net": 2,
-          "net_per40": 11.7,
-          "per40": {
-            "fgm": 17.6,
-            "fga": 46.94,
-            "tpm": 0.0,
-            "tpa": 17.6,
-            "ftm": 5.87,
-            "fta": 11.74,
-            "oreb": 5.87,
-            "dreb": 23.47,
-            "ast": 5.87,
-            "tov": 11.74,
-            "stl": 0.0,
-            "blk": 0.0,
-            "opp_fgm": 17.6,
-            "opp_fga": 52.81,
-            "opp_tpm": 11.74,
-            "opp_tpa": 23.47,
-            "opp_ftm": 5.87,
-            "opp_fta": 11.74,
-            "opp_oreb": 11.74,
-            "opp_dreb": 23.47,
-            "opp_ast": 5.87,
-            "opp_tov": 11.74
-          },
-          "vs_opponents": [
-            {
-              "opponent": "Saint Mary's (CA)",
-              "opp_key": null,
-              "min": 3.6,
-              "net": -1,
-              "net_per40": -11.2
-            }
-          ]
-        },
-        {
-          "id": "ucr-L11",
+          "id": "ucr-L7",
           "players": [
             "Bria Shine",
             "Erika Aspajo",
@@ -16407,6 +17096,54 @@
           ]
         },
         {
+          "id": "ucr-L11",
+          "players": [
+            "Aaliyah Stanton",
+            "Bria Shine",
+            "Seneca Hackley",
+            "Shelley Duchemin",
+            "Taylor Swanson"
+          ],
+          "min": 6.8,
+          "for_pts": 9,
+          "against_pts": 7,
+          "net": 2,
+          "net_per40": 11.7,
+          "per40": {
+            "fgm": 17.6,
+            "fga": 46.94,
+            "tpm": 0.0,
+            "tpa": 17.6,
+            "ftm": 5.87,
+            "fta": 11.74,
+            "oreb": 5.87,
+            "dreb": 23.47,
+            "ast": 5.87,
+            "tov": 11.74,
+            "stl": 0.0,
+            "blk": 0.0,
+            "opp_fgm": 17.6,
+            "opp_fga": 52.81,
+            "opp_tpm": 11.74,
+            "opp_tpa": 23.47,
+            "opp_ftm": 5.87,
+            "opp_fta": 11.74,
+            "opp_oreb": 11.74,
+            "opp_dreb": 23.47,
+            "opp_ast": 5.87,
+            "opp_tov": 11.74
+          },
+          "vs_opponents": [
+            {
+              "opponent": "Saint Mary's (CA)",
+              "opp_key": null,
+              "min": 3.6,
+              "net": -1,
+              "net_per40": -11.2
+            }
+          ]
+        },
+        {
           "id": "ucr-L13",
           "players": [
             "Hannah Wickstrom",
@@ -16455,60 +17192,7 @@
           ]
         },
         {
-          "id": "ucr-L6",
-          "players": [
-            "Alana Goosby",
-            "Arissa Garcia",
-            "Bria Shine",
-            "Charish Thompson",
-            "Hannah Wickstrom",
-            "Kaylani Polk",
-            "Madison Butcher",
-            "Maya Chocano",
-            "Seneca Hackley",
-            "Vanessa Mcmanus"
-          ],
-          "min": 6.3,
-          "for_pts": 15,
-          "against_pts": 6,
-          "net": 9,
-          "net_per40": 57.1,
-          "per40": {
-            "fgm": 12.7,
-            "fga": 69.84,
-            "tpm": 6.35,
-            "tpa": 19.05,
-            "ftm": 6.35,
-            "fta": 12.7,
-            "oreb": 31.75,
-            "dreb": 6.35,
-            "ast": 12.7,
-            "tov": 6.35,
-            "stl": 6.35,
-            "blk": 0.0,
-            "opp_fgm": 38.1,
-            "opp_fga": 50.79,
-            "opp_tpm": 19.05,
-            "opp_tpa": 31.75,
-            "opp_ftm": 0.0,
-            "opp_fta": 0.0,
-            "opp_oreb": 6.35,
-            "opp_dreb": 31.75,
-            "opp_ast": 25.4,
-            "opp_tov": 6.35
-          },
-          "vs_opponents": [
-            {
-              "opponent": "Cal Poly",
-              "opp_key": "calpoly",
-              "min": 6.3,
-              "net": 9,
-              "net_per40": 57.1
-            }
-          ]
-        },
-        {
-          "id": "ucr-L7",
+          "id": "ucr-L8",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -16560,7 +17244,7 @@
           ]
         },
         {
-          "id": "ucr-L21",
+          "id": "ucr-L17",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -16609,6 +17293,59 @@
               "min": 6.3,
               "net": -1,
               "net_per40": -6.4
+            }
+          ]
+        },
+        {
+          "id": "ucr-L23",
+          "players": [
+            "Alana Goosby",
+            "Arissa Garcia",
+            "Bria Shine",
+            "Charish Thompson",
+            "Hannah Wickstrom",
+            "Kaylani Polk",
+            "Madison Butcher",
+            "Maya Chocano",
+            "Seneca Hackley",
+            "Vanessa Mcmanus"
+          ],
+          "min": 6.3,
+          "for_pts": 15,
+          "against_pts": 6,
+          "net": 9,
+          "net_per40": 57.1,
+          "per40": {
+            "fgm": 12.7,
+            "fga": 69.84,
+            "tpm": 6.35,
+            "tpa": 19.05,
+            "ftm": 6.35,
+            "fta": 12.7,
+            "oreb": 31.75,
+            "dreb": 6.35,
+            "ast": 12.7,
+            "tov": 6.35,
+            "stl": 6.35,
+            "blk": 0.0,
+            "opp_fgm": 38.1,
+            "opp_fga": 50.79,
+            "opp_tpm": 19.05,
+            "opp_tpa": 31.75,
+            "opp_ftm": 0.0,
+            "opp_fta": 0.0,
+            "opp_oreb": 6.35,
+            "opp_dreb": 31.75,
+            "opp_ast": 25.4,
+            "opp_tov": 6.35
+          },
+          "vs_opponents": [
+            {
+              "opponent": "Cal Poly",
+              "opp_key": "calpoly",
+              "min": 6.3,
+              "net": 9,
+              "net_per40": 57.1
             }
           ]
         }
@@ -16777,7 +17514,18 @@
             4.33,
             2.6,
             2.47
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G",
+            "bpm": 2.097,
+            "adjoe": 111.796,
+            "drtg": 93.784,
+            "usg": 0.208,
+            "ts": 0.569,
+            "efg": 0.516,
+            "porpag": 4.35
+          }
         },
         {
           "name": "Olivia Bradley",
@@ -16788,7 +17536,18 @@
             2.73,
             3.27,
             2.8
-          ]
+          ],
+          "adv": {
+            "cls": "JR",
+            "pos": "G/F",
+            "bpm": 3.614,
+            "adjoe": 106.187,
+            "drtg": 86.147,
+            "usg": 0.263,
+            "ts": 0.544,
+            "efg": 0.519,
+            "porpag": 2.881
+          }
         },
         {
           "name": "Zoe Shaw",
@@ -16799,7 +17558,18 @@
             2.47,
             1.57,
             1.97
-          ]
+          ],
+          "adv": {
+            "cls": "SO",
+            "pos": "G",
+            "bpm": 1.154,
+            "adjoe": 92.082,
+            "drtg": 91.062,
+            "usg": 0.168,
+            "ts": 0.516,
+            "efg": 0.489,
+            "porpag": 1.666
+          }
         },
         {
           "name": "Skylar Burke",
@@ -16810,7 +17580,18 @@
             1.0,
             1.83,
             2.0
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "F",
+            "bpm": 1.354,
+            "adjoe": 95.205,
+            "drtg": 85.667,
+            "usg": 0.229,
+            "ts": 0.541,
+            "efg": 0.455,
+            "porpag": 1.637
+          }
         },
         {
           "name": "Madison Naro",
@@ -16832,7 +17613,18 @@
             1.3,
             1.2,
             1.33
-          ]
+          ],
+          "adv": {
+            "cls": "FR",
+            "pos": "G/F",
+            "bpm": -2.681,
+            "adjoe": 92.096,
+            "drtg": 83.699,
+            "usg": 0.221,
+            "ts": 0.546,
+            "efg": 0.518,
+            "porpag": 0.867
+          }
         },
         {
           "name": "Jessica Grant",
@@ -16843,12 +17635,23 @@
             0.37,
             1.27,
             1.57
-          ]
+          ],
+          "adv": {
+            "cls": "SR",
+            "pos": "G",
+            "bpm": -0.202,
+            "adjoe": 86.31,
+            "drtg": 94.685,
+            "usg": 0.118,
+            "ts": 0.52,
+            "efg": 0.516,
+            "porpag": 0.744
+          }
         }
       ],
       "lineups": [
         {
-          "id": "ucsb-L5",
+          "id": "ucsb-L6",
           "players": [
             "Maddie Naro",
             "Madison Naro",
@@ -17071,7 +17874,7 @@
           ]
         },
         {
-          "id": "ucsb-L10",
+          "id": "ucsb-L17",
           "players": [
             "Jessica Grant",
             "Maddie Naro",
@@ -17141,7 +17944,7 @@
           ]
         },
         {
-          "id": "ucsb-L15",
+          "id": "ucsb-L38",
           "players": [
             "Madison Naro",
             "Olivia Bradley",
@@ -17210,7 +18013,7 @@
           ]
         },
         {
-          "id": "ucsb-L45",
+          "id": "ucsb-L36",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -17266,7 +18069,7 @@
           ]
         },
         {
-          "id": "ucsb-L14",
+          "id": "ucsb-L29",
           "players": [
             "Jessica Grant",
             "Maddie Naro",
@@ -17336,7 +18139,7 @@
           ]
         },
         {
-          "id": "ucsb-L33",
+          "id": "ucsb-L8",
           "players": [
             "Chauncey Andersen",
             "Maddie Naro",
@@ -17392,7 +18195,7 @@
           ]
         },
         {
-          "id": "ucsb-L20",
+          "id": "ucsb-L28",
           "players": [
             "Jessica Grant",
             "Maddie Naro",
@@ -17462,7 +18265,7 @@
           ]
         },
         {
-          "id": "ucsb-L44",
+          "id": "ucsb-L32",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -17518,7 +18321,7 @@
           ]
         },
         {
-          "id": "ucsb-L9",
+          "id": "ucsb-L14",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -17574,7 +18377,7 @@
           ]
         },
         {
-          "id": "ucsb-L6",
+          "id": "ucsb-L11",
           "players": [
             "J\u00fali Puente-Valverde",
             "Maddie Naro",
@@ -17615,7 +18418,7 @@
           "vs_opponents": []
         },
         {
-          "id": "ucsb-L46",
+          "id": "ucsb-L44",
           "players": [
             "J\u00fali Puente-Valverde",
             "J\u00falia Puente-Valverde",
@@ -17664,7 +18467,7 @@
           ]
         },
         {
-          "id": "ucsb-L24",
+          "id": "ucsb-L22",
           "players": [
             "Chauncey Andersen",
             "J\u00falia Puente-Valverde",
@@ -17721,7 +18524,7 @@
           ]
         },
         {
-          "id": "ucsb-L18",
+          "id": "ucsb-L37",
           "players": [
             "Jessica Grant",
             "Olivia Bradley",
@@ -17769,7 +18572,7 @@
           ]
         },
         {
-          "id": "ucsb-L3",
+          "id": "ucsb-L10",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -17818,7 +18621,7 @@
           ]
         },
         {
-          "id": "ucsb-L19",
+          "id": "ucsb-L7",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -17881,7 +18684,7 @@
           ]
         },
         {
-          "id": "ucsb-L40",
+          "id": "ucsb-L42",
           "players": [
             "J\u00falia Puente-Valverde",
             "Madison Naro",
@@ -17943,7 +18746,7 @@
           ]
         },
         {
-          "id": "ucsb-L41",
+          "id": "ucsb-L49",
           "players": [
             "Hunter Hernandez",
             "Jada Wynn",
@@ -17996,7 +18799,7 @@
           ]
         },
         {
-          "id": "ucsb-L21",
+          "id": "ucsb-L20",
           "players": [
             "J\u00falia Puente-Valverde",
             "Maddie Naro",
@@ -18047,62 +18850,6 @@
               "min": 3.5,
               "net": -2,
               "net_per40": -22.6
-            }
-          ]
-        },
-        {
-          "id": "ucsb-L7",
-          "players": [
-            "Jessica Grant",
-            "J\u00fali Puente-Valverde",
-            "Maddie Naro",
-            "Madison Naro",
-            "Skylar Burke",
-            "Zoe Borter"
-          ],
-          "min": 11.7,
-          "for_pts": 9,
-          "against_pts": 16,
-          "net": -7,
-          "net_per40": -24.0,
-          "per40": {
-            "fgm": 17.17,
-            "fga": 51.5,
-            "tpm": 3.43,
-            "tpa": 20.6,
-            "ftm": 0.0,
-            "fta": 0.0,
-            "oreb": 6.87,
-            "dreb": 34.33,
-            "ast": 6.87,
-            "tov": 27.47,
-            "stl": 3.43,
-            "blk": 0.0,
-            "opp_fgm": 13.73,
-            "opp_fga": 58.37,
-            "opp_tpm": 6.87,
-            "opp_tpa": 30.9,
-            "opp_ftm": 13.73,
-            "opp_fta": 24.03,
-            "opp_oreb": 10.3,
-            "opp_dreb": 27.47,
-            "opp_ast": 6.87,
-            "opp_tov": 17.17
-          },
-          "vs_opponents": [
-            {
-              "opponent": "California Baptist",
-              "opp_key": null,
-              "min": 3.6,
-              "net": 1,
-              "net_per40": 11.0
-            },
-            {
-              "opponent": "UCLA",
-              "opp_key": null,
-              "min": 3.1,
-              "net": -1,
-              "net_per40": -12.8
             }
           ]
         },
@@ -18164,7 +18911,63 @@
           ]
         },
         {
-          "id": "ucsb-L23",
+          "id": "ucsb-L31",
+          "players": [
+            "Jessica Grant",
+            "J\u00fali Puente-Valverde",
+            "Maddie Naro",
+            "Madison Naro",
+            "Skylar Burke",
+            "Zoe Borter"
+          ],
+          "min": 11.7,
+          "for_pts": 9,
+          "against_pts": 16,
+          "net": -7,
+          "net_per40": -24.0,
+          "per40": {
+            "fgm": 17.17,
+            "fga": 51.5,
+            "tpm": 3.43,
+            "tpa": 20.6,
+            "ftm": 0.0,
+            "fta": 0.0,
+            "oreb": 6.87,
+            "dreb": 34.33,
+            "ast": 6.87,
+            "tov": 27.47,
+            "stl": 3.43,
+            "blk": 0.0,
+            "opp_fgm": 13.73,
+            "opp_fga": 58.37,
+            "opp_tpm": 6.87,
+            "opp_tpa": 30.9,
+            "opp_ftm": 13.73,
+            "opp_fta": 24.03,
+            "opp_oreb": 10.3,
+            "opp_dreb": 27.47,
+            "opp_ast": 6.87,
+            "opp_tov": 17.17
+          },
+          "vs_opponents": [
+            {
+              "opponent": "California Baptist",
+              "opp_key": null,
+              "min": 3.6,
+              "net": 1,
+              "net_per40": 11.0
+            },
+            {
+              "opponent": "UCLA",
+              "opp_key": null,
+              "min": 3.1,
+              "net": -1,
+              "net_per40": -12.8
+            }
+          ]
+        },
+        {
+          "id": "ucsb-L47",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -18221,7 +19024,7 @@
           ]
         },
         {
-          "id": "ucsb-L17",
+          "id": "ucsb-L40",
           "players": [
             "Chauncey Andersen",
             "Madison Naro",
@@ -18269,7 +19072,7 @@
           ]
         },
         {
-          "id": "ucsb-L39",
+          "id": "ucsb-L19",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -18325,7 +19128,7 @@
           ]
         },
         {
-          "id": "ucsb-L12",
+          "id": "ucsb-L15",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -18374,55 +19177,7 @@
           ]
         },
         {
-          "id": "ucsb-L36",
-          "players": [
-            "Jessica Grant",
-            "J\u00fali Puente-Valverde",
-            "J\u00falia Puente-Valverde",
-            "Zoe Borter",
-            "Zoe Shaw"
-          ],
-          "min": 9.8,
-          "for_pts": 11,
-          "against_pts": 22,
-          "net": -11,
-          "net_per40": -45.0,
-          "per40": {
-            "fgm": 16.35,
-            "fga": 53.15,
-            "tpm": 4.09,
-            "tpa": 24.53,
-            "ftm": 8.18,
-            "fta": 16.35,
-            "oreb": 0.0,
-            "dreb": 16.35,
-            "ast": 4.09,
-            "tov": 4.09,
-            "stl": 8.18,
-            "blk": 0.0,
-            "opp_fgm": 40.89,
-            "opp_fga": 65.42,
-            "opp_tpm": 4.09,
-            "opp_tpa": 12.27,
-            "opp_ftm": 4.09,
-            "opp_fta": 8.18,
-            "opp_oreb": 4.09,
-            "opp_dreb": 36.8,
-            "opp_ast": 16.35,
-            "opp_tov": 12.27
-          },
-          "vs_opponents": [
-            {
-              "opponent": "Hawaii",
-              "opp_key": null,
-              "min": 9.8,
-              "net": -11,
-              "net_per40": -45.0
-            }
-          ]
-        },
-        {
-          "id": "ucsb-L42",
+          "id": "ucsb-L23",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -18468,6 +19223,54 @@
               "min": 7.6,
               "net": 7,
               "net_per40": 36.7
+            }
+          ]
+        },
+        {
+          "id": "ucsb-L45",
+          "players": [
+            "Jessica Grant",
+            "J\u00fali Puente-Valverde",
+            "J\u00falia Puente-Valverde",
+            "Zoe Borter",
+            "Zoe Shaw"
+          ],
+          "min": 9.8,
+          "for_pts": 11,
+          "against_pts": 22,
+          "net": -11,
+          "net_per40": -45.0,
+          "per40": {
+            "fgm": 16.35,
+            "fga": 53.15,
+            "tpm": 4.09,
+            "tpa": 24.53,
+            "ftm": 8.18,
+            "fta": 16.35,
+            "oreb": 0.0,
+            "dreb": 16.35,
+            "ast": 4.09,
+            "tov": 4.09,
+            "stl": 8.18,
+            "blk": 0.0,
+            "opp_fgm": 40.89,
+            "opp_fga": 65.42,
+            "opp_tpm": 4.09,
+            "opp_tpa": 12.27,
+            "opp_ftm": 4.09,
+            "opp_fta": 8.18,
+            "opp_oreb": 4.09,
+            "opp_dreb": 36.8,
+            "opp_ast": 16.35,
+            "opp_tov": 12.27
+          },
+          "vs_opponents": [
+            {
+              "opponent": "Hawaii",
+              "opp_key": null,
+              "min": 9.8,
+              "net": -11,
+              "net_per40": -45.0
             }
           ]
         },
@@ -18522,7 +19325,7 @@
           ]
         },
         {
-          "id": "ucsb-L35",
+          "id": "ucsb-L43",
           "players": [
             "Chauncey Andersen",
             "J\u00falia Puente-Valverde",
@@ -18571,7 +19374,7 @@
           ]
         },
         {
-          "id": "ucsb-L8",
+          "id": "ucsb-L27",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -18620,7 +19423,7 @@
           ]
         },
         {
-          "id": "ucsb-L28",
+          "id": "ucsb-L50",
           "players": [
             "J\u00falia Puente-Valverde",
             "Maddie Naro",
@@ -18670,7 +19473,7 @@
           ]
         },
         {
-          "id": "ucsb-L27",
+          "id": "ucsb-L24",
           "players": [
             "Jessica Grant",
             "J\u00falia Puente-Valverde",
@@ -18727,7 +19530,7 @@
           ]
         },
         {
-          "id": "ucsb-L11",
+          "id": "ucsb-L12",
           "players": [
             "Jessica Grant",
             "Maddie Naro",
@@ -18775,7 +19578,7 @@
           ]
         },
         {
-          "id": "ucsb-L43",
+          "id": "ucsb-L41",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -18824,7 +19627,7 @@
           ]
         },
         {
-          "id": "ucsb-L50",
+          "id": "ucsb-L46",
           "players": [
             "Bria Shine",
             "Hannah Wickstrom",
@@ -18877,7 +19680,7 @@
           ]
         },
         {
-          "id": "ucsb-L29",
+          "id": "ucsb-L2",
           "players": [
             "Chauncey Andersen",
             "Maddie Naro",
@@ -18925,7 +19728,7 @@
           ]
         },
         {
-          "id": "ucsb-L37",
+          "id": "ucsb-L13",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -18974,7 +19777,48 @@
           ]
         },
         {
-          "id": "ucsb-L22",
+          "id": "ucsb-L4",
+          "players": [
+            "Chauncey Andersen",
+            "Jessica Grant",
+            "Maddie Naro",
+            "Olivia Bradley",
+            "Zoe Borter",
+            "Zoe Shaw"
+          ],
+          "min": 7.6,
+          "for_pts": 9,
+          "against_pts": 15,
+          "net": -6,
+          "net_per40": -31.6,
+          "per40": {
+            "fgm": 10.55,
+            "fga": 47.47,
+            "tpm": 5.27,
+            "tpa": 26.37,
+            "ftm": 5.27,
+            "fta": 10.55,
+            "oreb": 0.0,
+            "dreb": 21.1,
+            "ast": 5.27,
+            "tov": 10.55,
+            "stl": 10.55,
+            "blk": 0.0,
+            "opp_fgm": 26.37,
+            "opp_fga": 58.02,
+            "opp_tpm": 15.82,
+            "opp_tpa": 26.37,
+            "opp_ftm": 26.37,
+            "opp_fta": 26.37,
+            "opp_oreb": 10.55,
+            "opp_dreb": 42.2,
+            "opp_ast": 21.1,
+            "opp_tov": 15.82
+          },
+          "vs_opponents": []
+        },
+        {
+          "id": "ucsb-L21",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -19024,48 +19868,7 @@
           ]
         },
         {
-          "id": "ucsb-L31",
-          "players": [
-            "Chauncey Andersen",
-            "Jessica Grant",
-            "Maddie Naro",
-            "Olivia Bradley",
-            "Zoe Borter",
-            "Zoe Shaw"
-          ],
-          "min": 7.6,
-          "for_pts": 9,
-          "against_pts": 15,
-          "net": -6,
-          "net_per40": -31.6,
-          "per40": {
-            "fgm": 10.55,
-            "fga": 47.47,
-            "tpm": 5.27,
-            "tpa": 26.37,
-            "ftm": 5.27,
-            "fta": 10.55,
-            "oreb": 0.0,
-            "dreb": 21.1,
-            "ast": 5.27,
-            "tov": 10.55,
-            "stl": 10.55,
-            "blk": 0.0,
-            "opp_fgm": 26.37,
-            "opp_fga": 58.02,
-            "opp_tpm": 15.82,
-            "opp_tpa": 26.37,
-            "opp_ftm": 26.37,
-            "opp_fta": 26.37,
-            "opp_oreb": 10.55,
-            "opp_dreb": 42.2,
-            "opp_ast": 21.1,
-            "opp_tov": 15.82
-          },
-          "vs_opponents": []
-        },
-        {
-          "id": "ucsb-L16",
+          "id": "ucsb-L39",
           "players": [
             "Chauncey Andersen",
             "Madison Naro",
@@ -19113,7 +19916,7 @@
           ]
         },
         {
-          "id": "ucsb-L49",
+          "id": "ucsb-L48",
           "players": [
             "Christy Reynoso",
             "Jaquoia Jones-Brown",
@@ -19166,7 +19969,7 @@
           ]
         },
         {
-          "id": "ucsb-L38",
+          "id": "ucsb-L18",
           "players": [
             "J\u00fali Puente-Valverde",
             "Maddie Naro",
@@ -19215,7 +20018,7 @@
           ]
         },
         {
-          "id": "ucsb-L13",
+          "id": "ucsb-L9",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -19263,7 +20066,7 @@
           ]
         },
         {
-          "id": "ucsb-L34",
+          "id": "ucsb-L35",
           "players": [
             "Jessica Grant",
             "J\u00falia Puente-Valverde",
@@ -19311,7 +20114,7 @@
           ]
         },
         {
-          "id": "ucsb-L47",
+          "id": "ucsb-L33",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -19360,7 +20163,7 @@
           ]
         },
         {
-          "id": "ucsb-L2",
+          "id": "ucsb-L30",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -19400,7 +20203,7 @@
           "vs_opponents": []
         },
         {
-          "id": "ucsb-L32",
+          "id": "ucsb-L5",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -19449,7 +20252,7 @@
           ]
         },
         {
-          "id": "ucsb-L4",
+          "id": "ucsb-L16",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",
@@ -19490,7 +20293,7 @@
           "vs_opponents": []
         },
         {
-          "id": "ucsb-L48",
+          "id": "ucsb-L34",
           "players": [
             "Jessica Grant",
             "J\u00fali Puente-Valverde",
@@ -19539,7 +20342,7 @@
           ]
         },
         {
-          "id": "ucsb-L30",
+          "id": "ucsb-L3",
           "players": [
             "Chauncey Andersen",
             "Jessica Grant",

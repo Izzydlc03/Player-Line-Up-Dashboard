@@ -152,6 +152,33 @@
   }
 
   /* ---------------- Players ---------------- */
+  var ADV_TIPS = {
+    bpm: 'Box Plus/Minus — estimated point contribution per 100 possessions vs. an average D1 player',
+    ortg: 'Offensive Rating — points produced per 100 individual possessions (adjusted)',
+    usg: 'Usage% — share of the team\'s possessions this player uses while on court',
+    ts: 'True Shooting% — scoring efficiency accounting for 2s, 3s, and free throws'
+  };
+  function advChips(adv){
+    if (!adv) return '';
+    var chips = [];
+    if (adv.bpm !== null && adv.bpm !== undefined){
+      chips.push({ tip:ADV_TIPS.bpm, label:'BPM', val:(adv.bpm>=0?'+':'')+adv.bpm.toFixed(1), tone: adv.bpm>=2?'good':(adv.bpm<=-2?'bad':'') });
+    }
+    if (adv.adjoe !== null && adv.adjoe !== undefined){
+      chips.push({ tip:ADV_TIPS.ortg, label:'ORtg', val:adv.adjoe.toFixed(0), tone:'' });
+    }
+    if (adv.usg !== null && adv.usg !== undefined){
+      chips.push({ tip:ADV_TIPS.usg, label:'USG%', val:(adv.usg*100).toFixed(1), tone:'' });
+    }
+    if (adv.ts !== null && adv.ts !== undefined){
+      chips.push({ tip:ADV_TIPS.ts, label:'TS%', val:(adv.ts*100).toFixed(1), tone:'' });
+    }
+    if (!chips.length) return '';
+    return '<div class="adv-row">' + chips.map(function(c){
+      return '<span class="adv-chip'+(c.tone?' tone-'+c.tone:'')+'" data-tip="'+c.tip+'">'+c.label+' <b>'+c.val+'</b></span>';
+    }).join('') + '</div>';
+  }
+
   function renderPlayers(){
     var roster = teamData(state.team).roster_players;
     state.selectedPlayer = null;
@@ -162,12 +189,20 @@
         var lbl = ['Q1','Q2','Q3','Q4'][qi];
         return '<div class="mbar" style="height:'+Math.max(h,2)+'px" data-v="'+v.toFixed(2)+'" data-q="'+lbl+'" data-p="'+p.name+'"></div>';
       }).join('');
+      var sub = p.adv && (p.adv.cls || p.adv.pos) ? [p.adv.cls, p.adv.pos].filter(Boolean).join(' · ') : '';
       return '<button class="pcard" data-idx="'+i+'">' +
         '<div class="pcard-head"><span class="pname">'+p.name+'</span><span class="jersey">#'+p.jersey+'</span></div>' +
+        (sub ? '<div class="pcard-sub">'+sub+'</div>' : '') +
         '<div class="pmini">'+bars+'</div>' +
         '<div class="pfoot"><span>Season PPG</span><b>'+p.ppg.toFixed(1)+'</b></div>' +
+        advChips(p.adv) +
       '</button>';
     }).join('');
+
+    $$('.adv-chip').forEach(function(c){
+      c.addEventListener('mousemove', function(e){ showTip(e.clientX, e.clientY, c.getAttribute('data-tip')); });
+      c.addEventListener('mouseleave', hideTip);
+    });
 
     $$('.mbar').forEach(function(b){
       b.addEventListener('mousemove', function(e){
