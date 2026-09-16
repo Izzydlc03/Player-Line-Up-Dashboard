@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Line-Up Dashboard — UCSD WBB</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div class="brand-text"><b>Big West WBB</b><span>Line-Up Dashboard</span></div>
+    </div>
+
+    <nav class="views" id="nav">
+      <div class="nav-label eyebrow">Dashboard</div>
+      <button class="nav-btn active" data-view="overview">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="17" y="3" width="4" height="17"/></svg>
+        Team Overview
+      </button>
+      <button class="nav-btn" data-view="players">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-4 3.1-6.5 7-6.5S19 16 19 20"/></svg>
+        Player Scoring
+      </button>
+      <button class="nav-btn" data-view="lineups">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="2.1"/><circle cx="17" cy="7" r="2.1"/><circle cx="7" cy="17" r="2.1"/><circle cx="17" cy="17" r="2.1"/><circle cx="12" cy="12" r="2.1"/></svg>
+        Lineups
+      </button>
+      <button class="nav-btn" data-view="conference">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Conference
+      </button>
+    </nav>
+
+    <div class="filters">
+      <div class="nav-label eyebrow">Filters</div>
+      <div class="field">
+        <label for="gameSel">Game / Sample</label>
+        <select id="gameSel"></select>
+      </div>
+      <div class="field">
+        <label for="minSel">Min. Lineup Minutes</label>
+        <select id="minSel">
+          <option value="8">8+ minutes</option>
+          <option value="20" selected>20+ minutes</option>
+          <option value="40">40+ minutes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sidebar-foot">
+      <div class="eyebrow">Data source</div>
+      <p>2025–26 season · reconstructed from play-by-play (scoring, substitutions) and boxscore data in the Player-Overview-Dashboard dataset.</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>Player Line-Up Dashboard</h1>
+        <div class="sub">UC San Diego Tritons · Big West Conference · Women's Basketball</div>
+      </div>
+      <span class="draft-badge"><span class="dot"></span>Rough draft · real season data</span>
+    </header>
+
+    <!-- ===================== OVERVIEW ===================== -->
+    <section class="view active" id="view-overview">
+      <div class="tiles" id="kpiStrip"></div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Points per quarter</h3>
+            <div class="hint">Tritons scoring vs. opponent, by quarter. Use the game selector in the sidebar to compare a specific conference matchup against the season baseline.</div>
+          </div>
+          <div class="legend" id="qLegend"></div>
+        </div>
+        <div class="qchart" id="qChart"></div>
+      </div>
+
+      <div class="insight" id="qInsight"></div>
+    </section>
+
+    <!-- ===================== PLAYERS ===================== -->
+    <section class="view" id="view-players">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Player points per quarter</h3>
+            <div class="hint">Season per-game scoring average by quarter, reconstructed from made-shot play-by-play events. Click a player to compare their shape to the team's.</div>
+          </div>
+        </div>
+        <div class="players-grid" id="playersGrid"></div>
+      </div>
+      <div class="insight" id="playerInsight"></div>
+    </section>
+
+    <!-- ===================== LINEUPS ===================== -->
+    <section class="view" id="view-lineups">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Five-player lineup efficiency</h3>
+            <div class="hint">On-court 5-man units reconstructed from substitution events. Ranked by net rating per 40 minutes. Use the sidebar filter to set a minimum sample size.</div>
+          </div>
+          <div class="card-title-actions">
+            <input class="search-input" id="lineupSearch" placeholder="Search by player…" />
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="lineupTable">
+            <thead>
+              <tr>
+                <th><button class="th-sort" data-key="players">Lineup</button></th>
+                <th class="num"><button class="th-sort" data-key="min">Min</button></th>
+                <th class="num"><button class="th-sort" data-key="for_pts">Pts For</button></th>
+                <th class="num"><button class="th-sort" data-key="against_pts">Pts Against</button></th>
+                <th class="num"><button class="th-sort" data-key="net">Net</button></th>
+                <th class="num"><button class="th-sort" data-key="net_per40">Net / 40</button></th>
+              </tr>
+            </thead>
+            <tbody id="lineupBody"></tbody>
+          </table>
+        </div>
+        <div class="source-note" id="lineupNote"></div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card best">
+          <div class="compare-eyebrow">Best net lineup</div>
+          <div class="compare-title" id="bestTitle"></div>
+          <div class="compare-sub" id="bestSub"></div>
+          <div id="bestMetrics"></div>
+        </div>
+        <div class="compare-card worst">
+          <div class="compare-eyebrow">Lineup to limit</div>
+          <div class="compare-title" id="worstTitle"></div>
+          <div class="compare-sub" id="worstSub"></div>
+          <div id="worstMetrics"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONFERENCE ===================== -->
+    <section class="view" id="view-conference">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Big West standings comparison</h3>
+            <div class="hint">UCSD vs. conference opponents, 2025–26 season. Pace is estimated from season shooting/rebounding/turnover totals.</div>
+          </div>
+          <div class="seg" id="metricSeg">
+            <button data-metric="ppg" class="active">PPG</button>
+            <button data-metric="oppg">Opp PPG</button>
+            <button data-metric="net">Net Rtg</button>
+            <button data-metric="pace">Pace</button>
+          </div>
+        </div>
+        <div id="rankChart"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Full comparison table</h3>
+            <div class="hint">UCSD row highlighted for quick reference.</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="conf-table">
+            <thead>
+              <tr><th>Team</th><th>PPG</th><th>Opp PPG</th><th>Net Rtg</th><th>Pace</th></tr>
+            </thead>
+            <tbody id="confBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+<script src="script.js"></script>
+</body>
+</html>

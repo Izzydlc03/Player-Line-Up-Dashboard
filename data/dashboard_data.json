@@ -1,0 +1,679 @@
+{
+  "meta": {
+    "season": "2025-26",
+    "source": "Player-Overview-Dashboard raw data (csv1-4 + data/2025-26.json)"
+  },
+  "kpis_source_note": "record/kpis derived below",
+  "team_quarters": {
+    "season": {
+      "label": "Season Average (all games)",
+      "us": [
+        17.1,
+        15.8,
+        18.8,
+        17.3
+      ],
+      "opp": [
+        13.1,
+        15.5,
+        15.3,
+        17.7
+      ]
+    },
+    "2025-12-06_uc_san_diego_long_beach_st": {
+      "label": "vs Long Beach St. \u2014 2025-12-06",
+      "us": [
+        23,
+        16,
+        22,
+        14
+      ],
+      "opp": [
+        7,
+        9,
+        16,
+        13
+      ],
+      "conference": true
+    },
+    "2026-01-01_uc_san_diego_cal_poly": {
+      "label": "vs Cal Poly \u2014 2026-01-01",
+      "us": [
+        14,
+        20,
+        23,
+        18
+      ],
+      "opp": [
+        7,
+        12,
+        14,
+        21
+      ],
+      "conference": true
+    },
+    "2026-01-03_hawaii_uc_san_diego": {
+      "label": "vs Hawaii \u2014 2026-01-03",
+      "us": [
+        13,
+        22,
+        14,
+        16
+      ],
+      "opp": [
+        16,
+        13,
+        12,
+        13
+      ],
+      "conference": true
+    },
+    "2026-01-08_cal_st_fullerton_uc_san_diego": {
+      "label": "vs Cal St. Fullerton \u2014 2026-01-08",
+      "us": [
+        19,
+        16,
+        25,
+        6
+      ],
+      "opp": [
+        13,
+        19,
+        16,
+        18
+      ],
+      "conference": true
+    }
+  },
+  "roster_players": [
+    {
+      "name": "Erin Condron",
+      "jersey": "11",
+      "ppg": 15.6,
+      "q": [
+        3.52,
+        2.45,
+        3.64,
+        2.82
+      ],
+      "season_q_total": [
+        116,
+        81,
+        120,
+        93
+      ],
+      "gp": 33
+    },
+    {
+      "name": "Makayla Rose",
+      "jersey": "4",
+      "ppg": 12.6,
+      "q": [
+        3.12,
+        2.18,
+        2.24,
+        2.88
+      ],
+      "season_q_total": [
+        103,
+        72,
+        74,
+        95
+      ],
+      "gp": 33
+    },
+    {
+      "name": "Sabrina Ma",
+      "jersey": "15",
+      "ppg": 11.4,
+      "q": [
+        2.61,
+        1.82,
+        3.27,
+        1.61
+      ],
+      "season_q_total": [
+        86,
+        60,
+        108,
+        53
+      ],
+      "gp": 33
+    },
+    {
+      "name": "Rosa Smith",
+      "jersey": "12",
+      "ppg": 10.9,
+      "q": [
+        2.75,
+        2.12,
+        2.44,
+        1.97
+      ],
+      "season_q_total": [
+        88,
+        68,
+        78,
+        63
+      ],
+      "gp": 32
+    },
+    {
+      "name": "Dymonique Maxie",
+      "jersey": "10",
+      "ppg": 7.7,
+      "q": [
+        1.61,
+        1.27,
+        2.52,
+        1.27
+      ],
+      "season_q_total": [
+        53,
+        42,
+        83,
+        42
+      ],
+      "gp": 33
+    },
+    {
+      "name": "Lev Feiman",
+      "jersey": "13",
+      "ppg": 6.5,
+      "q": [
+        1.04,
+        1.64,
+        0.96,
+        1.5
+      ],
+      "season_q_total": [
+        29,
+        46,
+        27,
+        42
+      ],
+      "gp": 28
+    },
+    {
+      "name": "Niya Price",
+      "jersey": "24",
+      "ppg": 3.5,
+      "q": [
+        0.85,
+        0.62,
+        0.31,
+        1.31
+      ],
+      "season_q_total": [
+        11,
+        8,
+        4,
+        17
+      ],
+      "gp": 13
+    },
+    {
+      "name": "Tatum Jones",
+      "jersey": "3",
+      "ppg": 2.7,
+      "q": [
+        0.0,
+        0.0,
+        2.0,
+        0.67
+      ],
+      "season_q_total": [
+        0,
+        0,
+        6,
+        2
+      ],
+      "gp": 3
+    },
+    {
+      "name": "Michaela Fairwell",
+      "jersey": "2",
+      "ppg": 2.5,
+      "q": [
+        0.24,
+        0.06,
+        0.65,
+        1.0
+      ],
+      "season_q_total": [
+        4,
+        1,
+        11,
+        17
+      ],
+      "gp": 17
+    },
+    {
+      "name": "Nicki Polocheck",
+      "jersey": "21",
+      "ppg": 1.8,
+      "q": [
+        0.0,
+        0.84,
+        0.16,
+        0.64
+      ],
+      "season_q_total": [
+        0,
+        21,
+        4,
+        16
+      ],
+      "gp": 25
+    }
+  ],
+  "lineups": [
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Makayla Rose",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 471.4,
+      "for_pts": 787,
+      "against_pts": 660,
+      "net": 127,
+      "net_per40": 10.8
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Lev Feiman",
+        "Makayla Rose",
+        "Sabrina Ma"
+      ],
+      "min": 102.2,
+      "for_pts": 195,
+      "against_pts": 175,
+      "net": 20,
+      "net_per40": 7.8
+    },
+    {
+      "players": [
+        "Erin Condron",
+        "Lev Feiman",
+        "Makayla Rose",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 54.9,
+      "for_pts": 92,
+      "against_pts": 84,
+      "net": 8,
+      "net_per40": 5.8
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Junae Mahan",
+        "Makayla Rose",
+        "Sabrina Ma"
+      ],
+      "min": 42.8,
+      "for_pts": 79,
+      "against_pts": 51,
+      "net": 28,
+      "net_per40": 26.2
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Lev Feiman",
+        "Makayla Rose",
+        "Rosa Smith"
+      ],
+      "min": 34.0,
+      "for_pts": 68,
+      "against_pts": 59,
+      "net": 9,
+      "net_per40": 10.6
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Lev Feiman",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 32.8,
+      "for_pts": 56,
+      "against_pts": 34,
+      "net": 22,
+      "net_per40": 26.9
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Makayla Rose",
+        "Nicki Polocheck",
+        "Rosa Smith"
+      ],
+      "min": 28.0,
+      "for_pts": 38,
+      "against_pts": 40,
+      "net": -2,
+      "net_per40": -2.9
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Makayla Rose",
+        "Michaela Fairwell",
+        "Sabrina Ma"
+      ],
+      "min": 26.8,
+      "for_pts": 58,
+      "against_pts": 45,
+      "net": 13,
+      "net_per40": 19.4
+    },
+    {
+      "players": [
+        "Damilola Sule",
+        "Dymonique Maxie",
+        "Lev Feiman",
+        "Makayla Rose",
+        "Sabrina Ma"
+      ],
+      "min": 21.1,
+      "for_pts": 33,
+      "against_pts": 32,
+      "net": 1,
+      "net_per40": 1.9
+    },
+    {
+      "players": [
+        "Damilola Sule",
+        "Dymonique Maxie",
+        "Makayla Rose",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 20.7,
+      "for_pts": 31,
+      "against_pts": 43,
+      "net": -12,
+      "net_per40": -23.2
+    },
+    {
+      "players": [
+        "Erin Condron",
+        "Makayla Rose",
+        "Michaela Fairwell",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 18.3,
+      "for_pts": 33,
+      "against_pts": 24,
+      "net": 9,
+      "net_per40": 19.7
+    },
+    {
+      "players": [
+        "Erin Condron",
+        "Junae Mahan",
+        "Makayla Rose",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 17.1,
+      "for_pts": 41,
+      "against_pts": 28,
+      "net": 13,
+      "net_per40": 30.4
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Junae Mahan",
+        "Makayla Rose",
+        "Rosa Smith"
+      ],
+      "min": 15.4,
+      "for_pts": 20,
+      "against_pts": 34,
+      "net": -14,
+      "net_per40": -36.4
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Hunter Hernandez",
+        "Jada Wynn",
+        "Lauryn Madsen",
+        "Makayla Rose",
+        "Rosa Smith",
+        "Sabrina Ma",
+        "Shirel Nahum",
+        "Summah Hanson"
+      ],
+      "min": 14.5,
+      "for_pts": 26,
+      "against_pts": 31,
+      "net": -5,
+      "net_per40": -13.8
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Lev Feiman",
+        "Makayla Rose",
+        "Michaela Fairwell"
+      ],
+      "min": 14.2,
+      "for_pts": 12,
+      "against_pts": 31,
+      "net": -19,
+      "net_per40": -53.5
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Makayla Rose",
+        "Michaela Fairwell",
+        "Rosa Smith"
+      ],
+      "min": 13.2,
+      "for_pts": 26,
+      "against_pts": 28,
+      "net": -2,
+      "net_per40": -6.1
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erika Aspajo",
+        "Erin Condron",
+        "Jite Gbemuotor",
+        "Makayla Rose",
+        "Mariona Cos-Morales",
+        "Rita Nazario",
+        "Rosa Smith",
+        "Sabrina Ma",
+        "Saray White"
+      ],
+      "min": 12.0,
+      "for_pts": 25,
+      "against_pts": 23,
+      "net": 2,
+      "net_per40": 6.7
+    },
+    {
+      "players": [
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Nicki Polocheck",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 10.2,
+      "for_pts": 14,
+      "against_pts": 17,
+      "net": -3,
+      "net_per40": -11.8
+    },
+    {
+      "players": [
+        "Bria Shine",
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Hannah Wickstrom",
+        "Kaylani Polk",
+        "Makayla Rose",
+        "Rosa Smith",
+        "Sabrina Ma",
+        "Seneca Hackley",
+        "Taylor Swanson"
+      ],
+      "min": 8.7,
+      "for_pts": 10,
+      "against_pts": 8,
+      "net": 2,
+      "net_per40": 9.2
+    },
+    {
+      "players": [
+        "Brynna Pukis",
+        "Dymonique Maxie",
+        "Erin Condron",
+        "Jaquoia Jones-Brown",
+        "Kennan Ka",
+        "Khylee Pepe",
+        "Makayla Rose",
+        "Morgan Mack",
+        "Rosa Smith",
+        "Sabrina Ma"
+      ],
+      "min": 8.1,
+      "for_pts": 13,
+      "against_pts": 10,
+      "net": 3,
+      "net_per40": 14.8
+    }
+  ],
+  "lineup_total_minutes_considered": 966.4,
+  "conference": [
+    {
+      "key": "ucirvine",
+      "name": "UC Irvine",
+      "mascot": "Anteaters",
+      "ppg": 70.9,
+      "oppg": 58.1,
+      "net": 12.8,
+      "pace": 69.2,
+      "gp": 33,
+      "self": false
+    },
+    {
+      "key": "ucsd",
+      "name": "UC San Diego",
+      "mascot": "Tritons",
+      "ppg": 70.2,
+      "oppg": 62.6,
+      "net": 7.5,
+      "pace": 74.1,
+      "gp": 33,
+      "self": true
+    },
+    {
+      "key": "ucsb",
+      "name": "UC Santa Barbara",
+      "mascot": "Gauchos",
+      "ppg": 66.2,
+      "oppg": 59.9,
+      "net": 6.3,
+      "pace": 68.6,
+      "gp": 30,
+      "self": false
+    },
+    {
+      "key": "csuf",
+      "name": "Cal State Fullerton",
+      "mascot": "Titans",
+      "ppg": 71.3,
+      "oppg": 65.8,
+      "net": 5.5,
+      "pace": 79.0,
+      "gp": 32,
+      "self": false
+    },
+    {
+      "key": "csun",
+      "name": "Cal State Northridge",
+      "mascot": "Matadors",
+      "ppg": 64.7,
+      "oppg": 66.8,
+      "net": -2.1,
+      "pace": 75.3,
+      "gp": 30,
+      "self": false
+    },
+    {
+      "key": "ucr",
+      "name": "UC Riverside",
+      "mascot": "Highlanders",
+      "ppg": 62.8,
+      "oppg": 65.2,
+      "net": -2.4,
+      "pace": 71.7,
+      "gp": 32,
+      "self": false
+    },
+    {
+      "key": "csub",
+      "name": "Cal State Bakersfield",
+      "mascot": "Roadrunners",
+      "ppg": 61.5,
+      "oppg": 69.6,
+      "net": -8.1,
+      "pace": 74.7,
+      "gp": 30,
+      "self": false
+    },
+    {
+      "key": "calpoly",
+      "name": "Cal Poly",
+      "mascot": "Mustangs",
+      "ppg": 58.5,
+      "oppg": 71.4,
+      "net": -12.9,
+      "pace": 75.1,
+      "gp": 31,
+      "self": false
+    },
+    {
+      "key": "csulb",
+      "name": "Long Beach State",
+      "mascot": "The Beach",
+      "ppg": 56.4,
+      "oppg": 72.3,
+      "net": -15.9,
+      "pace": 71.4,
+      "gp": 31,
+      "self": false
+    }
+  ],
+  "kpis": {
+    "record": "24-9",
+    "ppg": 70.2,
+    "oppg": 62.6
+  }
+}
