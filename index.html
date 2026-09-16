@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Player Line-Up Dashboard — UCSD WBB</title>
+<title>Player Line-Up Dashboard — Big West WBB</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="app">
   <aside class="sidebar">
     <div class="brand">
-      <div class="brand-mark">T</div>
+      <div class="brand-mark" id="brandMark">T</div>
       <div class="brand-text"><b>Big West WBB</b><span>Line-Up Dashboard</span></div>
     </div>
 
@@ -35,7 +35,11 @@
     </nav>
 
     <div class="filters">
-      <div class="nav-label eyebrow">Filters</div>
+      <div class="nav-label eyebrow">Team</div>
+      <div class="field">
+        <label for="teamSel">My Team</label>
+        <select id="teamSel"></select>
+      </div>
       <div class="field">
         <label for="gameSel">Game / Sample</label>
         <select id="gameSel"></select>
@@ -43,8 +47,8 @@
       <div class="field">
         <label for="minSel">Min. Lineup Minutes</label>
         <select id="minSel">
-          <option value="8">8+ minutes</option>
-          <option value="20" selected>20+ minutes</option>
+          <option value="0">All (6+ min)</option>
+          <option value="15" selected>15+ minutes</option>
           <option value="40">40+ minutes</option>
         </select>
       </div>
@@ -52,7 +56,7 @@
 
     <div class="sidebar-foot">
       <div class="eyebrow">Data source</div>
-      <p>2025–26 season · reconstructed from play-by-play (scoring, substitutions) and boxscore data in the Player-Overview-Dashboard dataset.</p>
+      <p>2025–26 season · reconstructed from play-by-play (scoring, substitutions) and boxscore data in the Player-Overview-Dashboard dataset, for all 9 Big West teams.</p>
     </div>
   </aside>
 
@@ -60,7 +64,7 @@
     <header class="topbar">
       <div>
         <h1>Player Line-Up Dashboard</h1>
-        <div class="sub">UC San Diego Tritons · Big West Conference · Women's Basketball</div>
+        <div class="sub" id="topbarSub">Big West Conference · Women's Basketball</div>
       </div>
       <span class="draft-badge"><span class="dot"></span>Rough draft · real season data</span>
     </header>
@@ -73,7 +77,7 @@
         <div class="card-title">
           <div class="card-title-copy">
             <h3>Points per quarter</h3>
-            <div class="hint">Tritons scoring vs. opponent, by quarter. Use the game selector in the sidebar to compare a specific conference matchup against the season baseline.</div>
+            <div class="hint">Scoring vs. opponent, by quarter. Use the game selector in the sidebar to compare a specific conference matchup against the season baseline.</div>
           </div>
           <div class="legend" id="qLegend"></div>
         </div>
@@ -102,28 +106,17 @@
       <div class="card">
         <div class="card-title">
           <div class="card-title-copy">
-            <h3>Five-player lineup efficiency</h3>
-            <div class="hint">On-court 5-man units reconstructed from substitution events. Ranked by net rating per 40 minutes. Use the sidebar filter to set a minimum sample size.</div>
+            <h3 id="lineupCardTitle">Five-player lineup usage</h3>
+            <div class="hint">On-court 5-man units reconstructed from substitution events, ranked by minutes played together (most to least). Click any lineup for a full breakdown.</div>
           </div>
           <div class="card-title-actions">
             <input class="search-input" id="lineupSearch" placeholder="Search by player…" />
+            <div class="field" style="padding:0;">
+              <select id="compareSel"><option value="">Compare vs…</option></select>
+            </div>
           </div>
         </div>
-        <div class="table-wrap">
-          <table id="lineupTable">
-            <thead>
-              <tr>
-                <th><button class="th-sort" data-key="players">Lineup</button></th>
-                <th class="num"><button class="th-sort" data-key="min">Min</button></th>
-                <th class="num"><button class="th-sort" data-key="for_pts">Pts For</button></th>
-                <th class="num"><button class="th-sort" data-key="against_pts">Pts Against</button></th>
-                <th class="num"><button class="th-sort" data-key="net">Net</button></th>
-                <th class="num"><button class="th-sort" data-key="net_per40">Net / 40</button></th>
-              </tr>
-            </thead>
-            <tbody id="lineupBody"></tbody>
-          </table>
-        </div>
+        <div class="lineup-tables" id="lineupTables"></div>
         <div class="source-note" id="lineupNote"></div>
       </div>
 
@@ -149,7 +142,7 @@
         <div class="card-title">
           <div class="card-title-copy">
             <h3>Big West standings comparison</h3>
-            <div class="hint">UCSD vs. conference opponents, 2025–26 season. Pace is estimated from season shooting/rebounding/turnover totals.</div>
+            <div class="hint">2025–26 season. Pace is estimated from season shooting/rebounding/turnover totals.</div>
           </div>
           <div class="seg" id="metricSeg">
             <button data-metric="ppg" class="active">PPG</button>
@@ -165,7 +158,7 @@
         <div class="card-title">
           <div class="card-title-copy">
             <h3>Full comparison table</h3>
-            <div class="hint">UCSD row highlighted for quick reference.</div>
+            <div class="hint">Your selected team's row is highlighted for quick reference.</div>
           </div>
         </div>
         <div class="table-wrap">
@@ -179,6 +172,13 @@
       </div>
     </section>
   </main>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-shell">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div id="modalContent"></div>
+  </div>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
