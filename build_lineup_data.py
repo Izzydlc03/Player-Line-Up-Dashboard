@@ -1,493 +1,783 @@
-# Rebuilds data/dashboard_data.json for all Big West teams from the raw
-# season data in the Player-Overview-Dashboard repo. Clone that repo as a
-# sibling directory before running (or point POD_DIR at your checkout):
-#   git clone https://github.com/Izzydlc03/Player-Overview-Dashboard.git ../Player-Overview-Dashboard
-#   python3 build_lineup_data.py
-#
-# Play-by-play/boxscore CSVs (csv1-4) are identical between main and the
-# add-opponents-remove-hawaii-ucdavis branch, so lineup/quarter numbers are
-# unaffected by which one you check out. That branch's data/<season>.json
-# additionally carries a per-player "advanced" block (national stats: BPM,
-# usage%, TS%, ORtg/DRtg, etc.) that main doesn't have yet — this script
-# pulls it in when present and skips it gracefully when it's not.
-import json, math, os, re, unicodedata, collections
+"""Build data/dashboard_data.json: per-team scoring, player and 5-man lineup
+data for the 2025-26 season (12 Big West 2026-27 members + 6 D1 non-conference
+opponents), reconstructed from play-by-play and box scores.
+
+Inputs (CSV sets with csv1_game_index / csv2_boxscore_players /
+csv3_playbyplay / csv4_play_analysis):
+  <POD_DIR>/2025-26                         9 Big West teams (shared file)
+  newmembers/2025-26                        Cal Baptist, Utah Valley, Sacramento St.
+  <POD_DIR>/opponents/<X>/2025-26           one folder per non-conference opponent
+  <POD_DIR>/opponents/overall_data/wbb_d1_processed_players.csv   national player stats
+  data/rosters_2026-27.json                 optional (build_rosters.py)
+
+    git clone https://github.com/Izzydlc03/Player-Overview-Dashboard.git ../Player-Overview-Dashboard
+    python3 build_lineup_data.py
+
+Accuracy safeguards (all reported under each team's "data_quality"):
+  * play-by-play names are matched to box score players with name_match.py
+    (unique matches only); games with an unmatched name are excluded from lineups
+  * the play-by-play score orientation is checked against the csv1 final score
+    and corrected per game when flipped; games that match neither are excluded
+  * lineup stats only accumulate while exactly 5 players are on the floor
+  * derived player minutes are compared with box score minutes, derived points
+    with box score points, and PPG with the national dataset
+"""
+import collections
+import json
+import math
+import os
+import re
+import sys
+
 import pandas as pd
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import name_match as nm
 
 POD_DIR = os.environ.get("POD_DIR", "../Player-Overview-Dashboard")
 SEASON = os.environ.get("SEASON", "2025-26")
-BASE = f"{POD_DIR}/{SEASON}"
-JSON_PATH = f"{POD_DIR}/data/{SEASON}.json"
+HERE = os.path.dirname(os.path.abspath(__file__))
 
-# JSON key -> exact team name string used in the play-by-play / boxscore CSVs
-TEAM_NAME = {
-    "ucsd": "UC San Diego",
-    "ucirvine": "UC Irvine",
-    "calpoly": "Cal Poly",
-    "csub": "CSU Bakersfield",
-    "csuf": "Cal St. Fullerton",
-    "csun": "CSUN",
-    "csulb": "Long Beach St.",
-    "ucr": "UC Riverside",
-    "ucsb": "UC Santa Barbara",
+POD_SHARED = f"{POD_DIR}/{SEASON}"
+NEW_SHARED = os.path.join(HERE, "newmembers", SEASON)
+NATIONAL_PATH = f"{POD_DIR}/opponents/overall_data/wbb_d1_processed_players.csv"
+ROSTER_PATH = os.path.join(HERE, "data", "rosters_2026-27.json")
+OUT_PATH = os.path.join(HERE, "data", "dashboard_data.json")
+
+# key -> config. csv_name = team string inside the CSVs; national = team string
+# in the national player-stats file. src = dataset the team is built from.
+TEAMS = {
+    "ucsd":       dict(kind="conference", csv_name="UC San Diego",       national="UC San Diego",       label="UC San Diego",       mascot="Tritons",     src="pod"),
+    "calbaptist": dict(kind="conference", csv_name="California Baptist", national="Cal Baptist",        label="Cal Baptist",        mascot="Lancers",     src="new"),
+    "csulb":      dict(kind="conference", csv_name="Long Beach St.",     national="Long Beach St.",     label="Long Beach State",   mascot="The Beach",   src="pod"),
+    "csun":       dict(kind="conference", csv_name="CSUN",               national="Cal St. Northridge", label="Cal State Northridge", mascot="Matadors", src="pod"),
+    "ucirvine":   dict(kind="conference", csv_name="UC Irvine",          national="UC Irvine",          label="UC Irvine",          mascot="Anteaters",   src="pod"),
+    "utahvalley": dict(kind="conference", csv_name="Utah Valley",        national="Utah Valley",        label="Utah Valley",        mascot="Wolverines",  src="new"),
+    "ucr":        dict(kind="conference", csv_name="UC Riverside",       national="UC Riverside",       label="UC Riverside",       mascot="Highlanders", src="pod"),
+    "ucsb":       dict(kind="conference", csv_name="UC Santa Barbara",   national="UC Santa Barbara",   label="UC Santa Barbara",   mascot="Gauchos",     src="pod"),
+    "calpoly":    dict(kind="conference", csv_name="Cal Poly",           national="Cal Poly",           label="Cal Poly",           mascot="Mustangs",    src="pod"),
+    "sacstate":   dict(kind="conference", csv_name="Sacramento St.",     national="Sacramento St.",     label="Sacramento State",   mascot="Hornets",     src="new"),
+    "csuf":       dict(kind="conference", csv_name="Cal St. Fullerton",  national="Cal St. Fullerton",  label="Cal State Fullerton", mascot="Titans",     src="pod"),
+    "csub":       dict(kind="conference", csv_name="CSU Bakersfield",    national="Cal St. Bakersfield", label="Cal State Bakersfield", mascot="Roadrunners", src="pod"),
+    "lmu":        dict(kind="opponent", csv_name="LMU (CA)",       national="Loyola Marymount", label="Loyola Marymount", mascot="Lions",       src="LMU"),
+    "nau":        dict(kind="opponent", csv_name="Northern Ariz.", national="Northern Arizona", label="Northern Arizona", mascot="Lumberjacks", src="NAU"),
+    "portlandst": dict(kind="opponent", csv_name="Portland St.",   national="Portland St.",     label="Portland State",   mascot="Vikings",     src="PortlandState"),
+    "usd":        dict(kind="opponent", csv_name="San Diego",      national="San Diego",        label="San Diego",        mascot="Toreros",     src="USD"),
+    "usf":        dict(kind="opponent", csv_name="San Francisco",  national="San Francisco",    label="San Francisco",    mascot="Dons",        src="USF"),
+    "washington": dict(kind="opponent", csv_name="Washington",     national="Washington",       label="Washington",       mascot="Huskies",     src="Washington"),
 }
-TEAM_KEYS = list(TEAM_NAME.keys())
-
-# Non-conference "scouting" opponents, each with its own standalone
-# csv1-4 folder under opponents/<folder>/<season>/ (added on the
-# add-opponents-remove-hawaii-ucdavis branch). csv_name is the exact team
-# string inside that folder's own CSVs; advanced_name is how the same team
-# is spelled in opponents/overall_data/wbb_d1_processed_players.csv (the
-# national stats dataset), where it differs.
-OPPONENT_TEAMS = {
-    "lmu":        {"folder": "LMU",           "csv_name": "LMU (CA)",       "advanced_name": "Loyola Marymount", "label": "Loyola Marymount", "mascot": "Lions"},
-    "nau":        {"folder": "NAU",           "csv_name": "Northern Ariz.", "advanced_name": "Northern Arizona", "label": "Northern Arizona", "mascot": "Lumberjacks"},
-    "portlandst": {"folder": "PortlandState", "csv_name": "Portland St.",   "advanced_name": "Portland St.",     "label": "Portland State",   "mascot": "Vikings"},
-    "usd":        {"folder": "USD",           "csv_name": "San Diego",     "advanced_name": "San Diego",        "label": "San Diego",        "mascot": "Toreros"},
-    "usf":        {"folder": "USF",           "csv_name": "San Francisco", "advanced_name": "San Francisco",    "label": "San Francisco",    "mascot": "Dons"},
-    "washington": {"folder": "Washington",    "csv_name": "Washington",    "advanced_name": "Washington",       "label": "Washington",       "mascot": "Huskies"},
-}
-ALL_TEAM_NAME = dict(TEAM_NAME, **{k: v["csv_name"] for k, v in OPPONENT_TEAMS.items()})
-
-idx = pd.read_csv(f"{BASE}/csv1_game_index.csv")
-box = pd.read_csv(f"{BASE}/csv2_boxscore_players.csv")
-pbp = pd.read_csv(f"{BASE}/csv3_playbyplay.csv")
-qtr = pd.read_csv(f"{BASE}/csv4_play_analysis.csv")
-with open(JSON_PATH) as f:
-    season_json = json.load(f)
-
-NATIONAL_ADV_PATH = f"{POD_DIR}/opponents/overall_data/wbb_d1_processed_players.csv"
-national_adv_df = pd.read_csv(NATIONAL_ADV_PATH) if os.path.exists(NATIONAL_ADV_PATH) else None
-
-
-def norm(name):
-    return re.sub(r"\s+", "", str(name)).upper()
-
-
-def norm_for_match(name):
-    """Loose match key: strip accents/periods, collapse whitespace, lowercase."""
-    name = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode("ascii")
-    name = re.sub(r"\.", "", name)
-    return re.sub(r"\s+", " ", name).strip().lower()
-
-
-ADV_FIELDS = ["bpm", "adjoe", "drtg", "usg", "ts", "efg", "porpag", "cls", "pos"]
-
-
-def extract_advanced(adv):
-    if adv is None:
-        return None
-    def get(f):
-        v = adv.get(f) if hasattr(adv, "get") else adv[f]
-        return None if (isinstance(v, float) and math.isnan(v)) else v
-    out = {}
-    for f in ("cls", "pos"):
-        v = get(f)
-        out[f] = "" if v is None else str(v)
-    for f in ("bpm", "adjoe", "drtg", "usg", "ts", "efg", "porpag"):
-        v = get(f)
-        try:
-            out[f] = round(float(v), 3) if v is not None else None
-        except (TypeError, ValueError):
-            out[f] = None
-    return out
-
-
-def display_name(last_first):
-    if "," in last_first:
-        last, first = [p.strip() for p in last_first.split(",", 1)]
-        return f"{first.title()} {last.title()}"
-    return str(last_first).title()
-
-
-def made(s):
-    if pd.isna(s):
-        return 0
-    return int(str(s).split("-")[0])
-
-
-def quarter_pts(row, q):
-    fgm, tpm, ftm = made(row.get(f"q{q}_fg", "0-0")), made(row.get(f"q{q}_3p", "0-0")), made(row.get(f"q{q}_ft", "0-0"))
-    return 2 * (fgm - tpm) + 3 * tpm + ftm
-
-
-def shot_value(play):
-    if "3PTR" in play:
-        return 3
-    if "FT" in play:
-        return 1
-    return 2
-
-
-def period_index(p):
-    p = str(p)
-    return int(p) - 1 if p in ("1", "2", "3", "4") else None
-
+NAME_TO_KEY = {c["csv_name"]: k for k, c in TEAMS.items()}
 
 PERIOD_LEN = {"1": 600, "2": 600, "3": 600, "4": 600}
-DEFAULT_LEN = 300
-
-
-def parse_clock(t):
-    if t == "--" or pd.isna(t):
-        return None
-    try:
-        m, s = t.split(":")
-        return int(m) * 60 + int(s)
-    except Exception:
-        return None
-
+OT_LEN = 300  # periods labelled OT1 / 5thHalf / ... are 5-minute overtimes
 
 BOX_KEYS = (
     ["fgm", "fga", "tpm", "tpa", "ftm", "fta", "oreb", "dreb", "ast", "tov", "stl", "blk"]
     + ["opp_" + k for k in ["fgm", "fga", "tpm", "tpa", "ftm", "fta", "oreb", "dreb", "ast", "tov"]]
 )
-EMPTY_BOX = lambda: {k: 0 for k in BOX_KEYS}  # noqa: E731
 
 
-def apply_event(target_box, team_col, play, prefix=""):
-    """Increment target_box in place for one play event."""
+def empty_box():
+    return {k: 0 for k in BOX_KEYS}
+
+
+def first_int(v):
+    if v is None or (isinstance(v, float) and math.isnan(v)):
+        return None
+    try:
+        return int(float(str(v).split()[0]))
+    except ValueError:
+        return None
+
+
+def parse_clock(t):
+    if not isinstance(t, str) or t == "--":
+        return None
+    try:
+        m, s = t.split(":")
+        return int(m) * 60 + int(s)
+    except ValueError:
+        return None
+
+
+def made(s):
+    return 0 if pd.isna(s) else int(str(s).split("-")[0])
+
+
+def attempted(s):
+    return 0 if pd.isna(s) else int(str(s).split("-")[1])
+
+
+def apply_event(box, play, prefix=""):
     if not isinstance(play, str):
         return
-    good = play.startswith("GOOD")
-    miss = play.startswith("MISS")
+    good, miss = play.startswith("GOOD"), play.startswith("MISS")
     if good or miss:
-        is3 = "3PTR" in play
-        isft = "FT" in play
+        is3, isft = "3PTR" in play, "FT" in play
         if isft:
-            target_box[prefix + "fta"] += 1
-            if good:
-                target_box[prefix + "ftm"] += 1
+            box[prefix + "fta"] += 1
+            box[prefix + "ftm"] += good
         else:
-            target_box[prefix + "fga"] += 1
-            if is3:
-                target_box[prefix + "tpa"] += 1
-            if good:
-                target_box[prefix + "fgm"] += 1
-                if is3:
-                    target_box[prefix + "tpm"] += 1
+            box[prefix + "fga"] += 1
+            box[prefix + "tpa"] += is3
+            box[prefix + "fgm"] += good
+            box[prefix + "tpm"] += good and is3
     elif play.startswith("REBOUND OFF"):
-        target_box[prefix + "oreb"] += 1
+        box[prefix + "oreb"] += 1
     elif play.startswith("REBOUND DEF"):
-        target_box[prefix + "dreb"] += 1
+        box[prefix + "dreb"] += 1
     elif play.startswith("ASSIST"):
-        target_box[prefix + "ast"] += 1
+        box[prefix + "ast"] += 1
     elif play.startswith("TURNOVER"):
-        target_box[prefix + "tov"] += 1
+        box[prefix + "tov"] += 1
     elif play.startswith("STEAL") and prefix == "":
-        target_box["stl"] += 1
+        box["stl"] += 1
     elif play.startswith("BLOCK") and prefix == "":
-        target_box["blk"] += 1
+        box["blk"] += 1
 
 
-def add_resolved_team(pbp_df, box_df):
-    """Some scraped datasets (notably the standalone opponent-folder files)
-    have csv3's `team` column swapped relative to the (correct) boxscore
-    roster for a game. Resolve each named play's team from the boxscore
-    instead, via an `rteam` column, so both conference and opponent data
-    are safe to use the same way regardless of that bug."""
-    player_game_team = {}
-    for r in box_df.itertuples():
-        if r.player != "TEAM":
-            player_game_team[(r.game_id, norm(r.player))] = r.team
-
-    def resolve(row):
-        if isinstance(row.player, str) and row.player != "TEAM":
-            t = player_game_team.get((row.game_id, norm(row.player)))
-            if t:
-                return t
-        return row.team
-
-    pbp_df = pbp_df.copy()
-    pbp_df["rteam"] = pbp_df.apply(resolve, axis=1)
-    return pbp_df
+def shot_points(play):
+    if not isinstance(play, str) or not play.startswith("GOOD"):
+        return 0
+    if "3PTR" in play:
+        return 3
+    return 1 if "FT" in play else 2
 
 
-def process_team(team_key, team_name, idx_l, box_l, pbp_l, qtr_l, kind, label, mascot, advanced_lookup):
-    games = idx_l[(idx_l.home_team == team_name) | (idx_l.away_team == team_name)].copy()
-    game_ids = set(games.game_id)
-    team_box = box_l[box_l.team == team_name]
+def display_name(raw):
+    if "," in raw:
+        last, first = [p.strip() for p in raw.split(",", 1)]
+        return f"{first} {last}".strip()
+    return raw.strip()
 
-    roster_info = {}
-    for _, r in team_box.iterrows():
-        k = norm(r.player)
-        if k not in roster_info:
-            roster_info[k] = {"name": display_name(r.player), "jersey": str(r.jersey).lstrip("0") or "0"}
 
-    player_totals = collections.defaultdict(lambda: {"pts": 0, "gp": 0})
-    for _, r in team_box.iterrows():
-        k = norm(r.player)
-        player_totals[k]["pts"] += r.pts if pd.notna(r.pts) else 0
-        player_totals[k]["gp"] += 1
+# --------------------------------------------------------------------------
+# Datasets and per-game preparation
+# --------------------------------------------------------------------------
+class Dataset:
+    def __init__(self, folder):
+        self.folder = folder
+        self.idx = pd.read_csv(f"{folder}/csv1_game_index.csv")
+        self.box = pd.read_csv(f"{folder}/csv2_boxscore_players.csv")
+        self.pbp = pd.read_csv(f"{folder}/csv3_playbyplay.csv")
+        self.qtr = pd.read_csv(f"{folder}/csv4_play_analysis.csv")
+        self.games = {r.game_id: r for r in self.idx.itertuples()}
+        self.box_by_game = {g: d for g, d in self.box.groupby("game_id")}
+        self.pbp_by_game = {g: d for g, d in self.pbp.groupby("game_id", sort=False)}
+        # one canonical spelling per player per team across the whole season
+        self.canon = {}
+        for team, tb in self.box[self.box.player != "TEAM"].groupby("team"):
+            together = set()
+            for _, g in tb.groupby("game_id"):
+                names = list(g.player.unique())
+                together.update(frozenset((a, b)) for i, a in enumerate(names) for b in names[i + 1:])
+            for raw, c in nm.cluster(tb.player.unique(), together).items():
+                self.canon[(team, raw)] = c
+        self._prepared = {}
 
-    # --- team points per quarter (season avg + per-game samples) ---
-    team_q_totals, opp_q_totals, n_games = [0, 0, 0, 0], [0, 0, 0, 0], 0
-    game_samples = {}
-    for _, g in games.iterrows():
-        gid = g.game_id
-        opp_name = g.away_team if g.home_team == team_name else g.home_team
-        rows = qtr_l[qtr_l.game_id == gid]
-        us_row, opp_row = rows[rows.team == team_name], rows[rows.team != team_name]
-        if us_row.empty or opp_row.empty:
+    def prepare(self, gid):
+        if gid not in self._prepared:
+            self._prepared[gid] = self._prepare(gid)
+        return self._prepared[gid]
+
+    def _prepare(self, gid):
+        g = self.games[gid]
+        info = {"gid": gid, "status": "ok", "reason": "", "orientation": "ok", "rows": [], "starters": {}}
+        bx = self.box_by_game.get(gid)
+        pb = self.pbp_by_game.get(gid)
+        if bx is None or pb is None or pb.empty:
+            return dict(info, status="excluded", reason="no play-by-play")
+        players = bx[bx.player != "TEAM"]
+        cands = [(r.player, nm.parse(r.player)) for r in players.itertuples()]
+        raw_team = {r.player: r.team for r in players.itertuples()}
+
+        # resolve every named play-by-play player to a box score player
+        resolved, unresolved = {}, []
+        for name in {p for p in pb.player.dropna() if p != "TEAM"}:
+            got = nm.resolve(name, cands)
+            if got is None:
+                unresolved.append(name)
+            else:
+                resolved[name] = got
+        if unresolved:
+            return dict(info, status="excluded", reason=f"unmatched names: {sorted(unresolved)[:3]}")
+
+        # map each csv3 team label to the true team (labels are swapped in some files)
+        votes = collections.defaultdict(collections.Counter)
+        for r in pb.itertuples():
+            if r.player in resolved:
+                votes[r.team][raw_team[resolved[r.player]]] += 1
+        label_map = {}
+        for lab, c in votes.items():
+            best, n = c.most_common(1)[0]
+            label_map[lab] = best if n / sum(c.values()) >= 0.9 else None
+
+        # score orientation relative to csv1
+        scored = pb.dropna(subset=["away_score", "home_score"])
+        flip = False
+        if scored.empty:
+            return dict(info, status="excluded", reason="no scores in play-by-play")
+        last = scored.iloc[-1]
+        fa, fh = first_int(last.away_score), first_int(last.home_score)
+        if (fa, fh) == (g.away_score, g.home_score):
+            pass
+        elif (fh, fa) == (g.away_score, g.home_score):
+            flip = True
+            info["orientation"] = "flipped"
+        else:
+            return dict(info, status="excluded", reason="final score does not match csv1")
+
+        out_of_order = 0
+        last_p, last_t = None, None
+        rows = []
+        for r in pb.itertuples():
+            period = str(r.period)
+            secs = parse_clock(r.time_remaining)
+            if secs is not None:
+                if period == last_p and last_t is not None and secs > last_t + 2:
+                    out_of_order += 1
+                last_p, last_t = period, secs
+            a, h = first_int(r.away_score), first_int(r.home_score)
+            if flip:
+                a, h = h, a
+            if r.player in resolved:
+                raw = resolved[r.player]
+                team, pid = raw_team[raw], self.canon[(raw_team[raw], raw)]
+            else:
+                team, pid = label_map.get(r.team), None
+            rows.append((period, secs, team, pid, r.play, a, h))
+        info["rows"] = rows
+        info["out_of_order"] = out_of_order
+
+        # starters: box flag when it names exactly 5, else inferred from the play-by-play
+        for t in {g.home_team, g.away_team}:
+            flagged = {self.canon[(t, p.player)] for p in players[(players.team == t) & (players.started == True)].itertuples()}  # noqa: E712
+            seen, inferred = set(), set()
+            for period, secs, team, pid, play, a, h in rows:
+                if team != t or pid is None or pid in seen:
+                    continue
+                seen.add(pid)
+                if not (isinstance(play, str) and play.startswith("SUB IN")):
+                    inferred.add(pid)
+            if len(flagged) == 5:
+                info["starters"][t] = flagged
+                if len(inferred) == 5 and inferred != flagged:
+                    info["starter_mismatch"] = info.get("starter_mismatch", 0) + 1
+            elif len(inferred) == 5:
+                info["starters"][t] = inferred
+        return info
+
+
+# --------------------------------------------------------------------------
+# Per-team processing
+# --------------------------------------------------------------------------
+def team_games(ds, team_name):
+    return [r for r in ds.idx.itertuples() if team_name in (r.home_team, r.away_team)]
+
+
+def process_team(key, cfg, ds, national_rows, only_games=None, debug=None):
+    T = cfg["csv_name"]
+    games = team_games(ds, T)
+    if only_games:
+        games = [g for g in games if g.game_id in only_games]
+    quality = {"games_total": len(games), "games_lineup_used": 0, "orientation_flipped": 0, "excluded": []}
+
+    # roster identity (canonical spelling per player)
+    box_t = ds.box[(ds.box.team == T) & (ds.box.player != "TEAM")].copy()
+    box_t["pid"] = [ds.canon[(T, p)] for p in box_t.player]
+    jersey = {pid: g.jersey.mode().iloc[0] for pid, g in box_t.groupby("pid")}
+    activity = ["fg_a", "ft_a", "reb", "ast", "stl", "blk", "to", "pf", "pts"]
+    played_mask = (box_t["min"].fillna(0) > 0) | (box_t[activity].fillna(0) > 0).any(axis=1)
+    gp = box_t[played_mask].groupby("pid").game_id.nunique().to_dict()
+    pts = box_t.groupby("pid").pts.sum().to_dict()
+    box_min = box_t.groupby(["game_id", "pid"])["min"].sum().to_dict()
+
+    # ---- season KPIs from csv1 --------------------------------------
+    wins = pf = pa = 0
+    for g in games:
+        home = g.home_team == T
+        pf += g.home_score if home else g.away_score
+        pa += g.away_score if home else g.home_score
+        wins += g.winner == T
+    n = max(len(games), 1)
+    kpis = {"record": f"{wins}-{len(games) - wins}", "ppg": round(pf / n, 1), "oppg": round(pa / n, 1)}
+
+    # ---- points per quarter (csv4) ----------------------------------
+    def qpts(row, q):
+        fgm, tpm, ftm = made(row[f"q{q}_fg"]), made(row[f"q{q}_3p"]), made(row[f"q{q}_ft"])
+        return 2 * (fgm - tpm) + 3 * tpm + ftm
+
+    us_tot, opp_tot, nq = [0] * 4, [0] * 4, 0
+    samples = []
+    for g in games:
+        rows = ds.qtr[ds.qtr.game_id == g.game_id]
+        mine, theirs = rows[rows.team == T], rows[rows.team != T]
+        if mine.empty or theirs.empty:
             continue
-        us_row, opp_row = us_row.iloc[0], opp_row.iloc[0]
-        us_q = [quarter_pts(us_row, i) for i in range(1, 5)]
-        opp_q = [quarter_pts(opp_row, i) for i in range(1, 5)]
+        us_q = [qpts(mine.iloc[0], i) for i in range(1, 5)]
+        opp_q = [qpts(theirs.iloc[0], i) for i in range(1, 5)]
         for i in range(4):
-            team_q_totals[i] += us_q[i]
-            opp_q_totals[i] += opp_q[i]
-        n_games += 1
-        game_samples[gid] = {
-            "label": f"vs {opp_name} — {g.date}", "us": us_q, "opp": opp_q,
-            "conference": bool(g.is_conference_game), "opp_key": next((k for k, v in ALL_TEAM_NAME.items() if v == opp_name), None),
-        }
-    n_games = n_games or 1
+            us_tot[i] += us_q[i]
+            opp_tot[i] += opp_q[i]
+        nq += 1
+        opp = g.away_team if g.home_team == T else g.home_team
+        samples.append((g.date, g.game_id, opp, us_q, opp_q))
+    nq = max(nq, 1)
     team_quarters = {"season": {
         "label": "Season Average (all games)",
-        "us": [round(v / n_games, 1) for v in team_q_totals],
-        "opp": [round(v / n_games, 1) for v in opp_q_totals],
+        "us": [round(v / nq, 1) for v in us_tot],
+        "opp": [round(v / nq, 1) for v in opp_tot],
+        "games": nq,
     }}
-    conf_samples = [k for k, v in game_samples.items() if v["conference"]]
-    for gid in conf_samples[:6]:
-        team_quarters[gid] = game_samples[gid]
+    for date, gid, opp, us_q, opp_q in sorted(samples):
+        if opp in NAME_TO_KEY and len(team_quarters) < 9:
+            team_quarters[gid] = {"label": f"vs {opp} — {date}", "us": us_q, "opp": opp_q, "opp_key": NAME_TO_KEY[opp]}
 
-    # --- player points per quarter ---
-    team_pbp = pbp_l[(pbp_l.game_id.isin(game_ids)) & (pbp_l.rteam == team_name)].copy()
-    made_shots = team_pbp[team_pbp.play.fillna("").str.startswith("GOOD")].copy()
-    made_shots["value"] = made_shots.play.apply(shot_value)
-    made_shots["qidx"] = made_shots.period.apply(period_index)
-    player_quarters = collections.defaultdict(lambda: [0, 0, 0, 0])
-    for _, r in made_shots.dropna(subset=["qidx"]).iterrows():
-        player_quarters[norm(r.player)][int(r.qidx)] += r.value
+    # ---- lineups + player quarters ----------------------------------
+    # Lineup stats for a game are staged and only committed when the game's
+    # tracking agrees with the box score (derived player minutes within
+    # MAX_BOX_DIFF of box minutes); player scoring is counted for every game.
+    MAX_BOX_DIFF = 10.0
+    stats = collections.defaultdict(lambda: {"sec": 0.0, "for": 0, "against": 0, "box": empty_box()})
+    vs_opp = collections.defaultdict(lambda: {"sec": 0.0, "for": 0, "against": 0})
+    player_q = collections.defaultdict(lambda: [0, 0, 0, 0])
+    pbp_points = collections.Counter()
+    derived_sec = collections.Counter()
+    used_games = []
+    scored_games = []
+    game_diffs = []
+    game_sec = {}
+    unreliable_box = []
+    inferred_subs = conflicts = 0
+    total_sec = unattributed_sec = 0.0
 
-    players_out = []
-    for k, totals in player_quarters.items():
-        info = roster_info.get(k, {"name": display_name(k), "jersey": "-"})
-        gp = player_totals[k]["gp"] or 1
-        adv = extract_advanced(advanced_lookup.get(norm_for_match(info["name"])))
-        entry = {
-            "name": info["name"], "jersey": info["jersey"],
-            "ppg": round(player_totals[k]["pts"] / gp, 1),
-            "q": [round(v / gp, 2) for v in totals],
-        }
-        if adv:
-            entry["adv"] = adv
-        players_out.append(entry)
-    players_out.sort(key=lambda p: -p["ppg"])
-    players_out = [p for p in players_out if p["ppg"] >= 1.5][:10]
-
-    # --- lineup reconstruction (own on-court 5, extended box, vs-opponent split) ---
-    lineup_stats = collections.defaultdict(lambda: {"seconds": 0.0, "for_pts": 0, "against_pts": 0, "box": EMPTY_BOX()})
-    lineup_vs_opp = collections.defaultdict(lambda: {"seconds": 0.0, "for_pts": 0, "against_pts": 0})
-
-    for gid in game_ids:
-        grows = pbp_l[pbp_l.game_id == gid]
-        if grows.empty:
+    for g in games:
+        info = ds.prepare(g.game_id)
+        if info["status"] != "ok" or T not in info["starters"]:
+            reason = info["reason"] or "could not identify 5 starters"
+            quality["excluded"].append({"game_id": g.game_id, "reason": reason})
             continue
-        ginfo = idx_l[idx_l.game_id == gid].iloc[0]
-        is_home = ginfo.home_team == team_name
-        opp_name = ginfo.away_team if is_home else ginfo.home_team
+        if info["orientation"] == "flipped":
+            quality["orientation_flipped"] += 1
+        scored_games.append(g.game_id)
+        home = g.home_team == T
+        opp_name = g.away_team if home else g.home_team
+        on = set(info["starters"][T])
+        last_p, mark = None, 600
+        last_us = last_opp = 0
+        cur_sec = collections.Counter()
+        gstats = collections.defaultdict(lambda: {"sec": 0.0, "for": 0, "against": 0, "box": empty_box()})
+        gvs = collections.defaultdict(lambda: {"sec": 0.0, "for": 0, "against": 0})
+        g_total = g_unattr = 0.0
+        g_inferred = g_conflicts = 0
 
-        starters_rows = box_l[(box_l.game_id == gid) & (box_l.team == team_name) & (box_l.started == True)]  # noqa: E712
-        on_court = set(norm(n) for n in starters_rows.player.tolist())
-        if len(on_court) != 5:
-            fallback = box_l[(box_l.game_id == gid) & (box_l.team == team_name)].sort_values("min", ascending=False)
-            on_court = set(norm(n) for n in fallback.player.head(5).tolist())
-        if len(on_court) != 5:
+        def add(seconds):
+            nonlocal g_total, g_unattr
+            if seconds <= 0:
+                return
+            g_total += seconds
+            for pid in on:
+                cur_sec[pid] += seconds
+            if len(on) == 5:
+                k = frozenset(on)
+                gstats[k]["sec"] += seconds
+                gvs[(k, opp_name)]["sec"] += seconds
+            else:
+                g_unattr += seconds
+
+        for period, secs, team, pid, play, a, h in info["rows"]:
+            if period != last_p:
+                if last_p is not None:
+                    add(mark)  # run the rest of the previous period's clock
+                last_p, mark = period, PERIOD_LEN.get(period, OT_LEN)
+            if secs is not None:
+                add(max(0, mark - secs))
+                mark = min(mark, secs)
+            if (team == T and pid is not None and pid not in on and isinstance(play, str)
+                    and not play.startswith(("SUB", "TIMEOUT", "FOUL TECH"))):
+                if len(on) < 5:
+                    on.add(pid)  # fewer than 5 tracked, so this player must be on the court
+                    g_inferred += 1
+                else:
+                    g_conflicts += 1  # a SUB OUT was missed; cannot tell who left
+            five = len(on) == 5
+            k = frozenset(on)
+            if five:
+                if team == T:
+                    apply_event(gstats[k]["box"], play)
+                elif team == opp_name:
+                    apply_event(gstats[k]["box"], play, "opp_")
+            if team == T and pid is not None:
+                pts_made = shot_points(play)
+                pbp_points[pid] += pts_made
+                qi = int(period) - 1 if period in ("1", "2", "3", "4") else None
+                if pts_made and qi is not None:
+                    player_q[pid][qi] += pts_made
+            if a is not None and h is not None:
+                us, opp_s = (h, a) if home else (a, h)
+                d_us, d_opp = us - last_us, opp_s - last_opp
+                if five:
+                    if d_us > 0:
+                        gstats[k]["for"] += d_us
+                        gvs[(k, opp_name)]["for"] += d_us
+                    if d_opp > 0:
+                        gstats[k]["against"] += d_opp
+                        gvs[(k, opp_name)]["against"] += d_opp
+                last_us, last_opp = us, opp_s
+            if team == T and pid is not None and isinstance(play, str):
+                if play.startswith("SUB OUT"):
+                    on.discard(pid)
+                elif play.startswith("SUB IN"):
+                    on.add(pid)
+        add(mark)  # clock left in the final period
+
+        # ---- decide whether this game's lineup tracking can be trusted ----
+        n_ot = len({r[0] for r in info["rows"]} - {"1", "2", "3", "4"})
+        expected_box = 5 * (40 + 5 * n_ot)
+        team_box_min = sum(v for (gid2, _), v in box_min.items() if gid2 == g.game_id)
+        box_ok = abs(team_box_min - expected_box) <= 5
+        game_diff = None
+        if box_ok:
+            game_pids = set(cur_sec) | {pid for (gid2, pid) in box_min if gid2 == g.game_id}
+            game_diff = sum(abs(cur_sec[pid] / 60 - box_min.get((g.game_id, pid), 0)) for pid in game_pids)
+            commit = game_diff <= MAX_BOX_DIFF
+            reason = f"derived player minutes differ from box score by {game_diff:.1f} min"
+        else:
+            unreliable_box.append({"game_id": g.game_id, "box_minutes_total": float(team_box_min), "expected": expected_box})
+            commit = g_conflicts == 0 and (g_unattr / g_total if g_total else 1) < 0.02
+            reason = "box score minutes unusable and substitution tracking lost sync"
+        if not commit:
+            quality["excluded"].append({"game_id": g.game_id, "reason": reason, "scope": "lineups only"})
             continue
+        for k, v in gstats.items():
+            stats[k]["sec"] += v["sec"]
+            stats[k]["for"] += v["for"]
+            stats[k]["against"] += v["against"]
+            for kk in BOX_KEYS:
+                stats[k]["box"][kk] += v["box"][kk]
+        for k, v in gvs.items():
+            for f in ("sec", "for", "against"):
+                vs_opp[k][f] += v[f]
+        for pid, sec in cur_sec.items():
+            derived_sec[pid] += sec
+        if box_ok:
+            game_sec[g.game_id] = cur_sec
+            game_diffs.append((round(game_diff, 1), g.game_id))
+        used_games.append(g.game_id)
+        total_sec += g_total
+        unattributed_sec += g_unattr
+        inferred_subs += g_inferred
+        conflicts += g_conflicts
+        quality["games_lineup_used"] += 1
 
-        last_period, last_time_mark = None, PERIOD_LEN.get("1", DEFAULT_LEN)
-        last_us_score = last_opp_score = 0
+    quality["unattributed_pct"] = round(100 * unattributed_sec / total_sec, 2) if total_sec else None
+    if debug is not None:
+        debug["derived_min"] = {pid: round(v / 60, 1) for pid, v in derived_sec.items()}
+        debug["box_min"] = {pid: v for (gid2, pid), v in box_min.items() if gid2 in set(used_games)}
 
-        for _, row in grows.iterrows():
-            period = str(row.period)
-            if period != last_period:
-                last_period = period
-                last_time_mark = PERIOD_LEN.get(period, DEFAULT_LEN)
+    # ---- accuracy checks --------------------------------------------
+    used = set(used_games)
+    checked = set(game_sec)
+    derived_chk = collections.Counter()
+    for gid2, cs in game_sec.items():
+        for pid, sec in cs.items():
+            derived_chk[pid] += sec
+    box_minutes = collections.Counter()
+    box_points = collections.Counter()
+    for (gid, pid), m in box_min.items():
+        if gid in checked:
+            box_minutes[pid] += m
+    for r in box_t[box_t.game_id.isin(set(scored_games))].itertuples():
+        box_points[r.pid] += r.pts
+    diffs = []
+    for pid, m in box_minutes.items():
+        if m >= 40:
+            diffs.append((abs(derived_chk[pid] / 60 - m), pid, derived_chk[pid] / 60, m))
+    tot_box_min = sum(box_minutes.values()) or 1
+    quality["inferred_missing_subs"] = inferred_subs
+    quality["unresolved_sub_conflicts"] = conflicts
+    quality["box_minutes_unreliable_games"] = unreliable_box
+    quality["minutes_check"] = {
+        "games_checked": len(checked),
+        "total_abs_diff_pct": round(100 * sum(abs(derived_chk[p] / 60 - m) for p, m in box_minutes.items()) / tot_box_min, 2),
+        "worst": [{"player": display_name(p), "derived": round(d, 1), "box": m} for _, p, d, m in sorted(diffs, reverse=True)[:3]],
+        "worst_games": [{"game_id": gid, "sum_abs_player_min_diff": d} for d, gid in sorted(game_diffs, reverse=True)[:3]],
+    }
+    pts_bad = [(display_name(p), pbp_points[p], v) for p, v in box_points.items() if pbp_points[p] != v]
+    quality["points_check"] = {"players_checked": len(box_points), "mismatches": len(pts_bad),
+                               "examples": [{"player": a, "pbp": b, "box": c} for a, b, c in pts_bad[:3]]}
 
-            t = parse_clock(row.time_remaining)
-            if t is not None:
-                elapsed = max(0, last_time_mark - t)
-                if elapsed:
-                    key = frozenset(on_court)
-                    lineup_stats[key]["seconds"] += elapsed
-                    lineup_vs_opp[(key, opp_name)]["seconds"] += elapsed
-                last_time_mark = t
+    # ---- players ----------------------------------------------------
+    adv_by_pid = match_national(box_t, national_rows, quality)
+    players = []
+    for pid in set(box_t.pid):
+        if gp.get(pid, 0) == 0:
+            continue
+        g_played = gp[pid]
+        entry = {"name": display_name(pid), "jersey": str(jersey.get(pid, "-")).lstrip("0") or "0",
+                 "ppg": round(pts.get(pid, 0) / g_played, 1), "gp": g_played,
+                 "q": [round(v / g_played, 2) for v in player_q[pid]]}
+        if pid in adv_by_pid:
+            entry["adv"] = adv_by_pid[pid]
+        players.append(entry)
+    players.sort(key=lambda p: -p["ppg"])
+    players = [p for p in players if p["ppg"] >= 1.5][:10]
+    ppg_bad = [(p["name"], p["ppg"], p.get("adv", {}).get("nat_ppg")) for p in players
+               if p.get("adv", {}).get("nat_ppg") is not None and abs(p["ppg"] - p["adv"]["nat_ppg"]) > 0.15]
+    gp_bad = [(p["name"], p["gp"], p["adv"]["nat_gp"]) for p in players
+              if p.get("adv", {}).get("nat_gp") is not None and abs(p["gp"] - p["adv"]["nat_gp"]) > 1]
+    quality["gp_vs_national_mismatches"] = [{"player": a, "ours": b, "national": c} for a, b, c in gp_bad]
+    quality["ppg_vs_national"] = {"checked": sum(1 for p in players if p.get("adv", {}).get("nat_ppg") is not None),
+                                  "mismatches": [{"player": a, "ours": b, "national": c} for a, b, c in ppg_bad]}
 
-            key = frozenset(on_court)
-            if row.rteam == team_name:
-                apply_event(lineup_stats[key]["box"], row.rteam, row.play)
-            elif row.rteam == opp_name:
-                apply_event(lineup_stats[key]["box"], row.rteam, row.play, prefix="opp_")
+    # ---- lineup output ----------------------------------------------
+    total_min = sum(s["sec"] for s in stats.values()) / 60 or 1
+    team_totals = empty_box()
+    for s in stats.values():
+        for kk in BOX_KEYS:
+            team_totals[kk] += s["box"][kk]
+    team_avg = {kk: round(v / total_min * 40, 2) for kk, v in team_totals.items()}
 
-            away_s, home_s = row.away_score, row.home_score
-            if pd.notna(away_s) and pd.notna(home_s):
-                us_score = home_s if is_home else away_s
-                opp_score = away_s if is_home else home_s
-                d_us, d_opp = us_score - last_us_score, opp_score - last_opp_score
-                if d_us:
-                    lineup_stats[key]["for_pts"] += d_us
-                    lineup_vs_opp[(key, opp_name)]["for_pts"] += d_us
-                if d_opp:
-                    lineup_stats[key]["against_pts"] += d_opp
-                    lineup_vs_opp[(key, opp_name)]["against_pts"] += d_opp
-                last_us_score, last_opp_score = us_score, opp_score
-
-            if row.rteam == team_name and isinstance(row.play, str):
-                if row.play.startswith("SUB OUT by"):
-                    on_court.discard(norm(row.player))
-                elif row.play.startswith("SUB IN by"):
-                    on_court.add(norm(row.player))
-
-    # team-average per-40 rates (for strength/weakness comparison)
-    team_totals = EMPTY_BOX()
-    total_minutes = 0.0
-    for s in lineup_stats.values():
-        total_minutes += s["seconds"] / 60
-        for k in team_totals:
-            team_totals[k] += s["box"][k]
-    total_minutes = total_minutes or 1
-    team_avg_per40 = {k: round(v / total_minutes * 40, 2) for k, v in team_totals.items()}
-
-    lineups_out = []
-    lid = 0
-    for key, stats in lineup_stats.items():
-        minutes = stats["seconds"] / 60
+    lineups = []
+    for lid, (k, s) in enumerate(sorted(stats.items(), key=lambda kv: -kv[1]["sec"]), 1):
+        minutes = s["sec"] / 60
         if minutes < 6:
             continue
-        lid += 1
-        names = sorted(roster_info.get(p, {"name": display_name(p)})["name"] for p in key)
-        b = stats["box"]
-        per40 = {k: round(v / minutes * 40, 2) if minutes else 0 for k, v in b.items()}
-        vs_opp = []
-        for (k2, opp_name), vstats in lineup_vs_opp.items():
-            if k2 != key:
+        opp_rows = []
+        for (k2, opp), v in vs_opp.items():
+            if k2 != k or v["sec"] / 60 < 3:
                 continue
-            vmin = vstats["seconds"] / 60
-            if vmin < 3:
-                continue
-            opp_key = next((ok for ok, ov in ALL_TEAM_NAME.items() if ov == opp_name), None)
-            vs_opp.append({
-                "opponent": opp_name, "opp_key": opp_key, "min": round(vmin, 1),
-                "net": int(vstats["for_pts"] - vstats["against_pts"]),
-                "net_per40": round((vstats["for_pts"] - vstats["against_pts"]) / vmin * 40, 1) if vmin else 0,
-            })
-        vs_opp.sort(key=lambda v: -v["net_per40"])
-        lineups_out.append({
-            "id": f"{team_key}-L{lid}",
-            "players": names,
-            "min": round(minutes, 1),
-            "for_pts": int(stats["for_pts"]),
-            "against_pts": int(stats["against_pts"]),
-            "net": int(stats["for_pts"] - stats["against_pts"]),
-            "net_per40": round((stats["for_pts"] - stats["against_pts"]) / minutes * 40, 1) if minutes else 0,
-            "per40": per40,
-            "vs_opponents": vs_opp,
+            vm = v["sec"] / 60
+            opp_rows.append({"opponent": opp, "opp_key": NAME_TO_KEY.get(opp), "min": round(vm, 1),
+                             "net": v["for"] - v["against"], "net_per40": round((v["for"] - v["against"]) / vm * 40, 1)})
+        opp_rows.sort(key=lambda o: -o["net_per40"])
+        lineups.append({
+            "id": f"{key}-L{lid}",
+            "players": sorted(display_name(p) for p in k),
+            "player_ids": sorted(k),
+            "min": round(minutes, 1), "for_pts": s["for"], "against_pts": s["against"],
+            "net": s["for"] - s["against"], "net_per40": round((s["for"] - s["against"]) / minutes * 40, 1),
+            "per40": {kk: round(v / minutes * 40, 2) for kk, v in s["box"].items()},
+            "vs_opponents": opp_rows,
         })
-    lineups_out.sort(key=lambda l: -l["min"])
-
-    if kind == "conference":
-        own_games = season_json[team_key]["games"]
-        wins = sum(1 for g in own_games if g["win"])
-        kpis = {
-            "record": f"{wins}-{len(own_games) - wins}",
-            "ppg": round(sum(g["pf"] for g in own_games) / len(own_games), 1),
-            "oppg": round(sum(g["pa"] for g in own_games) / len(own_games), 1),
-        }
-    else:
-        wins = losses = pf_total = pa_total = 0
-        for _, g in games.iterrows():
-            is_home = g.home_team == team_name
-            pf, pa = (g.home_score, g.away_score) if is_home else (g.away_score, g.home_score)
-            pf_total += pf
-            pa_total += pa
-            if g.winner == team_name:
-                wins += 1
-            else:
-                losses += 1
-        gp = max(wins + losses, 1)
-        kpis = {"record": f"{wins}-{losses}", "ppg": round(pf_total / gp, 1), "oppg": round(pa_total / gp, 1)}
+    lineups.sort(key=lambda l: -l["min"])
+    for i, l in enumerate(lineups, 1):
+        l["id"] = f"{key}-L{i}"
 
     return {
-        "key": team_key,
-        "kind": kind,
-        "name": label,
-        "mascot": mascot,
-        "kpis": kpis,
-        "team_quarters": team_quarters,
-        "roster_players": players_out,
-        "lineups": lineups_out,
-        "lineup_total_minutes_considered": round(total_minutes, 1),
-        "team_avg_per40": team_avg_per40,
+        "key": key, "kind": cfg["kind"], "name": cfg["label"], "mascot": cfg["mascot"],
+        "kpis": kpis, "team_quarters": team_quarters, "roster_players": players,
+        "lineups": lineups, "lineup_total_minutes_considered": round(total_min, 1),
+        "team_avg_per40": team_avg, "data_quality": quality,
+        "_pace": pace_estimate(ds, T, games),
+        "_season_minutes": {pid: {"min": float(box_t[box_t.pid == pid]["min"].sum()), "pts": float(pts.get(pid, 0)),
+                                  "gp": gp.get(pid, 0), "jersey": str(jersey.get(pid, "")),
+                                  "cls": adv_by_pid.get(pid, {}).get("cls", "")} for pid in set(box_t.pid)},
     }
 
 
-def national_adv_lookup(advanced_name):
-    if national_adv_df is None:
-        return {}
-    rows = national_adv_df[national_adv_df.team == advanced_name]
-    return {norm_for_match(r["name"]): r.to_dict() for _, r in rows.iterrows()}
+def pace_estimate(ds, T, games):
+    ids = [g.game_id for g in games]
+    b = ds.box[(ds.box.team == T) & (ds.box.game_id.isin(ids))]
+    poss = (b.fg_a - b.oreb + b.to + 0.44 * b.ft_a).sum()
+    return round(float(poss) / max(len(ids), 1), 1)
 
 
-pbp = add_resolved_team(pbp, box)
+def match_national(box_t, national_rows, quality):
+    """pid -> advanced stats, only when the player maps to exactly one national row."""
+    out = {}
+    if national_rows is None or national_rows.empty:
+        return out
+    nat = []
+    for r in national_rows.itertuples():
+        toks = str(r.name).split()
+        splits = [(nm.letters(" ".join(toks[k:])), nm.letters(" ".join(toks[:k]))) for k in range(1, len(toks))]
+        nat.append((r, splits))
+    claimed = collections.defaultdict(list)
+    for pid in set(box_t.pid):
+        parts = nm.parse(pid)
+        hits = [r for r, splits in nat if any(nm.same_person(parts, s) for s in splits)]
+        for r in hits:
+            claimed[r.id].append(pid)
+        if len(hits) == 1:
+            out[pid] = hits[0]
+        elif len(hits) > 1:
+            quality.setdefault("advanced_ambiguous", []).append(display_name(pid))
+    result = {}
+    for pid, r in out.items():
+        if len(claimed[r.id]) != 1:
+            quality.setdefault("advanced_ambiguous", []).append(display_name(pid))
+            continue
 
-teams_out = {}
-for tk in TEAM_KEYS:
-    print("processing", tk, "(conference) ...")
-    adv_lookup = {
-        norm_for_match(p["name"]): p.get("advanced")
-        for p in season_json.get(tk, {}).get("players", [])
+        def f(v):
+            return None if v is None or (isinstance(v, float) and math.isnan(v)) else round(float(v), 3)
+        result[pid] = {"cls": "" if pd.isna(r.cls) else str(r.cls), "pos": "" if pd.isna(r.pos) else str(r.pos),
+                       "bpm": f(r.bpm), "adjoe": f(r.adjoe), "drtg": f(r.drtg), "usg": f(r.usg), "ts": f(r.ts),
+                       "efg": f(r.efg), "porpag": f(r.porpag), "nat_ppg": f(r.ppg), "nat_gp": f(r.gp)}
+    return result
+
+
+# --------------------------------------------------------------------------
+def main():
+    national = pd.read_csv(NATIONAL_PATH) if os.path.exists(NATIONAL_PATH) else None
+    datasets = {}
+
+    def ds_for(src):
+        if src not in datasets:
+            folder = {"pod": POD_SHARED, "new": NEW_SHARED}.get(src, f"{POD_DIR}/opponents/{src}/{SEASON}")
+            datasets[src] = Dataset(folder)
+        return datasets[src]
+
+    teams_out = {}
+    for key, cfg in TEAMS.items():
+        print(f"processing {key} ({cfg['kind']}) ...", flush=True)
+        rows = national[national.team == cfg["national"]] if national is not None else None
+        teams_out[key] = process_team(key, cfg, ds_for(cfg["src"]), rows)
+
+    # ---- conference table (12 Big West 2026-27 members) -------------
+    conf = []
+    for key, t in teams_out.items():
+        if t["kind"] != "conference":
+            continue
+        k = t["kpis"]
+        w, l = (int(x) for x in k["record"].split("-"))
+        conf.append({"key": key, "name": t["name"], "mascot": t["mascot"], "record": k["record"], "gp": w + l,
+                     "ppg": k["ppg"], "oppg": k["oppg"], "net": round(k["ppg"] - k["oppg"], 1), "pace": t["_pace"]})
+    conf.sort(key=lambda c: -c["net"])
+
+    rosters = json.load(open(ROSTER_PATH)) if os.path.exists(ROSTER_PATH) else None
+    for key, t in teams_out.items():
+        if rosters and key in rosters.get("teams", {}):
+            t["roster_2026_27"] = build_roster_view(t, rosters["teams"][key])
+        t.pop("_pace", None)
+        t.pop("_season_minutes", None)
+
+    out = {
+        "meta": {"season": SEASON, "default_team": "ucsd",
+                 "conference_members": [k for k, c in TEAMS.items() if c["kind"] == "conference"],
+                 "roster_season": rosters["meta"]["season"] if rosters else None,
+                 "roster_fetched": rosters["meta"].get("fetched") if rosters else None},
+        "teams": teams_out, "conference": conf,
     }
-    teams_out[tk] = process_team(
-        tk, TEAM_NAME[tk], idx, box, pbp, qtr, "conference",
-        season_json[tk].get("name", tk), season_json[tk].get("mascot", ""), adv_lookup,
-    )
+    with open(OUT_PATH, "w") as f:
+        json.dump(out, f, indent=1)
+    print_summary(teams_out)
+    if rosters:
+        print("\n2026-27 roster matching:")
+        for key, t in teams_out.items():
+            r = t.get("roster_2026_27")
+            if not r:
+                continue
+            sm = r["summary"]
+            print(f"  {key:11s} roster={sm['roster_size']:>2} returning={sm['returning']:>2} new={sm['new']:>2} "
+                  f"returning minutes={sm['returning_min_pct']:>5}% points={sm['returning_pts_pct']:>5}%")
+            for n in r["match_notes"]:
+                print("      NOTE:", n)
 
-for tk, cfg in OPPONENT_TEAMS.items():
-    print("processing", tk, "(opponent) ...")
-    opp_base = f"{POD_DIR}/opponents/{cfg['folder']}/{SEASON}"
-    opp_idx = pd.read_csv(f"{opp_base}/csv1_game_index.csv")
-    opp_box = pd.read_csv(f"{opp_base}/csv2_boxscore_players.csv")
-    opp_pbp = pd.read_csv(f"{opp_base}/csv3_playbyplay.csv")
-    opp_qtr = pd.read_csv(f"{opp_base}/csv4_play_analysis.csv")
-    opp_pbp = add_resolved_team(opp_pbp, opp_box)
-    adv_lookup = national_adv_lookup(cfg["advanced_name"])
-    teams_out[tk] = process_team(
-        tk, cfg["csv_name"], opp_idx, opp_box, opp_pbp, opp_qtr, "opponent",
-        cfg["label"], cfg["mascot"], adv_lookup,
-    )
 
-# --- conference-wide summary (used by the Conference tab) ---
-conf_out = []
-for key, team in season_json.items():
-    games = team.get("games", [])
-    if not games:
-        continue
-    gp = len(games)
-    ppg = sum(g["pf"] for g in games) / gp
-    oppg = sum(g["pa"] for g in games) / gp
-    players = team.get("players", [])
-    poss = sum((p.get("fga", 0) - p.get("oreb", 0) + p.get("to", 0) + 0.44 * p.get("fta", 0)) for p in players)
-    team_gp = max((p.get("gp", 0) for p in players), default=gp) or gp
-    conf_out.append({
-        "key": key, "name": team.get("name", key), "mascot": team.get("mascot", ""),
-        "ppg": round(ppg, 1), "oppg": round(oppg, 1), "net": round(ppg - oppg, 1),
-        "pace": round(poss / team_gp, 1) if team_gp else 0, "gp": gp,
-    })
-conf_out.sort(key=lambda t: -t["net"])
+CLASS_NEXT = {"FR": "SO", "SO": "JR", "JR": "SR", "SR": "GR"}
 
-out = {
-    "meta": {
-        "season": SEASON,
-        "source": "Player-Overview-Dashboard raw data (csv1-4 play-by-play/boxscore + data/<season>.json)",
-        "default_team": "ucsd",
-    },
-    "teams": teams_out,
-    "conference": conf_out,
-}
 
-with open("data/dashboard_data.json", "w") as f:
-    json.dump(out, f, indent=2)
+def norm_class(c):
+    c = re.sub(r"[^A-Za-z0-9]", "", str(c or "")).upper()
+    c = c.replace("RFR", "FR").replace("RSO", "SO").replace("RJR", "JR").replace("RSR", "SR")
+    return {"FRESHMAN": "FR", "SOPHOMORE": "SO", "JUNIOR": "JR", "SENIOR": "SR", "GRADUATE": "GR", "5TH": "GR", "6TH": "GR"}.get(c, c)
 
-print("done. teams:", list(teams_out.keys()))
-for tk, t in teams_out.items():
-    print(f"  {tk}: {len(t['lineups'])} lineups, {len(t['roster_players'])} players, kpis={t['kpis']}")
+
+def name_splits(full):
+    toks = str(full).replace(",", " ").split()
+    return [(nm.letters(" ".join(toks[k:])), nm.letters(" ".join(toks[:k]))) for k in range(1, len(toks))]
+
+
+def build_roster_view(team, roster_team):
+    """Match 2026-27 roster players to 2025-26 players and summarise what returns."""
+    prev = team["_season_minutes"]
+    prev_parts = {pid: nm.parse(pid) for pid in prev}
+    players26 = roster_team["players"]
+    total_min = sum(v["min"] for v in prev.values()) or 1
+    total_pts = sum(v["pts"] for v in prev.values()) or 1
+
+    strict = {}
+    for i, p in enumerate(players26):
+        hits = {pid for pid, pp in prev_parts.items() if any(nm.same_person(sp, pp) for sp in name_splits(p["name"]))}
+        if len(hits) == 1:
+            strict[i] = next(iter(hits))
+    # a 2025-26 player may only be claimed by one roster entry
+    claims = collections.Counter(strict.values())
+    matches = {i: pid for i, pid in strict.items() if claims[pid] == 1}
+    notes = [f"ambiguous strict match: {players26[i]['name']}" for i, pid in strict.items() if claims[pid] > 1]
+    kind = {i: "name" for i in matches}
+
+    # looser (nickname / compound-name) matches: only when class year advanced by one
+    used = set(matches.values())
+    for i, p in enumerate(players26):
+        if i in matches:
+            continue
+        hits = {pid for pid, pp in prev_parts.items() if pid not in used
+                and any(nm.relaxed_same_person(sp, pp) for sp in name_splits(p["name"]))}
+        if len(hits) == 1:
+            pid = next(iter(hits))
+            c25, c26 = norm_class(prev[pid].get("cls")), norm_class(p["cls"])
+            if c25 and CLASS_NEXT.get(c25) == c26:
+                matches[i], kind[i] = pid, "name variant (class year confirms)"
+                used.add(pid)
+            else:
+                notes.append(f"possible match NOT used (class year does not confirm): {p['name']} ~ {pid}")
+
+    out_players = []
+    returning_pids = set()
+    for i, p in enumerate(players26):
+        entry = dict(p)
+        if i in matches:
+            pid = matches[i]
+            v = prev[pid]
+            returning_pids.add(pid)
+            entry["status"] = "returning"
+            entry["match"] = kind[i]
+            entry["prev"] = {"gp": v["gp"], "mpg": round(v["min"] / v["gp"], 1) if v["gp"] else 0.0,
+                             "ppg": round(v["pts"] / v["gp"], 1) if v["gp"] else 0.0,
+                             "min_share_pct": round(100 * v["min"] / total_min, 1),
+                             "pts_share_pct": round(100 * v["pts"] / total_pts, 1)}
+        else:
+            entry["status"] = "new"
+        out_players.append(entry)
+
+    departed = [{"name": display_name(pid), "gp": v["gp"], "mpg": round(v["min"] / v["gp"], 1) if v["gp"] else 0.0,
+                 "ppg": round(v["pts"] / v["gp"], 1) if v["gp"] else 0.0,
+                 "min_share_pct": round(100 * v["min"] / total_min, 1), "pts_share_pct": round(100 * v["pts"] / total_pts, 1)}
+                for pid, v in sorted(prev.items(), key=lambda kv: -kv[1]["min"]) if pid not in returning_pids and v["gp"] > 0]
+
+    lineup_min = sum(l["min"] for l in team["lineups"]) or 1
+    for l in team["lineups"]:
+        l["returning"] = sum(1 for pid in l["player_ids"] if pid in returning_pids)
+        l["returning_names"] = sorted(display_name(pid) for pid in l["player_ids"] if pid in returning_pids)
+        l["departed_names"] = sorted(display_name(pid) for pid in l["player_ids"] if pid not in returning_pids)
+    dist = collections.Counter()
+    for l in team["lineups"]:
+        dist[l["returning"]] += l["min"]
+    return {
+        "source_url": roster_team["source_url"],
+        "players": out_players,
+        "departed": departed,
+        "summary": {
+            "roster_size": len(players26),
+            "returning": sum(1 for p in out_players if p["status"] == "returning"),
+            "new": sum(1 for p in out_players if p["status"] == "new"),
+            "returning_min_pct": round(100 * sum(prev[pid]["min"] for pid in returning_pids) / total_min, 1),
+            "returning_pts_pct": round(100 * sum(prev[pid]["pts"] for pid in returning_pids) / total_pts, 1),
+            "lineup_min_by_returning": {str(n): round(100 * dist.get(n, 0) / lineup_min, 1) for n in range(6)},
+        },
+        "match_notes": notes,
+    }
+
+
+def print_summary(teams_out):
+    print("\nteam         games used/total  flipped  excluded  unattributed%  minutes-diff%  pts-mismatch  lineups")
+    for k, t in teams_out.items():
+        q = t["data_quality"]
+        print(f"{k:12s} {q['games_lineup_used']:>4}/{q['games_total']:<4}       {q['orientation_flipped']:>3}      {len(q['excluded']):>3}"
+              f"       {q['unattributed_pct']!s:>6}        {q['minutes_check']['total_abs_diff_pct']:>6}       {q['points_check']['mismatches']:>4}      {len(t['lineups'])}")
+
+
+if __name__ == "__main__":
+    main()

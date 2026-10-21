@@ -1,0 +1,2359 @@
+{
+ "meta": {
+  "season": "2026-27",
+  "fetched": "2026-10-21",
+  "source": "official team athletics websites (SIDEARM roster pages)"
+ },
+ "issues": {},
+ "teams": {
+  "ucsd": {
+   "source_url": "https://ucsdtritons.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - UC San Diego",
+   "players": [
+    {
+     "name": "Jite Gbemuotor",
+     "jersey": "0",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "Jr.",
+     "hometown": "Delta State, Nigeria",
+     "from": "Cinkarna Celje"
+    },
+    {
+     "name": "Michaela Fairwell",
+     "jersey": "2",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "So.",
+     "hometown": "Irmo, S.C.",
+     "from": "Dutch Fork HS"
+    },
+    {
+     "name": "Tatum Jones",
+     "jersey": "3",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "Aurora, Colo.",
+     "from": "Mullen HS"
+    },
+    {
+     "name": "Coryn Watts",
+     "jersey": "5",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Aurora, Colo.",
+     "from": "Regis Jesuit HS"
+    },
+    {
+     "name": "Emma Cook",
+     "jersey": "7",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "San Jose, Calif.",
+     "from": "Archbishop Mitty HS"
+    },
+    {
+     "name": "Noelle Mulvanny",
+     "jersey": "8",
+     "pos": "G",
+     "height": "6'0\"",
+     "cls": "Fr.",
+     "hometown": "Phoenix, Ariz.",
+     "from": "Mater Dei HS"
+    },
+    {
+     "name": "Dymonique Maxie",
+     "jersey": "10",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Sr.",
+     "hometown": "Hayward, Calif.",
+     "from": "Moreau Catholic HS"
+    },
+    {
+     "name": "Erin Condron",
+     "jersey": "11",
+     "pos": "F/C",
+     "height": "6'4\"",
+     "cls": "Sr.",
+     "hometown": "Woodend, Victoria, Australia",
+     "from": "Braemar College"
+    },
+    {
+     "name": "Rosa Smith",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Gr.",
+     "hometown": "Kirkland, Wash.",
+     "from": "Lake Washington HS"
+    },
+    {
+     "name": "Lev Feiman",
+     "jersey": "13",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "So.",
+     "hometown": "Woodland Hills, Calif.",
+     "from": "Brentwood HS"
+    },
+    {
+     "name": "Sadie Sin",
+     "jersey": "20",
+     "pos": "G",
+     "height": "5'4\"",
+     "cls": "Fr.",
+     "hometown": "Clovis, Calif.",
+     "from": "Clovis HS"
+    },
+    {
+     "name": "Megan Roberts",
+     "jersey": "21",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Fr.",
+     "hometown": "Sammamish, Wash.",
+     "from": "Eastlake HS"
+    },
+    {
+     "name": "Alexandra Cummins",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Sr.",
+     "hometown": "Moraga, Calif.",
+     "from": "Carondelet HS"
+    }
+   ]
+  },
+  "calbaptist": {
+   "source_url": "https://cbulancers.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "2026-27 Women&#x27;s Basketball Roster - CBU Athletics",
+   "players": [
+    {
+     "name": "Novelle McQuiston",
+     "jersey": "1",
+     "pos": "G",
+     "height": "6'0\"",
+     "cls": "Fr.",
+     "hometown": "Queen Creek, AZ",
+     "from": "Perry HS"
+    },
+    {
+     "name": "Josie Agnew",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'6\"",
+     "cls": "Fr.",
+     "hometown": "Melbourne, Australia",
+     "from": "Caulfield Grammar School"
+    },
+    {
+     "name": "Reyleigh Hess",
+     "jersey": "4",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Windsor, Colorado",
+     "from": "Windsor HS"
+    },
+    {
+     "name": "Ella Linder",
+     "jersey": "7",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Fr.",
+     "hometown": "Vasteras, Sweden",
+     "from": "Sanda Gymnasiet"
+    },
+    {
+     "name": "Sofia Alonso",
+     "jersey": "11",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Sr.",
+     "hometown": "Valladolid, Spain",
+     "from": "Sacramento State"
+    },
+    {
+     "name": "Sienna Grieger",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "So.",
+     "hometown": "West Adelaide, Australia",
+     "from": "Santa Clara"
+    },
+    {
+     "name": "Lauren Olsen",
+     "jersey": "13",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "So.",
+     "hometown": "Douglas, Wyoming",
+     "from": "Douglas HS"
+    },
+    {
+     "name": "McKinley Willardson",
+     "jersey": "15",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "So.",
+     "hometown": "Corona, CA",
+     "from": "BYU"
+    },
+    {
+     "name": "Paula Haw",
+     "jersey": "21",
+     "pos": "F",
+     "height": "6'5\"",
+     "cls": "Jr.",
+     "hometown": "Munich, Germany",
+     "from": "Sacramento State"
+    },
+    {
+     "name": "Bella Klages",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "Rubicon, WI",
+     "from": "Hartford Union HS"
+    },
+    {
+     "name": "Chloe Briggs",
+     "jersey": "24",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "Sr.",
+     "hometown": "Ontario, CA",
+     "from": "Washington"
+    },
+    {
+     "name": "Spela Brecelj",
+     "jersey": "25",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "Ajdovscina, Slovenia",
+     "from": "Virginia Tech"
+    },
+    {
+     "name": "Marta De La Fuente",
+     "jersey": "32",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "So.",
+     "hometown": "Rivas Vaciamadrid, Spain",
+     "from": "IES Seita Palmas HS"
+    }
+   ]
+  },
+  "csulb": {
+   "source_url": "https://longbeachstate.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "2026-27 Women&#x27;s Basketball Roster - Long Beach State University Athletics",
+   "players": [
+    {
+     "name": "Amber Furch",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'5\"",
+     "cls": "Sr.",
+     "hometown": "Los Angeles, Calif.",
+     "from": "Saint Michael's"
+    },
+    {
+     "name": "Rosie Akot",
+     "jersey": "2",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "North Adelaide, Australia",
+     "from": "Sacred Heart College"
+    },
+    {
+     "name": "Fia Proctor",
+     "jersey": "3",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "Jr.",
+     "hometown": "Bothell, Wash.",
+     "from": "Seattle University"
+    },
+    {
+     "name": "Ashanti Dias",
+     "jersey": "4",
+     "pos": "G",
+     "height": "5'5\"",
+     "cls": "Jr.",
+     "hometown": "San Francisco, Calif.",
+     "from": "Laney College"
+    },
+    {
+     "name": "Ebony Taylor-Smith",
+     "jersey": "10",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Carlsbad, Calif.",
+     "from": "Rancho Christian High School"
+    },
+    {
+     "name": "Lara Perian",
+     "jersey": "11",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Fr.",
+     "hometown": "Bucharest, Romania",
+     "from": "Lycee Francais Anna de Noailles"
+    },
+    {
+     "name": "Malia Taulani",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Medford, Ore.",
+     "from": "South Medford"
+    },
+    {
+     "name": "Lucia Chico Fernandez",
+     "jersey": "14",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Fr.",
+     "hometown": "Vitoria-Gasteiz, Spain",
+     "from": "Colegio Presentación de María"
+    },
+    {
+     "name": "Danijela Kujovic",
+     "jersey": "15",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "R-So.",
+     "hometown": "Melbourne, Australia",
+     "from": "Hawai'i"
+    },
+    {
+     "name": "Kailyn Berry",
+     "jersey": "21",
+     "pos": "F",
+     "height": "5'10\"",
+     "cls": "Jr.",
+     "hometown": "Edmond, Okla.",
+     "from": "Howard College"
+    },
+    {
+     "name": "Noemi Arvai",
+     "jersey": "23",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "R-So.",
+     "hometown": "Budapest, Hungary",
+     "from": "Sacramento State"
+    },
+    {
+     "name": "Selene Romero Olvera",
+     "jersey": "24",
+     "pos": "F",
+     "height": "6'5\"",
+     "cls": "Jr.",
+     "hometown": "Guanajuato, México",
+     "from": "Florida International University"
+    },
+    {
+     "name": "Aryanna Reyes",
+     "jersey": "30",
+     "pos": "G",
+     "height": "5'4\"",
+     "cls": "Fr.",
+     "hometown": "Lakewood, Calif.",
+     "from": "Pioneer HS"
+    }
+   ]
+  },
+  "csun": {
+   "source_url": "https://gomatadors.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "2026-27 Women&#x27;s Basketball Roster - CSUN Athletics",
+   "players": [
+    {
+     "name": "Amya Moody",
+     "jersey": "1",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "So.",
+     "hometown": "Riverside, Calif",
+     "from": "Martin Luther King, Jr. HS"
+    },
+    {
+     "name": "Saray White",
+     "jersey": "2",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "Sr.",
+     "hometown": "Sacramento, Calif",
+     "from": "Cosumnes River CC"
+    },
+    {
+     "name": "Sibelle Zambie",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "Plano, Texas",
+     "from": "Lehigh University"
+    },
+    {
+     "name": "Hodaya Kabada",
+     "jersey": "6",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Holon, Israel",
+     "from": "UNLV"
+    },
+    {
+     "name": "Kira-May Filemu",
+     "jersey": "8",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "Jr.",
+     "hometown": "Sydney, Australia",
+     "from": "Hawai'i"
+    },
+    {
+     "name": "Sophia Dignadice",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Fr.",
+     "hometown": "Torrance, Calif.",
+     "from": "Bishop Montgomery HS"
+    },
+    {
+     "name": "Princess Okafor Nweze",
+     "jersey": "15",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Jr.",
+     "hometown": "Malaga, Spain",
+     "from": "South Alabama"
+    },
+    {
+     "name": "Carlotta Cocuzza",
+     "jersey": "16",
+     "pos": "G",
+     "height": "5'5\"",
+     "cls": "Fr.",
+     "hometown": "Turin, Italy",
+     "from": "Scientific High School"
+    },
+    {
+     "name": "Jana Canadell",
+     "jersey": "21",
+     "pos": "F",
+     "height": "5'11\"",
+     "cls": "So.",
+     "hometown": "Barcelona, Spain",
+     "from": "Instituto L'Alzina"
+    },
+    {
+     "name": "Maya Contreras",
+     "jersey": "23",
+     "pos": "F",
+     "height": "6'3\"",
+     "cls": "Jr.",
+     "hometown": "San Elizario, TX",
+     "from": "New Mexico Junior College"
+    },
+    {
+     "name": "Rita Nazário",
+     "jersey": "33",
+     "pos": "G",
+     "height": "5'5\"",
+     "cls": "Jr.",
+     "hometown": "Figueira da Foz, Portugal",
+     "from": "Saint Louis"
+    },
+    {
+     "name": "Nadia Bernard",
+     "jersey": "34",
+     "pos": "F",
+     "height": "6'4\"",
+     "cls": "Sr.",
+     "hometown": "Santa Clarita, Calif",
+     "from": "Saint Mary's"
+    }
+   ]
+  },
+  "ucirvine": {
+   "source_url": "https://ucirvinesports.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "2026-27 Women&#x27;s Basketball Roster - UCI Athletics",
+   "players": [
+    {
+     "name": "Ameerah Grant",
+     "jersey": "1",
+     "pos": "Point Guard",
+     "height": "5'4\"",
+     "cls": "So.",
+     "hometown": "Brown Deer, Wis.",
+     "from": "Brown Deer HS"
+    },
+    {
+     "name": "Ahrray Young",
+     "jersey": "2",
+     "pos": "Guard",
+     "height": "5'11\"",
+     "cls": "Sr.",
+     "hometown": "Sacramento, Calif.",
+     "from": "Nevada"
+    },
+    {
+     "name": "Gracie Gallegos",
+     "jersey": "7",
+     "pos": "Guard",
+     "height": "6'1\"",
+     "cls": "Sr.",
+     "hometown": "Denver, Colo.",
+     "from": "UC San Diego"
+    },
+    {
+     "name": "Sarah Miller",
+     "jersey": "8",
+     "pos": "Guard",
+     "height": "5'10\"",
+     "cls": "Jr.",
+     "hometown": "Phoenix, Ariz.",
+     "from": "Penn"
+    },
+    {
+     "name": "Daniela Falcon Hernandez",
+     "jersey": "9",
+     "pos": "Forward",
+     "height": "6'2\"",
+     "cls": "Jr.",
+     "hometown": "Las Palmas Gran Canaria, Spain",
+     "from": "Utah"
+    },
+    {
+     "name": "Lauryn Madsen",
+     "jersey": "10",
+     "pos": "Guard",
+     "height": "5'11\"",
+     "cls": "Jr.",
+     "hometown": "Warden, Wash.",
+     "from": "Warden HS"
+    },
+    {
+     "name": "Haley Hernandez",
+     "jersey": "11",
+     "pos": "Guard",
+     "height": "5'11\"",
+     "cls": "Sr.",
+     "hometown": "San Jose, Calif.",
+     "from": "Archbishop Mitty HS"
+    },
+    {
+     "name": "Shirel Nahum",
+     "jersey": "12",
+     "pos": "Point Guard",
+     "height": "5'9\"",
+     "cls": "Sr.",
+     "hometown": "Ra'anana, Israel",
+     "from": "Hof HaSharon HS"
+    },
+    {
+     "name": "Nohe'alani Stores",
+     "jersey": "13",
+     "pos": "Forward",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "East Palo Alto, Calif.",
+     "from": "Mater Dei HS"
+    },
+    {
+     "name": "Summah Hanson",
+     "jersey": "14",
+     "pos": "Forward",
+     "height": "6'3\"",
+     "cls": "Sr.",
+     "hometown": "Brisbane, Australia",
+     "from": "Sacramento State"
+    },
+    {
+     "name": "Alleah Hanson",
+     "jersey": "15",
+     "pos": "Forward",
+     "height": "6'2\"",
+     "cls": "Fr.",
+     "hometown": "Brisbane, Australia",
+     "from": "Brisbane State HS"
+    },
+    {
+     "name": "Makiah Asidanya",
+     "jersey": "21",
+     "pos": "Guard",
+     "height": "5'7\"",
+     "cls": "Sr.",
+     "hometown": "Pittsburg, Calif.",
+     "from": "UNCG"
+    },
+    {
+     "name": "Reese Noa",
+     "jersey": "22",
+     "pos": "Guard",
+     "height": "5'9\"",
+     "cls": "Jr.",
+     "hometown": "Harbor City, Calif.",
+     "from": "North Torrance HS"
+    },
+    {
+     "name": "Delaney White",
+     "jersey": "23",
+     "pos": "Point Guard",
+     "height": "5'7\"",
+     "cls": "Fr.",
+     "hometown": "Burbank, Calif.",
+     "from": "Sierra Canyon HS"
+    },
+    {
+     "name": "Ellery Burke-Brown",
+     "jersey": "24",
+     "pos": "Guard",
+     "height": "5'9\"",
+     "cls": "Fr.",
+     "hometown": "Seattle, Wash.",
+     "from": "Roosevelt HS"
+    }
+   ]
+  },
+  "utahvalley": {
+   "source_url": "https://gouvu.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - Utah Valley University Athletics",
+   "players": [
+    {
+     "name": "Olivia Stephens",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Fr.",
+     "hometown": "Draper, Utah",
+     "from": "Alta HS"
+    },
+    {
+     "name": "Anna Shreeve",
+     "jersey": "2",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "So.",
+     "hometown": "Ladera Ranch, California",
+     "from": "San Juan Hills HS"
+    },
+    {
+     "name": "Cambree Blackham",
+     "jersey": "5",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Lehi, Utah",
+     "from": "Skyridge HS"
+    },
+    {
+     "name": "Heather Stedman",
+     "jersey": "6",
+     "pos": "G",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Phoenix, Ariz.",
+     "from": "Pinnacle HS"
+    },
+    {
+     "name": "Kendra Kitchen",
+     "jersey": "7",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "So.",
+     "hometown": "Fruit Heights, Utah",
+     "from": "Davis HS"
+    },
+    {
+     "name": "Tabi Clark",
+     "jersey": "8",
+     "pos": "G/F",
+     "height": "6'2\"",
+     "cls": "Fr.",
+     "hometown": "Lindon, Utah",
+     "from": "Pleasant Grove HS"
+    },
+    {
+     "name": "Maren McKenna",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "So.",
+     "hometown": "Hyde Park, Utah",
+     "from": "Green Canyon HS"
+    },
+    {
+     "name": "Evie Leeson",
+     "jersey": "15",
+     "pos": "F/C",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "Christchurch, New Zealand",
+     "from": "St Margaret's College"
+    },
+    {
+     "name": "Gracie Johnson",
+     "jersey": "20",
+     "pos": "F",
+     "height": "6'6\"",
+     "cls": "Jr.",
+     "hometown": "Nysaa, Oregon",
+     "from": "Nyssa HS"
+    },
+    {
+     "name": "Naia Tanuvasa",
+     "jersey": "21",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Jr.",
+     "hometown": "Highland, Utah",
+     "from": "Lone Peak HS"
+    },
+    {
+     "name": "Lauren Johnson",
+     "jersey": "24",
+     "pos": "F",
+     "height": "6'4\"",
+     "cls": "Sr.",
+     "hometown": "Calgary, Alberta",
+     "from": "Perry HS (Ariz.)"
+    },
+    {
+     "name": "Elizabeth Gentry",
+     "jersey": "30",
+     "pos": "F",
+     "height": "6'3\"",
+     "cls": "Jr.",
+     "hometown": "Littleton, Colo.",
+     "from": "Arapahoe HS"
+    },
+    {
+     "name": "Gabi Moultrie",
+     "jersey": "31",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Wilsonville, Oregon",
+     "from": "Wilsonville HS"
+    }
+   ]
+  },
+  "ucr": {
+   "source_url": "https://gohighlanders.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "2026-27 Women&#x27;s Basketball Roster - UC Riverside Athletics",
+   "players": [
+    {
+     "name": "Kaylani Polk",
+     "jersey": "1",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "Compton, Calif.",
+     "from": "Paramount HS"
+    },
+    {
+     "name": "London Gamble",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Gr.",
+     "hometown": "Westlake Village, Calif.",
+     "from": "Northern Colorado"
+    },
+    {
+     "name": "Amy Pateman",
+     "jersey": "5",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "So.",
+     "hometown": "Auckland, New Zealand",
+     "from": "University of San Francisco"
+    },
+    {
+     "name": "Graecyn Parahi",
+     "jersey": "7",
+     "pos": "G/F",
+     "height": "6'0\"",
+     "cls": "Fr.",
+     "hometown": "Hawkes Bay, New Zealand",
+     "from": "Tauranga Girls College/Napier Girls HS"
+    },
+    {
+     "name": "Aaliyah Stanton",
+     "jersey": "8",
+     "pos": "G",
+     "height": "5'3\"",
+     "cls": "Sr.",
+     "hometown": "San Diego, Calif.",
+     "from": "Cal State Fullerton"
+    },
+    {
+     "name": "Harisa Mehmedovic",
+     "jersey": "10",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Sr.",
+     "hometown": "Salt Lake City, Utah",
+     "from": "San Jose State"
+    },
+    {
+     "name": "Maria Mejia",
+     "jersey": "11",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "So.",
+     "hometown": "Mexicali, Mexico",
+     "from": "Fairmont Prep"
+    },
+    {
+     "name": "Celeste Mack",
+     "jersey": "12",
+     "pos": "F/C",
+     "height": "6'1\"",
+     "cls": "Fr.",
+     "hometown": "Hanford, Calif.",
+     "from": "Caruthers HS"
+    },
+    {
+     "name": "Dylan Tse",
+     "jersey": "20",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "South Pasadena, Calif.",
+     "from": "Mt. SAC"
+    },
+    {
+     "name": "Lucia Moreno",
+     "jersey": "21",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "Malaga,Spain",
+     "from": "Les Lalaboral"
+    },
+    {
+     "name": "Taylor Swanson",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "So.",
+     "hometown": "Thousand Oaks, Calif.",
+     "from": "Westlake HS"
+    },
+    {
+     "name": "Kyori Lloyd",
+     "jersey": "24",
+     "pos": "F",
+     "height": "5'10\"",
+     "cls": "Sr.",
+     "hometown": "Long Beach, Calif.",
+     "from": "Cal Poly Humboldt"
+    },
+    {
+     "name": "Morgan Mack",
+     "jersey": "32",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Palmdale, Calif.",
+     "from": "Long Beach State"
+    },
+    {
+     "name": "Alana White",
+     "jersey": "35",
+     "pos": "F/C",
+     "height": "6'0\"",
+     "cls": "Fr.",
+     "hometown": "Downey, Calif.",
+     "from": "John Glenn HS"
+    }
+   ]
+  },
+  "ucsb": {
+   "source_url": "https://ucsbgauchos.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - University of California, Santa Barbara",
+   "players": [
+    {
+     "name": "Nicole Steiner",
+     "jersey": "0",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "Los Gatos, Calif.",
+     "from": "Los Gatos HS"
+    },
+    {
+     "name": "Zoe Borter",
+     "jersey": "2",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Sr.",
+     "hometown": "Beaverton, Ore.",
+     "from": "Beaverton HS"
+    },
+    {
+     "name": "Mauriana Hashemian-Orr",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Portland, Ore.",
+     "from": "Benson Tech HS"
+    },
+    {
+     "name": "Karisma Flores",
+     "jersey": "7",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "Oak Park, Calif.",
+     "from": "Oak Park HS"
+    },
+    {
+     "name": "Ava Rawlins",
+     "jersey": "8",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Folsom, Calif.",
+     "from": "Folsom HS"
+    },
+    {
+     "name": "Olivia Anderson",
+     "jersey": "10",
+     "pos": "F",
+     "height": "6'6\"",
+     "cls": "Sr.",
+     "hometown": "Ellensburg, Wash.",
+     "from": "Ellensburg HS"
+    },
+    {
+     "name": "Sarah Heyn",
+     "jersey": "11",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Fr.",
+     "hometown": "San Diego, Calif.",
+     "from": "Westview HS"
+    },
+    {
+     "name": "Maddie Naro",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Sr.",
+     "hometown": "Beaverton, Ore.",
+     "from": "Beaverton HS"
+    },
+    {
+     "name": "Chauncey Andersen",
+     "jersey": "15",
+     "pos": "G",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Portland, Ore.",
+     "from": "Jefferson HS"
+    },
+    {
+     "name": "Ava Albanese",
+     "jersey": "21",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "Fr.",
+     "hometown": "St. Louis",
+     "from": "Incarnate Word Academy"
+    },
+    {
+     "name": "Naomy Zonzon-Huyghe",
+     "jersey": "24",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Jr.",
+     "hometown": "La Roche-sur-Yon, France",
+     "from": "Lycée Notre Dame du Roc"
+    },
+    {
+     "name": "Charlotte Lipkin",
+     "jersey": "25",
+     "pos": "F/G",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Bothell, Wash.",
+     "from": "Bothell HS"
+    },
+    {
+     "name": "Zoe Shaw",
+     "jersey": "32",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Melbourne, Australia",
+     "from": "St. Bonaventure"
+    }
+   ]
+  },
+  "calpoly": {
+   "source_url": "https://gopoly.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "2026-27 Women&#x27;s Basketball Roster - Cal Poly",
+   "players": [
+    {
+     "name": "Ysabella Von Seipler",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Rocklin, CA",
+     "from": "University of San Diego"
+    },
+    {
+     "name": "Sumer Lee",
+     "jersey": "1",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Sr.",
+     "hometown": "Toronto, Ontario, Canada",
+     "from": "Depaul"
+    },
+    {
+     "name": "Mecca Alexander",
+     "jersey": "2",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Antioch, CA",
+     "from": "San Jose State"
+    },
+    {
+     "name": "Ella Skrzyniarz",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "So.",
+     "hometown": "Folsom, CA",
+     "from": "Vista Del Lago HS"
+    },
+    {
+     "name": "Maddy Tauro",
+     "jersey": "4",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "Calabasas, CA",
+     "from": "Cal State Fullerton"
+    },
+    {
+     "name": "Gabby Robinson",
+     "jersey": "5",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Sr.",
+     "hometown": "Yorba Linda, CA",
+     "from": "Centennial HS"
+    },
+    {
+     "name": "Lena Most",
+     "jersey": "6",
+     "pos": "G",
+     "height": "5'5\"",
+     "cls": "Fr.",
+     "hometown": "Nyack, NY",
+     "from": "Garfield HS"
+    },
+    {
+     "name": "Jordan Billing",
+     "jersey": "7",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "R-Jr.",
+     "hometown": "Gold Coast, Queensland, Australia",
+     "from": "Emmanuel College"
+    },
+    {
+     "name": "Katie Peiffer",
+     "jersey": "8",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Austin, TX",
+     "from": "Round Rock HS"
+    },
+    {
+     "name": "Nora Perez",
+     "jersey": "9",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Jr.",
+     "hometown": "Donostia San Sebastian, Spain",
+     "from": "San Ignacio de Loyola"
+    },
+    {
+     "name": "Bianca Slone",
+     "jersey": "13",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "Fr.",
+     "hometown": "San Diego, CA",
+     "from": "Cathedral Catholic"
+    },
+    {
+     "name": "Dulci Vail",
+     "jersey": "21",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Lafayette, CA",
+     "from": "Acalanes HS"
+    },
+    {
+     "name": "Atlanta Bass-Sulpizio",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "La Jolla, CA",
+     "from": "La Jolla Country Day HS"
+    },
+    {
+     "name": "Dessi Ulmer",
+     "jersey": "23",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Jr.",
+     "hometown": "Fountain, CO",
+     "from": "Colby Community College"
+    },
+    {
+     "name": "Madison Butcher",
+     "jersey": "24",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "R-Sr.",
+     "hometown": "Loomis, CA",
+     "from": "Sacramento State"
+    },
+    {
+     "name": "Avery Knapp",
+     "jersey": "47",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Jr.",
+     "hometown": "Danville, CA",
+     "from": "San Ramon Valley HS"
+    }
+   ]
+  },
+  "sacstate": {
+   "source_url": "https://hornetsports.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - Sacramento State",
+   "players": [
+    {
+     "name": "Jeniece Harmon",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'5\"",
+     "cls": "R-Sr.",
+     "hometown": "Fresno, Calif.",
+     "from": "Hawai'i-Hilo"
+    },
+    {
+     "name": "Natalie Picton",
+     "jersey": "2",
+     "pos": "G",
+     "height": "5'5\"",
+     "cls": "Sr.",
+     "hometown": "Welland, Ontario",
+     "from": "Montana State"
+    },
+    {
+     "name": "Jamiah Fontenberry",
+     "jersey": "4",
+     "pos": "G/F",
+     "height": "5'11\"",
+     "cls": "So.",
+     "hometown": "Sacramento, Calif.",
+     "from": "Inderkum HS"
+    },
+    {
+     "name": "Elizabeth Abiara",
+     "jersey": "5",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "Sr.",
+     "hometown": "Mansfield, Texas",
+     "from": "Central Arkansas"
+    },
+    {
+     "name": "Brooklynn Charlo",
+     "jersey": "7",
+     "pos": "G",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Thornton, Colo.",
+     "from": "Memphis"
+    },
+    {
+     "name": "Jaety Mandaquit",
+     "jersey": "8",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "R-So.",
+     "hometown": "Hilo, Hawai'i",
+     "from": "Real Salt Lake Academy"
+    },
+    {
+     "name": "Pinja Paananen",
+     "jersey": "10",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "Jr.",
+     "hometown": "Laukaa, Finland",
+     "from": "Arkansas"
+    },
+    {
+     "name": "Jordan Barlow",
+     "jersey": "11",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "Medford, Ore.",
+     "from": "South Medford HS"
+    },
+    {
+     "name": "Ajong Lual",
+     "jersey": "12",
+     "pos": "C",
+     "height": "6'5\"",
+     "cls": "Jr.",
+     "hometown": "Tucson, Ariz.",
+     "from": "Garden City CC (Kan.)"
+    },
+    {
+     "name": "Tali Fa'i",
+     "jersey": "14",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Sr.",
+     "hometown": "Newark, Calif.",
+     "from": "Laney College"
+    },
+    {
+     "name": "Achol Magot",
+     "jersey": "20",
+     "pos": "C",
+     "height": "6'7\"",
+     "cls": "R-Jr.",
+     "hometown": "Tucson, Ariz.",
+     "from": "Arizona"
+    },
+    {
+     "name": "Koko Akridge",
+     "jersey": "23",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "R-Jr.",
+     "hometown": "San Diego, Calif.",
+     "from": "Long Island University"
+    },
+    {
+     "name": "Jenessa Cotton",
+     "jersey": "24",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Jr.",
+     "hometown": "Orange, Calif.",
+     "from": "Kansas State"
+    },
+    {
+     "name": "Jelena Savic",
+     "jersey": "31",
+     "pos": "G/F",
+     "height": "5'11\"",
+     "cls": "So.",
+     "hometown": "Melbourne, Australia",
+     "from": "Evansville"
+    },
+    {
+     "name": "Alexis Hess",
+     "jersey": "35",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "R-So.",
+     "hometown": "Blandon, Pa.",
+     "from": "Kansas State"
+    }
+   ]
+  },
+  "csuf": {
+   "source_url": "https://fullertontitans.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - Cal State Fullerton",
+   "players": [
+    {
+     "name": "Jennifer Hawkins",
+     "jersey": "0",
+     "pos": "",
+     "height": "6'3\"",
+     "cls": "Fr.",
+     "hometown": "Long Beach, Calif.",
+     "from": "Paramount HS"
+    },
+    {
+     "name": "Mimi Moon",
+     "jersey": "1",
+     "pos": "",
+     "height": "5'7\"",
+     "cls": "So.",
+     "hometown": "Oxnard, Calif.",
+     "from": "Buena HS"
+    },
+    {
+     "name": "Ashari Cassell",
+     "jersey": "2",
+     "pos": "",
+     "height": "5'6\"",
+     "cls": "R-Jr.",
+     "hometown": "Eastvale, Calif.",
+     "from": "Orange Lutheran HS"
+    },
+    {
+     "name": "Shadel Ffrench",
+     "jersey": "3",
+     "pos": "",
+     "height": "6'1\"",
+     "cls": "Jr.",
+     "hometown": "Los Angeles, Calif.",
+     "from": "Saint Monica Preparatory HS"
+    },
+    {
+     "name": "Jana Falsdottir",
+     "jersey": "4",
+     "pos": "",
+     "height": "5'6\"",
+     "cls": "Jr.",
+     "hometown": "Keflavik Iceland",
+     "from": "Verzlunarskoli Islands Gymnasium"
+    },
+    {
+     "name": "Maxine Sutisna",
+     "jersey": "5",
+     "pos": "",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Jakarta, Indonesia",
+     "from": "Archbishop Riordan HS"
+    },
+    {
+     "name": "Dylan Swindle",
+     "jersey": "10",
+     "pos": "",
+     "height": "5'7\"",
+     "cls": "So.",
+     "hometown": "Laveen, Arizona",
+     "from": "Phoenix Fire Prep"
+    },
+    {
+     "name": "Nyemah King",
+     "jersey": "11",
+     "pos": "",
+     "height": "5'11\"",
+     "cls": "R-Fr.",
+     "hometown": "Long Beach, Calif.",
+     "from": "Lakewood HS"
+    },
+    {
+     "name": "Alyssa Dreessen",
+     "jersey": "12",
+     "pos": "",
+     "height": "6'0\"",
+     "cls": "R-Jr.",
+     "hometown": "Riverside, Calif.",
+     "from": "Martin Luther King HS"
+    },
+    {
+     "name": "Alexis Price",
+     "jersey": "21",
+     "pos": "",
+     "height": "6'0\"",
+     "cls": "Jr.",
+     "hometown": "Lynwood, Calif.",
+     "from": "Downey HS"
+    },
+    {
+     "name": "Bernadette Carranza",
+     "jersey": "22",
+     "pos": "",
+     "height": "5'7\"",
+     "cls": "Fr.",
+     "hometown": "Phoenix, Arizona",
+     "from": "Canyon View HS"
+    },
+    {
+     "name": "Talia Maxwell",
+     "jersey": "23",
+     "pos": "",
+     "height": "6'2\"",
+     "cls": "Sr.",
+     "hometown": "Fresno, Calif.",
+     "from": "Central HS"
+    },
+    {
+     "name": "Juliana Aragon",
+     "jersey": "24",
+     "pos": "",
+     "height": "5'5\"",
+     "cls": "Gr.",
+     "hometown": "Bernalillo, New Mexico",
+     "from": "Bernalillo High School"
+    },
+    {
+     "name": "Anasia Wilcox",
+     "jersey": "33",
+     "pos": "",
+     "height": "6'3\"",
+     "cls": "Jr.",
+     "hometown": "Merritt Island, Florida",
+     "from": "Texas High School"
+    }
+   ]
+  },
+  "csub": {
+   "source_url": "https://gorunners.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - California State University at Bakersfield Athletics",
+   "players": [
+    {
+     "name": "Aloni Oliver",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Jr.",
+     "hometown": "Clovis, Calif.",
+     "from": "Fresno State"
+    },
+    {
+     "name": "Dresha Moore",
+     "jersey": "1",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Jr.",
+     "hometown": "Hawthorne, Calif.",
+     "from": "Univ. of San Diego"
+    },
+    {
+     "name": "Mydrea Moore",
+     "jersey": "2",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Sr.",
+     "hometown": "Hawthorne, Calif.",
+     "from": "Cal Poly Pomona"
+    },
+    {
+     "name": "Elyse Mitchell",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Sr.",
+     "hometown": "Santa Clarita, Calif.",
+     "from": "Azusa Pacific"
+    },
+    {
+     "name": "Nseije Ortiz",
+     "jersey": "4",
+     "pos": "G",
+     "height": "5'6\"",
+     "cls": "5th",
+     "hometown": "Porterville, Calif.",
+     "from": "Chico State"
+    },
+    {
+     "name": "Hunter Hudson",
+     "jersey": "5",
+     "pos": "F",
+     "height": "5'11\"",
+     "cls": "Sr.",
+     "hometown": "Palmdale, Calif.",
+     "from": "Cal Poly Pomona"
+    },
+    {
+     "name": "Vanna Quintana",
+     "jersey": "7",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Jr.",
+     "hometown": "Dinuba, Calif.",
+     "from": "Weber State"
+    },
+    {
+     "name": "Gianna Ghio",
+     "jersey": "10",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Sr.",
+     "hometown": "Pleasanton, Calif.",
+     "from": "Laney College"
+    },
+    {
+     "name": "Sofia Ahmed",
+     "jersey": "11",
+     "pos": "F",
+     "height": "6'3\"",
+     "cls": "Jr.",
+     "hometown": "Townsville, Australia",
+     "from": "Dodge City CC"
+    },
+    {
+     "name": "Silvana Maldonado",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Ontario, Canada",
+     "from": "St. Jude's Academy"
+    },
+    {
+     "name": "Elizabeth Johnson",
+     "jersey": "13",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Fr.",
+     "hometown": "Santa Maria, Calif.",
+     "from": "Orcutt Academy"
+    },
+    {
+     "name": "Faith Curry",
+     "jersey": "15",
+     "pos": "G/F",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Bakersfield, Calif.",
+     "from": "Northern Arizona University"
+    },
+    {
+     "name": "Malohni Warren",
+     "jersey": "21",
+     "pos": "G",
+     "height": "5'6\"",
+     "cls": "Fr.",
+     "hometown": "Fresno, Calif.",
+     "from": "Clovis West HS"
+    },
+    {
+     "name": "DJ Kendrick",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Sr.",
+     "hometown": "Los Alamos, Calif.",
+     "from": "Lewis & Clark College"
+    },
+    {
+     "name": "Madison Johnson",
+     "jersey": "23",
+     "pos": "G",
+     "height": "5'6\"",
+     "cls": "5th",
+     "hometown": "Porterville, Calif.",
+     "from": "MSU Denver"
+    }
+   ]
+  },
+  "lmu": {
+   "source_url": "https://lmulions.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - Loyola Marymount University Athletics",
+   "players": [
+    {
+     "name": "Sarah Deng",
+     "jersey": "0",
+     "pos": "",
+     "height": "5'11\"",
+     "cls": "Sr.",
+     "hometown": "Adelaide SA, Australia",
+     "from": "Florida"
+    },
+    {
+     "name": "Mari Somvichian",
+     "jersey": "2",
+     "pos": "G",
+     "height": "5'4\"",
+     "cls": "Sr.",
+     "hometown": "Oakland, CA",
+     "from": ""
+    },
+    {
+     "name": "Danae Powell",
+     "jersey": "3",
+     "pos": "",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "Las Vegas, NV",
+     "from": "Fresno State"
+    },
+    {
+     "name": "Allison Clarke",
+     "jersey": "4",
+     "pos": "",
+     "height": "5'11\"",
+     "cls": "Jr.",
+     "hometown": "Anaheim, CA",
+     "from": ""
+    },
+    {
+     "name": "Shawnee Nordstrom",
+     "jersey": "6",
+     "pos": "",
+     "height": "5'6\"",
+     "cls": "Jr.",
+     "hometown": "Hamilton, New Zealand",
+     "from": "California Baptist University"
+    },
+    {
+     "name": "Ana Milanovic",
+     "jersey": "7",
+     "pos": "",
+     "height": "6'2\"",
+     "cls": "Jr.",
+     "hometown": "Belgrade, Serbia",
+     "from": "Middle Tennessee"
+    },
+    {
+     "name": "Shanayka Ismar",
+     "jersey": "8",
+     "pos": "",
+     "height": "5'7\"",
+     "cls": "Fr.",
+     "hometown": "Montreal, QC",
+     "from": ""
+    },
+    {
+     "name": "Lova Lagerlid",
+     "jersey": "10",
+     "pos": "",
+     "height": "6'1\"",
+     "cls": "Jr.",
+     "hometown": "Stockholm, Sweden",
+     "from": "Colorado"
+    },
+    {
+     "name": "Erica Finney",
+     "jersey": "11",
+     "pos": "",
+     "height": "6'0\"",
+     "cls": "R-Fr.",
+     "hometown": "Sydney, Australia",
+     "from": "University of Illinois"
+    },
+    {
+     "name": "Ivana Krajina",
+     "jersey": "13",
+     "pos": "",
+     "height": "5'11\"",
+     "cls": "Gr.",
+     "hometown": "Kastel Novi, Croatia",
+     "from": "Texas Tech"
+    },
+    {
+     "name": "Ali'a Matavao",
+     "jersey": "22",
+     "pos": "",
+     "height": "6'0\"",
+     "cls": "R-Jr.",
+     "hometown": "Las Vegas, NV",
+     "from": "BYU"
+    },
+    {
+     "name": "Kayla Jones",
+     "jersey": "24",
+     "pos": "",
+     "height": "6'0\"",
+     "cls": "Sr.",
+     "hometown": "Norman, OK",
+     "from": "Grayson College"
+    },
+    {
+     "name": "Janay Brantley",
+     "jersey": "30",
+     "pos": "",
+     "height": "6'1\"",
+     "cls": "Sr.",
+     "hometown": "Catskill, NY",
+     "from": "Stony Brook"
+    },
+    {
+     "name": "Maya Hernandez",
+     "jersey": "55",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Sr.",
+     "hometown": "San Jose, CA",
+     "from": ""
+    }
+   ]
+  },
+  "nau": {
+   "source_url": "https://nauathletics.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - Northern Arizona University Athletics",
+   "players": [
+    {
+     "name": "Emma Dasovich",
+     "jersey": "0",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Jr.",
+     "hometown": "Surprise, Ariz.",
+     "from": "Valley Vista"
+    },
+    {
+     "name": "Alyssa Harris",
+     "jersey": "1",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Kaibeto, Ariz.",
+     "from": "Page"
+    },
+    {
+     "name": "Olivia Moore",
+     "jersey": "2",
+     "pos": "F",
+     "height": "5'9\"",
+     "cls": "Gr.",
+     "hometown": "Spokane, Wash.",
+     "from": "Mead"
+    },
+    {
+     "name": "Madison Watts",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Jr.",
+     "hometown": "San Pedro, Calif.",
+     "from": "Leuzinger"
+    },
+    {
+     "name": "Shayla Cordis",
+     "jersey": "4",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Olympia, Wash.",
+     "from": "North Thurston"
+    },
+    {
+     "name": "Naomi Johnson",
+     "jersey": "5",
+     "pos": "G",
+     "height": "6'1\"",
+     "cls": "Fr.",
+     "hometown": "Sacramento, Calif.",
+     "from": "West Campus"
+    },
+    {
+     "name": "Layla Davis",
+     "jersey": "7",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Jr.",
+     "hometown": "Lancaster, Calif.",
+     "from": "Village Christian"
+    },
+    {
+     "name": "Aaliyah Smith",
+     "jersey": "11",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Sr.",
+     "hometown": "Madison, Wis.",
+     "from": "La Follette"
+    },
+    {
+     "name": "Leah Bullard",
+     "jersey": "12",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Jr.",
+     "hometown": "Tampa, Fl.",
+     "from": "Dr. Phillips"
+    },
+    {
+     "name": "Ray'ven Robinson",
+     "jersey": "13",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Sr.",
+     "hometown": "Minneapolis, Minn.",
+     "from": "Cretin-Derham"
+    },
+    {
+     "name": "Morgan Hawkins",
+     "jersey": "14",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Corona, Calif.",
+     "from": "Corona Centennial"
+    },
+    {
+     "name": "Tianna Knighton",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Jr.",
+     "hometown": "Phoenix, Ariz.",
+     "from": "Arcadia"
+    },
+    {
+     "name": "Alondra Lizama",
+     "jersey": "23",
+     "pos": "F",
+     "height": "5'10\"",
+     "cls": "Sr.",
+     "hometown": "North Hollywood, Calif.",
+     "from": "Bishop Alemany"
+    },
+    {
+     "name": "Micayla Silas",
+     "jersey": "24",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Sr.",
+     "hometown": "Phoenix, Ariz.",
+     "from": "Mesa"
+    }
+   ]
+  },
+  "portlandst": {
+   "source_url": "https://goviks.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - Portland State University Athletics",
+   "players": [
+    {
+     "name": "Teagan Colvin",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Jr.",
+     "hometown": "Coeur d’Alene, Idaho",
+     "from": "Coeur d’Alene HS"
+    },
+    {
+     "name": "Kailee Field",
+     "jersey": "1",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "R-Fr.",
+     "hometown": "Brisbane, Queensland, Australia",
+     "from": "Brisbane State HS"
+    },
+    {
+     "name": "Ryme Jaekel",
+     "jersey": "2",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "R-Fr.",
+     "hometown": "Gladstone, Ore.",
+     "from": "Wilsonville HS"
+    },
+    {
+     "name": "Laynee Torres-Kahapea",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'6\"",
+     "cls": "Sr.",
+     "hometown": "Kaneohe, Hawai'i",
+     "from": "Punahou School"
+    },
+    {
+     "name": "Liv Collins",
+     "jersey": "5",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Sumner, Wash.",
+     "from": "Sumner HS"
+    },
+    {
+     "name": "Kirstine Munk",
+     "jersey": "10",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Sr.",
+     "hometown": "Copenhagen, Denmark",
+     "from": "Niels Brock handelsgymnasium"
+    },
+    {
+     "name": "Maile Starns",
+     "jersey": "11",
+     "pos": "G",
+     "height": "5'6\"",
+     "cls": "Fr.",
+     "hometown": "Parker, Colo.",
+     "from": "Legend HS"
+    },
+    {
+     "name": "Kyleigh Brown",
+     "jersey": "12",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "Silverton, Ore.",
+     "from": "Silverton HS"
+    },
+    {
+     "name": "Alex Padilla",
+     "jersey": "13",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Fr.",
+     "hometown": "Tualatin, Ore.",
+     "from": "Tualatin HS"
+    },
+    {
+     "name": "Maaya Lucas",
+     "jersey": "14",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "Tualatin, Ore.",
+     "from": "Tualatin HS"
+    },
+    {
+     "name": "Jordyn Smith",
+     "jersey": "15",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "Tigard, Ore.",
+     "from": "Tualatin HS"
+    },
+    {
+     "name": "Aspen McClees",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Fr.",
+     "hometown": "Gilbert, Ariz.",
+     "from": "Gilbert HS"
+    },
+    {
+     "name": "Emma Zuniga",
+     "jersey": "23",
+     "pos": "F",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "Keizer, Ore.",
+     "from": "West Salem HS"
+    },
+    {
+     "name": "Sara Barhoum",
+     "jersey": "25",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Happy Valley, Ore.",
+     "from": "Clackamas HS"
+    },
+    {
+     "name": "Nihoa Dunn",
+     "jersey": "33",
+     "pos": "F",
+     "height": "6'1\"",
+     "cls": "Fr.",
+     "hometown": "Honolulu, Hawai'i",
+     "from": "Kamehameha Schools, Kapalama"
+    }
+   ]
+  },
+  "usd": {
+   "source_url": "https://usdtoreros.com/sports/womens-basketball/roster/2026-27",
+   "template": "v1",
+   "page_title": "2026-27 Women's Basketball Roster - University of San Diego Athletics",
+   "players": [
+    {
+     "name": "Ryanne Bahnsen-Price",
+     "jersey": "2",
+     "pos": "Forward",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Erie, CO",
+     "from": "Roosevelt"
+    },
+    {
+     "name": "Lilly Amor",
+     "jersey": "3",
+     "pos": "Guard",
+     "height": "5'11\"",
+     "cls": "Jr.",
+     "hometown": "Melbourne, Victoria, Australia",
+     "from": "Templestowe College"
+    },
+    {
+     "name": "Jessica Ajayi",
+     "jersey": "4",
+     "pos": "Guard",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Kent, WA",
+     "from": "Kentwood"
+    },
+    {
+     "name": "Lauren McCall",
+     "jersey": "5",
+     "pos": "Guard",
+     "height": "5'6\"",
+     "cls": "Gr.",
+     "hometown": "Boise, ID",
+     "from": "Timberline"
+    },
+    {
+     "name": "Kylie Ray",
+     "jersey": "6",
+     "pos": "Guard",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "La Crescenta, CA",
+     "from": "Crescenta Valley"
+    },
+    {
+     "name": "Rosalie Esser",
+     "jersey": "7",
+     "pos": "Guard",
+     "height": "5'8\"",
+     "cls": "Fr.",
+     "hometown": "Berlin, Germany",
+     "from": ""
+    },
+    {
+     "name": "Kiera Pemberton",
+     "jersey": "9",
+     "pos": "Forward",
+     "height": "6'1\"",
+     "cls": "Sr.",
+     "hometown": "Langley, British Columbia, Canada",
+     "from": "Walnut Grove Secondary"
+    },
+    {
+     "name": "Kate Danner",
+     "jersey": "10",
+     "pos": "Forward",
+     "height": "6'2\"",
+     "cls": "Fr.",
+     "hometown": "Dallas, TX",
+     "from": "Highland Park"
+    },
+    {
+     "name": "Sammie Wagner",
+     "jersey": "11",
+     "pos": "G/F",
+     "height": "6'1\"",
+     "cls": "Gr.",
+     "hometown": "San Antonio, TX",
+     "from": "Ronald Reagan"
+    },
+    {
+     "name": "Eva Ruse",
+     "jersey": "15",
+     "pos": "Forward",
+     "height": "6'2\"",
+     "cls": "Jr.",
+     "hometown": "North Vancouver, British Columbia, Canada",
+     "from": "Mulgrave School"
+    },
+    {
+     "name": "Braelynn Barnett",
+     "jersey": "20",
+     "pos": "Forward",
+     "height": "6'1\"",
+     "cls": "So.",
+     "hometown": "Aurora, CO",
+     "from": "Cherry Creek"
+    },
+    {
+     "name": "Ayla Williams",
+     "jersey": "22",
+     "pos": "Post",
+     "height": "6'0\"",
+     "cls": "So.",
+     "hometown": "Las Vegas, NV",
+     "from": "Centennial"
+    },
+    {
+     "name": "Olivia Owens",
+     "jersey": "24",
+     "pos": "Guard",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Columbus, OH",
+     "from": "Phoenix Country Day"
+    }
+   ]
+  },
+  "usf": {
+   "source_url": "https://usfdons.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "2026-27 Women&#x27;s Basketball Roster - University of San Francisco Athletics",
+   "players": [
+    {
+     "name": "Ines Babaya",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "Jr.",
+     "hometown": "Tours, France",
+     "from": "Salt Lake City Community College"
+    },
+    {
+     "name": "Noelia Mouriño",
+     "jersey": "3",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "O Porrino, Spain",
+     "from": "Segle XXI Barcelona"
+    },
+    {
+     "name": "Jayda Queeley",
+     "jersey": "5",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "So.",
+     "hometown": "Edmonton, Alberta, Canada",
+     "from": "Pittsburgh"
+    },
+    {
+     "name": "Belize Ibáñez Mengüç",
+     "jersey": "6",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Fr.",
+     "hometown": "Stockholm, Sweden",
+     "from": "Rig Luleå"
+    },
+    {
+     "name": "Emilie Beggs",
+     "jersey": "8",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "Fr.",
+     "hometown": "Perth, Australia",
+     "from": "St. Hilda's Anglican School For Girls"
+    },
+    {
+     "name": "Aina Cargol",
+     "jersey": "9",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "So.",
+     "hometown": "Olot, Spain",
+     "from": "Spar Girona"
+    },
+    {
+     "name": "Savi Mi",
+     "jersey": "10",
+     "pos": "G",
+     "height": "5'9\"",
+     "cls": "Jr.",
+     "hometown": "Nantou, Taiwan",
+     "from": "Dodge City Community College"
+    },
+    {
+     "name": "Nataša Taušová",
+     "jersey": "12",
+     "pos": "F",
+     "height": "6'3\"",
+     "cls": "So.",
+     "hometown": "Poprad, Slovakia",
+     "from": "Piestanske Cajky"
+    },
+    {
+     "name": "Keiryn McGuff",
+     "jersey": "14",
+     "pos": "G/F",
+     "height": "6'0\"",
+     "cls": "Sr.",
+     "hometown": "Dublin, Ohio",
+     "from": "Akron/Bowling Green"
+    },
+    {
+     "name": "Paula Tirado",
+     "jersey": "22",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "R-Jr.",
+     "hometown": "Mataro, Spain",
+     "from": "IES Damià Campeny"
+    },
+    {
+     "name": "Candy Edokpaigbe",
+     "jersey": "23",
+     "pos": "G",
+     "height": "6'0\"",
+     "cls": "Jr.",
+     "hometown": "Naples, Italy",
+     "from": "Seattle U"
+    },
+    {
+     "name": "Lucia Yenes",
+     "jersey": "24",
+     "pos": "F",
+     "height": "6'0\"",
+     "cls": "Gr.",
+     "hometown": "Madrid, Spain",
+     "from": "New Mexico State"
+    },
+    {
+     "name": "Maria Burliga",
+     "jersey": "33",
+     "pos": "G",
+     "height": "6'1\"",
+     "cls": "Fr.",
+     "hometown": "Krakow, Poland",
+     "from": "MB Zaglebie Sosnowiec"
+    }
+   ]
+  },
+  "washington": {
+   "source_url": "https://gohuskies.com/sports/womens-basketball/roster/2026-27",
+   "template": "v2",
+   "page_title": "Women&#x27;s Basketball Roster - University of Washington Athletics",
+   "players": [
+    {
+     "name": "Sayvia Sellers",
+     "jersey": "0",
+     "pos": "G",
+     "height": "5'7\"",
+     "cls": "Sr.",
+     "hometown": "Anchorage, Alaska",
+     "from": "Anchorage Christian School"
+    },
+    {
+     "name": "Brooke Carlson",
+     "jersey": "1",
+     "pos": "G",
+     "height": "5'8\"",
+     "cls": "Jr.",
+     "hometown": "Batavia, Illinois",
+     "from": "Batavia High School"
+    },
+    {
+     "name": "Avery Howell",
+     "jersey": "2",
+     "pos": "G",
+     "height": "6'0\"",
+     "cls": "Jr.",
+     "hometown": "Boise, Idaho",
+     "from": "Boise HS"
+    },
+    {
+     "name": "Devin Coppinger",
+     "jersey": "3",
+     "pos": "G",
+     "height": "5'10\"",
+     "cls": "Jr.",
+     "hometown": "Everson, Wash.",
+     "from": "Nooksack Valley HS"
+    },
+    {
+     "name": "Daniella McLean",
+     "jersey": "8",
+     "pos": "F",
+     "height": "6'3\"",
+     "cls": "So.",
+     "hometown": "Cobourg, Ontario",
+     "from": "Darrow School"
+    },
+    {
+     "name": "Tilda Trygger",
+     "jersey": "18",
+     "pos": "F",
+     "height": "6'6\"",
+     "cls": "Jr.",
+     "hometown": "Stockholm, Sweden",
+     "from": ""
+    },
+    {
+     "name": "Kaelyn Carroll",
+     "jersey": "20",
+     "pos": "F",
+     "height": "6'3\"",
+     "cls": "So.",
+     "hometown": "Dedham, Massachusetts",
+     "from": "Tabor Academy"
+    },
+    {
+     "name": "Brynn McGaughy",
+     "jersey": "21",
+     "pos": "F",
+     "height": "6'3\"",
+     "cls": "So.",
+     "hometown": "Colfax, Wash.",
+     "from": "Colfax High School"
+    },
+    {
+     "name": "Nina Cain",
+     "jersey": "22",
+     "pos": "F",
+     "height": "6'2\"",
+     "cls": "So.",
+     "hometown": "Sacramento, Calif.",
+     "from": "McClatchy HS"
+    },
+    {
+     "name": "Macey Huard",
+     "jersey": "24",
+     "pos": "G",
+     "height": "6'2\"",
+     "cls": "Sr.",
+     "hometown": "Highlands Ranch, Colorado",
+     "from": "Valor Christian"
+    },
+    {
+     "name": "Amayah Garcia",
+     "jersey": "25",
+     "pos": "G",
+     "height": "5'11\"",
+     "cls": "Fr.",
+     "hometown": "Fort Worth, Texas",
+     "from": "Faith Family Academy"
+    },
+    {
+     "name": "Petra Toman",
+     "jersey": "42",
+     "pos": "G",
+     "height": "6'2\"",
+     "cls": "Jr.",
+     "hometown": "Budapest, Hungary",
+     "from": ""
+    }
+   ]
+  }
+ }
+}

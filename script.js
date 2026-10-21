@@ -5,6 +5,7 @@
   var tip = $('#tooltip');
   function showTip(x,y,html){ tip.innerHTML = html; tip.style.left = x+'px'; tip.style.top = (y-8)+'px'; tip.classList.add('show'); }
   function hideTip(){ tip.classList.remove('show'); }
+  function esc(v){ return String(v==null?'':v).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 
   var DATA = null;
   var state = {
@@ -44,6 +45,8 @@
     renderPlayers();
     renderLineupTables();
     renderCompareCards();
+    renderRoster();
+    renderQuality();
     renderRankChart();
     renderConfTable();
   }
@@ -51,7 +54,7 @@
   function updateBrand(){
     var t = teamData(state.team);
     $('#brandMark').textContent = (t.name||'T').charAt(0);
-    var tag = t.kind === 'opponent' ? 'Non-Conference Opponent' : 'Big West Conference';
+    var tag = t.kind === 'opponent' ? 'Non-Conference Opponent' : 'Big West Conference (2026–27 member)';
     $('#topbarSub').textContent = teamLabel(state.team) + ' · ' + tag + ' · Women\'s Basketball';
   }
 
@@ -68,8 +71,8 @@
     var g = teamGroups();
     function opt(k){ return '<option value="'+k+'"'+(k===state.team?' selected':'')+'>'+teamLabel(k)+'</option>'; }
     sel.innerHTML =
-      '<optgroup label="Big West Conference">'+g.conf.map(opt).join('')+'</optgroup>' +
-      (g.opp.length ? '<optgroup label="Non-Conference Opponents">'+g.opp.map(opt).join('')+'</optgroup>' : '');
+      '<optgroup label="Big West 2026–27 (12 teams)">'+g.conf.map(opt).join('')+'</optgroup>' +
+      (g.opp.length ? '<optgroup label="Non-Conference Opponents (D1)">'+g.opp.map(opt).join('')+'</optgroup>' : '');
   }
   function populateCompareSelector(){
     var sel = $('#compareSel');
@@ -196,12 +199,12 @@
       var bars = p.q.map(function(v,qi){
         var h = Math.round(v/maxQ*56);
         var lbl = ['Q1','Q2','Q3','Q4'][qi];
-        return '<div class="mbar" style="height:'+Math.max(h,2)+'px" data-v="'+v.toFixed(2)+'" data-q="'+lbl+'" data-p="'+p.name+'"></div>';
+        return '<div class="mbar" style="height:'+Math.max(h,2)+'px" data-v="'+v.toFixed(2)+'" data-q="'+lbl+'" data-p="'+esc(p.name)+'"></div>';
       }).join('');
       var sub = p.adv && (p.adv.cls || p.adv.pos) ? [p.adv.cls, p.adv.pos].filter(Boolean).join(' · ') : '';
       return '<button class="pcard" data-idx="'+i+'">' +
-        '<div class="pcard-head"><span class="pname">'+p.name+'</span><span class="jersey">#'+p.jersey+'</span></div>' +
-        (sub ? '<div class="pcard-sub">'+sub+'</div>' : '') +
+        '<div class="pcard-head"><span class="pname">'+esc(p.name)+'</span><span class="jersey">#'+esc(p.jersey)+'</span></div>' +
+        (sub ? '<div class="pcard-sub">'+esc(sub)+'</div>' : '') +
         '<div class="pmini">'+bars+'</div>' +
         '<div class="pfoot"><span>Season PPG</span><b>'+p.ppg.toFixed(1)+'</b></div>' +
         advChips(p.adv) +
@@ -263,11 +266,17 @@
   function sortLineups(rows){
     var sort = state.lineupSort;
     rows.sort(function(a,b){
-      var av=a[sort.key], bv=b[sort.key];
+      var av=a[sort.key]||0, bv=b[sort.key]||0;
       if (sort.key==='players'){ av=a.players.join(' '); bv=b.players.join(' '); return av.localeCompare(bv)*sort.dir; }
       return (av-bv)*sort.dir;
     });
     return rows;
+  }
+
+  function retPill(l){
+    if (l.returning == null) return '<span class="muted">—</span>';
+    var cls = l.returning>=4 ? 'ret-high' : (l.returning>=3 ? 'ret-mid' : 'ret-low');
+    return '<span class="pill '+cls+'" title="'+esc(l.returning_names.join(', ') || 'none')+' return">'+l.returning+' of 5</span>';
   }
 
   function lineupTableHtml(teamKey, idPrefix){
@@ -277,7 +286,7 @@
       var pct = Math.round(Math.abs(l.net_per40)/allMax*100);
       var pos = l.net_per40>=0;
       return '<tr class="lineup-row" data-team="'+teamKey+'" data-id="'+l.id+'">' +
-        '<td><div class="lineup-players">'+l.players.join(' · ')+'</div></td>' +
+        '<td><div class="lineup-players">'+esc(l.players.join(' · '))+'</div></td>' +
         '<td class="num">'+l.min.toFixed(1)+'</td>' +
         '<td class="num">'+l.for_pts+'</td>' +
         '<td class="num">'+l.against_pts+'</td>' +
@@ -286,8 +295,9 @@
           '<div class="netbar"><i style="'+(pos?'left:50%':'right:50%')+';width:'+(pct/2)+'%;background:'+(pos?'var(--good)':'var(--critical)')+'"></i></div>' +
           '<span class="num" style="color:'+(pos?'var(--good)':'var(--critical)')+'">'+(pos?'+':'')+l.net_per40.toFixed(1)+'</span>' +
         '</div></td>' +
+        '<td class="num">'+retPill(l)+'</td>' +
       '</tr>';
-    }).join('') || '<tr><td colspan="6" style="text-align:center;color:var(--ink-faint);padding:22px">No lineups match this filter.</td></tr>';
+    }).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--ink-faint);padding:22px">No lineups match this filter.</td></tr>';
 
     return '<div class="lineup-table-col">' +
       '<div class="col-head">'+teamLabel(teamKey)+' <span class="pill">'+rows.length+' lineups</span></div>' +
@@ -298,6 +308,7 @@
         '<th class="num"><button class="th-sort" data-key="against_pts">Against</button></th>' +
         '<th class="num"><button class="th-sort" data-key="net">Net</button></th>' +
         '<th class="num"><button class="th-sort" data-key="net_per40">Net/40</button></th>' +
+        '<th class="num"><button class="th-sort" data-key="returning" title="How many of these five players are on the 2026-27 roster">Back \u201926-27</button></th>' +
       '</tr></thead><tbody>'+body+'</tbody></table></div>' +
     '</div>';
   }
@@ -327,8 +338,10 @@
       });
     });
 
-    var totalMin = teamData(state.team).lineup_total_minutes_considered;
-    $('#lineupNote').textContent = 'Reconstructed from ' + totalMin.toFixed(0) + ' total on-court minutes across the season' + (compare ? ' per team' : '') + '. Click a lineup for its full breakdown.';
+    var t0 = teamData(state.team), q0 = t0.data_quality;
+    $('#lineupNote').textContent = 'Built from ' + q0.games_lineup_used + ' of ' + q0.games_total + ' games (' + t0.lineup_total_minutes_considered.toFixed(0) +
+      ' on-court minutes' + (compare ? ' for ' + t0.name : '') + '). ' + (q0.games_lineup_used < q0.games_total ? 'Games that could not be verified against the box score are left out. ' : '') +
+      '"Back \u201926-27" counts how many of the five are on the 2026\u201327 roster. Click a lineup for its full breakdown.';
   }
 
   function renderCompareCards(){
@@ -374,6 +387,14 @@
     return better ? 'good' : 'bad';
   }
 
+  function outlookHtml(l){
+    if (l.returning == null) return '';
+    var back = l.returning_names.map(function(n){ return '<span class="pill ret-high">'+esc(n)+'</span>'; }).join('');
+    var gone = l.departed_names.map(function(n){ return '<span class="pill gone">'+esc(n)+'</span>'; }).join('');
+    return '<div class="modal-section-title">2026–27 outlook — '+l.returning+' of 5 on the current roster</div>' +
+      '<div class="outlook">'+back+gone+'</div>';
+  }
+
   function openLineupModal(teamKey, lineupId){
     var team = teamData(teamKey);
     var l = team.lineups.filter(function(x){ return x.id===lineupId; })[0];
@@ -398,7 +419,7 @@
       var pos = v.net_per40>=0;
       var pct = Math.round(Math.abs(v.net_per40)/maxAbs*100);
       return '<div class="vsopp-row">' +
-        '<div class="oname" title="'+v.opponent+'">'+v.opponent+'</div>' +
+        '<div class="oname" title="'+esc(v.opponent)+'">'+esc(v.opponent)+'</div>' +
         '<div class="otrack"><div class="ofill" style="'+(pos?'left:50%':'right:50%')+';width:'+(pct/2)+'%;background:'+(pos?'var(--good)':'var(--critical)')+'"></div></div>' +
         '<div class="oval" style="color:'+(pos?'var(--good)':'var(--critical)')+'">'+(pos?'+':'')+v.net_per40.toFixed(1)+'</div>' +
         '<div class="omin">'+v.min.toFixed(1)+' min</div>' +
@@ -408,7 +429,7 @@
     $('#modalContent').innerHTML =
       '<div class="modal-head">' +
         '<div class="eyebrow">'+teamLabel(teamKey)+'</div>' +
-        '<h3>'+l.players.join(' · ')+'</h3>' +
+        '<h3>'+esc(l.players.join(' · '))+'</h3>' +
         '<div class="sub">'+l.min.toFixed(1)+' minutes on court together this season</div>' +
       '</div>' +
       '<div class="modal-kpis">' +
@@ -417,6 +438,7 @@
         '<div class="tile"><div class="eyebrow">Pts Against</div><div class="val">'+l.against_pts+'</div></div>' +
         '<div class="tile"><div class="eyebrow">Net / 40</div><div class="val" style="color:'+(l.net_per40>=0?'var(--good)':'var(--critical)')+'">'+(l.net_per40>=0?'+':'')+l.net_per40.toFixed(1)+'</div></div>' +
       '</div>' +
+      outlookHtml(l) +
       '<div class="modal-section-title">Strengths &amp; weaknesses — vs. '+team.name+'\'s overall per-40 rate</div>' +
       '<div class="metric-grid">'+metricRows+'</div>' +
       '<div class="modal-section-title">Performance vs. opponents faced (min. 3 minutes on court)</div>' +
@@ -431,6 +453,84 @@
     document.addEventListener('keydown', function(e){ if (e.key==='Escape') closeModal(); });
   }
   function closeModal(){ $('#modalBackdrop').classList.remove('open'); }
+
+  /* ---------------- 2026-27 roster ---------------- */
+  function renderRoster(){
+    var t = teamData(state.team), r = t.roster_2026_27;
+    var tiles = $('#rosterTiles');
+    if (!r){
+      tiles.innerHTML = '';
+      $('#rosterBody').innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--ink-faint);padding:22px">No 2026–27 roster loaded for this team.</td></tr>';
+      $('#departedBody').innerHTML = ''; $('#returningDist').innerHTML = ''; $('#rosterNote').textContent = '';
+      return;
+    }
+    var sm = r.summary;
+    $('#rosterTitle').textContent = teamLabel(state.team) + ' — 2026–27 roster';
+    tiles.className = 'tiles five';
+    tiles.innerHTML = [
+      { lbl:'Roster size', val:sm.roster_size, delta:'players listed', tone:'flat' },
+      { lbl:'Returning', val:sm.returning, delta:'also played in 2025–26', tone: sm.returning>=sm.new ? 'up' : 'flat' },
+      { lbl:'New', val:sm.new, delta:'freshmen, transfers, newcomers', tone:'flat' },
+      { lbl:'Minutes back', val:sm.returning_min_pct.toFixed(0)+'%', delta:'of 2025–26 player minutes', tone: sm.returning_min_pct>=50 ? 'up' : 'down' },
+      { lbl:'Points back', val:sm.returning_pts_pct.toFixed(0)+'%', delta:'of 2025–26 points', tone: sm.returning_pts_pct>=50 ? 'up' : 'down' }
+    ].map(function(x){
+      var arrow = x.tone==='up' ? '▲' : (x.tone==='down' ? '▼' : '·');
+      return '<div class="tile"><div class="eyebrow">'+x.lbl+'</div><div class="val">'+x.val+'</div><div class="delta '+x.tone+'">'+arrow+' '+x.delta+'</div></div>';
+    }).join('');
+
+    $('#rosterBody').innerHTML = r.players.map(function(p){
+      var ret = p.status==='returning';
+      return '<tr>' +
+        '<td class="num">'+esc(p.jersey)+'</td>' +
+        '<td><div class="lineup-players">'+esc(p.name)+'</div></td>' +
+        '<td>'+esc(p.pos)+'</td><td>'+esc(p.height)+'</td><td>'+esc(p.cls)+'</td>' +
+        '<td>'+esc(p.from)+'</td>' +
+        '<td><span class="pill '+(ret?'ret-high':'new')+'">'+(ret?'Returning':'New')+'</span></td>' +
+        '<td class="num">'+(ret ? p.prev.mpg.toFixed(1) : '—')+'</td>' +
+        '<td class="num">'+(ret ? p.prev.ppg.toFixed(1) : '—')+'</td>' +
+      '</tr>';
+    }).join('');
+
+    $('#departedBody').innerHTML = r.departed.length ? r.departed.map(function(d){
+      return '<tr><td><div class="lineup-players">'+esc(d.name)+'</div></td><td class="num">'+d.gp+'</td><td class="num">'+d.mpg.toFixed(1)+'</td>' +
+        '<td class="num">'+d.ppg.toFixed(1)+'</td><td class="num">'+d.min_share_pct.toFixed(1)+'%</td><td class="num">'+d.pts_share_pct.toFixed(1)+'%</td></tr>';
+    }).join('') : '<tr><td colspan="6" style="text-align:center;color:var(--ink-faint);padding:18px">Every 2025–26 player is on the current roster.</td></tr>';
+
+    var labels = { '5':'All 5 return', '4':'4 of 5 return', '3':'3 of 5 return', '2':'2 of 5 return', '1':'1 of 5 returns', '0':'None return' };
+    $('#returningDist').innerHTML = ['5','4','3','2','1','0'].map(function(n){
+      var v = sm.lineup_min_by_returning[n] || 0;
+      return '<div class="dist-row"><div class="dlabel">'+labels[n]+'</div><div class="dtrack"><div class="dfill" style="width:'+v+'%"></div></div><div class="dval">'+v.toFixed(1)+'%</div></div>';
+    }).join('');
+
+    $('#rosterNote').textContent = 'Source: ' + r.source_url + ' (fetched ' + (DATA.meta.roster_fetched || 'n/a') + '). Rosters can change before the season; verify before relying on them.' +
+      (r.match_notes && r.match_notes.length ? ' Matching notes: ' + r.match_notes.join('; ') : '');
+  }
+
+  /* ---------------- data quality ---------------- */
+  function renderQuality(){
+    var t = teamData(state.team), q = t.data_quality;
+    var items = [];
+    items.push('Lineup stats use <b>'+q.games_lineup_used+' of '+q.games_total+'</b> games.');
+    var mc = q.minutes_check;
+    items.push('Player minutes rebuilt from substitutions match the box score within <b class="'+(mc.total_abs_diff_pct<=1?'dq-ok':'dq-warn')+'">'+mc.total_abs_diff_pct+'%</b> (checked over '+mc.games_checked+' games).');
+    var pc = q.points_check;
+    items.push(pc.mismatches===0 ? 'Points credited from play-by-play equal the box score for <b class="dq-ok">all '+pc.players_checked+' players</b>.'
+      : '<b class="dq-warn">'+pc.mismatches+' player(s)</b> differ from the box score by a basket: '+pc.examples.map(function(e){ return esc(e.player)+' ('+e.pbp+' vs '+e.box+')'; }).join(', ')+'. The sources disagree on who scored.');
+    if (q.orientation_flipped) items.push('<b>'+q.orientation_flipped+'</b> game(s) had home/away scores flipped in the play-by-play; corrected using the final score.');
+    if (q.inferred_missing_subs) items.push(q.inferred_missing_subs+' missing substitution(s) inferred from a player recording a play while fewer than five were tracked.');
+    if (q.unattributed_pct) items.push(q.unattributed_pct+'% of game time could not be assigned to a five-player lineup and is left out.');
+    var html = '<ul><li>'+items.join('</li><li>')+'</li></ul>';
+    if (q.excluded.length){
+      html += '<b>Left out of lineup stats:</b><ul>' + q.excluded.map(function(e){ return '<li>'+esc(e.game_id)+' — '+esc(e.reason)+(e.scope ? ' (player scoring still counted)' : '')+'</li>'; }).join('') + '</ul>';
+    }
+    if (q.box_minutes_unreliable_games.length){
+      html += '<b>Box score minutes unusable (source error):</b><ul>' + q.box_minutes_unreliable_games.map(function(e){ return '<li>'+esc(e.game_id)+' — box minutes total '+e.box_minutes_total+', expected '+e.expected+'</li>'; }).join('') + '</ul>';
+    }
+    if (q.advanced_ambiguous && q.advanced_ambiguous.length){
+      html += 'Advanced stats withheld where the national file splits one player across rows: ' + q.advanced_ambiguous.map(esc).join(', ') + '.';
+    }
+    $('#dqBody').innerHTML = html;
+  }
 
   /* ---------------- Conference ---------------- */
   var metricMeta = {
@@ -449,7 +549,7 @@
       var isSelf = t.key===state.team;
       var pct = Math.max(4, Math.round((t[m]-base)/(max-base)*100));
       return '<div class="rankbar-row'+(isSelf?' self':'')+'">' +
-        '<div class="rname">'+t.name+'</div>' +
+        '<div class="rname">'+esc(t.name)+'</div>' +
         '<div class="rankbar-track"><div class="rankbar-fill" style="width:'+pct+'%"></div></div>' +
         '<div class="rankbar-val">'+metricMeta[m].fmt(t[m])+'</div>' +
       '</div>';
@@ -461,7 +561,8 @@
     $('#confBody').innerHTML = sorted.map(function(t){
       var isSelf = t.key===state.team;
       return '<tr class="'+(isSelf?'self':'')+'">' +
-        '<td>'+t.name+'</td>' +
+        '<td>'+esc(t.name)+'</td>' +
+        '<td>'+esc(t.record)+'</td>' +
         '<td>'+t.ppg.toFixed(1)+'</td>' +
         '<td>'+t.oppg.toFixed(1)+'</td>' +
         '<td style="color:'+(t.net>=0?'var(--good)':'var(--critical)')+'">'+(t.net>=0?'+':'')+t.net.toFixed(1)+'</td>' +

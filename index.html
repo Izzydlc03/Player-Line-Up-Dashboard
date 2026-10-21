@@ -28,6 +28,10 @@
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="2.1"/><circle cx="17" cy="7" r="2.1"/><circle cx="7" cy="17" r="2.1"/><circle cx="17" cy="17" r="2.1"/><circle cx="12" cy="12" r="2.1"/></svg>
         Lineups
       </button>
+      <button class="nav-btn" data-view="roster">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"/><path d="M16 5.5a3 3 0 0 1 0 5.5M18 14.8c1.8.7 3 2.4 3 5.2"/></svg>
+        2026-27 Roster
+      </button>
       <button class="nav-btn" data-view="conference">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
         Conference
@@ -56,7 +60,7 @@
 
     <div class="sidebar-foot">
       <div class="eyebrow">Data source</div>
-      <p>2025–26 season · reconstructed from play-by-play (scoring, substitutions) and boxscore data in the Player-Overview-Dashboard dataset, for all 9 Big West teams.</p>
+      <p>2025–26 season data for the 12 teams in the 2026–27 Big West plus 6 non-conference opponents, rebuilt from play-by-play and box scores. 2026–27 rosters come from each team's athletics site.</p>
     </div>
   </aside>
 
@@ -85,6 +89,11 @@
       </div>
 
       <div class="insight" id="qInsight"></div>
+
+      <details class="card dq" id="dqCard">
+        <summary>How reliable is this team's data?</summary>
+        <div id="dqBody"></div>
+      </details>
     </section>
 
     <!-- ===================== PLAYERS ===================== -->
@@ -136,13 +145,55 @@
       </div>
     </section>
 
+    <!-- ===================== ROSTER 2026-27 ===================== -->
+    <section class="view" id="view-roster">
+      <div class="tiles" id="rosterTiles"></div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3 id="rosterTitle">2026–27 roster</h3>
+            <div class="hint">Current roster from the team's athletics site. Players who also appear in the 2025–26 box scores are marked Returning and show last season's role.</div>
+          </div>
+        </div>
+        <div class="table-wrap"><table id="rosterTable">
+          <thead><tr><th class="num">#</th><th>Player</th><th>Pos</th><th>Ht</th><th>Class</th><th>From</th><th>Status</th><th class="num">25-26 MPG</th><th class="num">25-26 PPG</th></tr></thead>
+          <tbody id="rosterBody"></tbody>
+        </table></div>
+        <div class="source-note" id="rosterNote"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Not on the 2026–27 roster</h3>
+            <div class="hint">2025–26 players with no match on the current roster (graduated, transferred, or otherwise not listed).</div>
+          </div>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Player</th><th class="num">GP</th><th class="num">MPG</th><th class="num">PPG</th><th class="num">% of team minutes</th><th class="num">% of team points</th></tr></thead>
+          <tbody id="departedBody"></tbody>
+        </table></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Where last season's lineup minutes go</h3>
+            <div class="hint">Share of 2025–26 five-player lineup minutes by how many of those five players are on the 2026–27 roster.</div>
+          </div>
+        </div>
+        <div id="returningDist"></div>
+      </div>
+    </section>
+
     <!-- ===================== CONFERENCE ===================== -->
     <section class="view" id="view-conference">
       <div class="card">
         <div class="card-title">
           <div class="card-title-copy">
             <h3>Big West standings comparison</h3>
-            <div class="hint">2025–26 season. Pace is estimated from season shooting/rebounding/turnover totals.</div>
+            <div class="hint">2025–26 results for the 12 teams in the 2026–27 Big West. Pace is estimated possessions per game from box score totals.</div>
           </div>
           <div class="seg" id="metricSeg">
             <button data-metric="ppg" class="active">PPG</button>
@@ -164,7 +215,7 @@
         <div class="table-wrap">
           <table class="conf-table">
             <thead>
-              <tr><th>Team</th><th>PPG</th><th>Opp PPG</th><th>Net Rtg</th><th>Pace</th></tr>
+              <tr><th>Team</th><th>Record</th><th>PPG</th><th>Opp PPG</th><th>Net Rtg</th><th>Pace</th></tr>
             </thead>
             <tbody id="confBody"></tbody>
           </table>
