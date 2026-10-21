@@ -8,69 +8,59 @@
 </head>
 <body>
 <div class="app">
-  <aside class="sidebar">
+  <aside class="sidebar" style="position:relative;">
     <div class="brand">
-      <div class="brand-mark" id="brandMark">T</div>
+      <div class="brand-mark"><img src="Team_Logos/triton_logo.jpg" alt="UC San Diego Tritons logo"></div>
       <div class="brand-text"><b>Big West WBB</b><span>Line-Up Dashboard</span></div>
     </div>
+    <button class="sidebar-toggle" id="sidebar-toggle" title="Collapse sidebar" aria-label="Collapse sidebar">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l-6 6 6 6"/></svg>
+    </button>
 
     <nav class="views" id="nav">
-      <div class="nav-label eyebrow">Dashboard</div>
+      <div class="nav-label eyebrow">Views</div>
       <button class="nav-btn active" data-view="overview">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="17" y="3" width="4" height="17"/></svg>
-        Team Overview
+        <span>Team Overview</span>
       </button>
       <button class="nav-btn" data-view="players">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-4 3.1-6.5 7-6.5S19 16 19 20"/></svg>
-        Player Scoring
+        <span>Player Scoring</span>
       </button>
       <button class="nav-btn" data-view="lineups">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="2.1"/><circle cx="17" cy="7" r="2.1"/><circle cx="7" cy="17" r="2.1"/><circle cx="17" cy="17" r="2.1"/><circle cx="12" cy="12" r="2.1"/></svg>
-        Lineups
+        <span>Lineups</span>
       </button>
       <button class="nav-btn" data-view="roster">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"/><path d="M16 5.5a3 3 0 0 1 0 5.5M18 14.8c1.8.7 3 2.4 3 5.2"/></svg>
-        2026-27 Roster
+        <span>2026–27 Roster</span>
       </button>
       <button class="nav-btn" data-view="conference">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
-        Conference
+        <span>Conference</span>
       </button>
     </nav>
 
-    <div class="filters">
-      <div class="nav-label eyebrow">Team</div>
-      <div class="field">
-        <label for="teamSel">My Team</label>
-        <select id="teamSel"></select>
-      </div>
-      <div class="field">
-        <label for="gameSel">Game / Sample</label>
-        <select id="gameSel"></select>
-      </div>
-      <div class="field">
-        <label for="minSel">Min. Lineup Minutes</label>
-        <select id="minSel">
-          <option value="0">All (6+ min)</option>
-          <option value="15" selected>15+ minutes</option>
-          <option value="40">40+ minutes</option>
-        </select>
-      </div>
-    </div>
-
     <div class="sidebar-foot">
       <div class="eyebrow">Data source</div>
-      <p>2025–26 season data for the 12 teams in the 2026–27 Big West plus 6 non-conference opponents, rebuilt from play-by-play and box scores. 2026–27 rosters come from each team's athletics site.</p>
+      <p><b>Rough draft.</b> 2025–26 season data for the 12 teams in the 2026–27 Big West plus 6 non-conference opponents, rebuilt from play-by-play and box scores. 2026–27 rosters come from each team's athletics site.</p>
     </div>
   </aside>
 
   <main class="main">
-    <header class="topbar">
+    <header class="topbar" id="topbar">
       <div>
-        <h1>Player Line-Up Dashboard</h1>
-        <div class="sub" id="topbarSub">Big West Conference · Women's Basketball</div>
+        <h1 id="topTitle">Team Overview</h1>
+        <div class="sub" id="topbarSub"></div>
       </div>
-      <span class="draft-badge"><span class="dot"></span>Rough draft · real season data</span>
+      <div class="topbar-controls">
+        <label class="vslabel" for="teamSel">Select Team</label><select id="teamSel"></select>
+        <label class="vslabel" for="seasonSel">Select Season</label>
+        <select id="seasonSel">
+          <option value="2025-26">2025–26</option>
+          <option value="2026-27">2026–27</option>
+        </select>
+      </div>
     </header>
 
     <!-- ===================== OVERVIEW ===================== -->
@@ -81,9 +71,12 @@
         <div class="card-title">
           <div class="card-title-copy">
             <h3>Points per quarter</h3>
-            <div class="hint">Scoring vs. opponent, by quarter. Use the game selector in the sidebar to compare a specific conference matchup against the season baseline.</div>
+            <div class="hint">Scoring vs. opponent, by quarter. Use the selector on the right to compare a specific game against the season average.</div>
           </div>
-          <div class="legend" id="qLegend"></div>
+          <div class="card-title-actions">
+            <div class="legend" id="qLegend"></div>
+            <select id="gameSel" aria-label="Game or sample"></select>
+          </div>
         </div>
         <div class="qchart" id="qChart"></div>
       </div>
@@ -120,9 +113,12 @@
           </div>
           <div class="card-title-actions">
             <input class="search-input" id="lineupSearch" placeholder="Search by player…" />
-            <div class="field" style="padding:0;">
-              <select id="compareSel"><option value="">Compare vs…</option></select>
-            </div>
+            <select id="minSel" aria-label="Minimum lineup minutes">
+              <option value="0">All lineups (6+ min)</option>
+              <option value="15" selected>15+ minutes</option>
+              <option value="40">40+ minutes</option>
+            </select>
+            <select id="compareSel"><option value="">Compare vs…</option></select>
           </div>
         </div>
         <div class="lineup-tables" id="lineupTables"></div>

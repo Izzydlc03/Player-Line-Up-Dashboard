@@ -10,6 +10,7 @@
   var DATA = null;
   var state = {
     team: 'ucsd',
+    view: 'overview',
     compareTeam: '',
     gameSample: 'season',
     minLineupMinutes: 15,
@@ -51,11 +52,26 @@
     renderConfTable();
   }
 
+  var VIEW_TITLES = {
+    overview:   ['Team Overview', 'Season averages and scoring by quarter'],
+    players:    ['Player Scoring', 'Points per quarter and advanced stats by player'],
+    lineups:    ['Lineups', 'Five-player units ranked by minutes played together'],
+    roster:     ['2026–27 Roster', 'Who returns, who is new, and what it means for last season\'s lineups'],
+    conference: ['Conference', '2025–26 results for the 12 teams in the 2026–27 Big West']
+  };
   function updateBrand(){
     var t = teamData(state.team);
-    $('#brandMark').textContent = (t.name||'T').charAt(0);
-    var tag = t.kind === 'opponent' ? 'Non-Conference Opponent' : 'Big West Conference (2026–27 member)';
-    $('#topbarSub').textContent = teamLabel(state.team) + ' · ' + tag + ' · Women\'s Basketball';
+    var tag = t.kind === 'opponent' ? 'Non-conference opponent' : 'Big West 2026–27 member';
+    var v = VIEW_TITLES[state.view];
+    $('#topTitle').textContent = v[0];
+    $('#topbarSub').textContent = v[1] + ' · ' + t.name + ' (' + tag + ')';
+    $('#seasonSel').value = state.view === 'roster' ? '2026-27' : '2025-26';
+  }
+  function setView(v){
+    state.view = v;
+    $$('.nav-btn').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-view')===v); });
+    $$('.view').forEach(function(sec){ sec.classList.toggle('active', sec.id==='view-'+v); });
+    updateBrand();
   }
 
   /* ---------------- Selectors ---------------- */
@@ -144,8 +160,7 @@
     $('#qChart').innerHTML = html;
     $('#qLegend').innerHTML =
       '<div class="legend-item"><span class="swatch" style="background:var(--series-a)"></span>'+teamData(state.team).name+'</div>' +
-      '<div class="legend-item"><span class="swatch" style="background:var(--series-b)"></span>Opponent</div>' +
-      '<div class="legend-item" style="color:var(--ink-faint);font-weight:500">'+s.label+'</div>';
+      '<div class="legend-item"><span class="swatch" style="background:var(--series-b)"></span>Opponent</div>';
 
     $$('.bar', $('#qChart')).forEach(function(b){
       b.addEventListener('mousemove', function(e){
@@ -574,16 +589,20 @@
   /* ---------------- Wiring ---------------- */
   function wireNav(){
     $$('.nav-btn').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        $$('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
-        btn.classList.add('active');
-        var v = btn.getAttribute('data-view');
-        $$('.view').forEach(function(sec){ sec.classList.toggle('active', sec.id==='view-'+v); });
-      });
+      btn.addEventListener('click', function(){ setView(btn.getAttribute('data-view')); });
+    });
+    var app = $('.app'), tog = $('#sidebar-toggle');
+    tog.addEventListener('click', function(){
+      var c = app.classList.toggle('collapsed');
+      var label = c ? 'Expand sidebar' : 'Collapse sidebar';
+      tog.setAttribute('title', label); tog.setAttribute('aria-label', label);
     });
   }
 
   function wireControls(){
+    $('#seasonSel').addEventListener('change', function(){
+      setView(this.value === '2026-27' ? 'roster' : (state.view === 'roster' ? 'overview' : state.view));
+    });
     $('#teamSel').addEventListener('change', function(){
       state.team = this.value;
       if (state.compareTeam===state.team) state.compareTeam = '';
