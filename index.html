@@ -31,6 +31,10 @@
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="2.1"/><circle cx="17" cy="7" r="2.1"/><circle cx="7" cy="17" r="2.1"/><circle cx="17" cy="17" r="2.1"/><circle cx="12" cy="12" r="2.1"/></svg>
         <span>Lineups</span>
       </button>
+      <button class="nav-btn" data-view="matchup">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M4 12h16M4 17h10"/><circle cx="18" cy="7" r="2"/><circle cx="18" cy="17" r="2"/></svg>
+        <span>Matchup / Scout</span>
+      </button>
       <button class="nav-btn" data-view="roster">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"/><path d="M16 5.5a3 3 0 0 1 0 5.5M18 14.8c1.8.7 3 2.4 3 5.2"/></svg>
         <span>2026–27 Roster</span>
@@ -50,6 +54,7 @@
         <div class="sub" id="topbarSub"></div>
       </div>
       <div class="topbar-controls">
+        <span class="draft-flag" title="Rough draft of proposed additions">Draft preview</span>
         <label class="vslabel" for="teamSel">Select Team</label><select id="teamSel"></select>
         <label class="vslabel" for="seasonSel">Select Season</label>
         <select id="seasonSel">
@@ -79,6 +84,48 @@
 
       <div class="insight" id="qInsight"></div>
 
+      <div class="grid-prog">
+        <div class="card">
+          <div class="card-title">
+            <div class="card-title-copy">
+              <h3>Progression: game-by-game margin</h3>
+              <div class="hint">Each bar is one game's final margin (green = win, red = loss). The line is the rolling 5-game average, so you can see whether the team is trending up or fading.</div>
+            </div>
+            <div class="legend"><div class="legend-item"><span class="swatch" style="background:var(--series-a)"></span>Rolling 5-game margin</div></div>
+          </div>
+          <div id="progChart"></div>
+          <div class="insight" id="progInsight"></div>
+          <div class="source-note" id="progNote"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">
+            <div class="card-title-copy">
+              <h3>Splits</h3>
+              <div class="hint">Record and scoring in different situations.</div>
+            </div>
+          </div>
+          <div class="table-wrap"><table class="splits">
+            <thead><tr><th>Situation</th><th class="num">W-L</th><th class="num">PPG</th><th class="num">Opp</th><th class="num">Net</th></tr></thead>
+            <tbody id="splitsBody"></tbody>
+          </table></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Four Factors</h3>
+            <div class="hint">The four things that decide most games, for this team's offense and for what its defense allows. The chip shows the rank among the 12 Big West teams (1st is best).</div>
+          </div>
+        </div>
+        <div class="table-wrap"><table class="ff">
+          <thead><tr><th>Factor</th><th class="num">Our offense</th><th></th><th class="num">Our defense allows</th><th></th></tr></thead>
+          <tbody id="ffBody"></tbody>
+        </table></div>
+      </div>
+
+      
+
       <details class="card dq" id="dqCard">
         <summary>How reliable is this team's data?</summary>
         <div id="dqBody"></div>
@@ -90,18 +137,51 @@
       <div class="card">
         <div class="card-title">
           <div class="card-title-copy">
-            <h3>Player points per quarter</h3>
-            <div class="hint">Season per-game scoring average by quarter, reconstructed from made-shot play-by-play events. Click a player to compare their shape to the team's.</div>
+            <h3 id="plTitle">Player stats</h3>
+            <div class="hint" id="plHint"></div>
+          </div>
+          <div class="card-title-actions">
+            <div class="seg" id="plSeg">
+              <button data-pl="scoring" class="active">Scoring</button>
+              <button data-pl="efficiency">Efficiency</button>
+              <button data-pl="lineup">Lineup impact</button>
+            </div>
           </div>
         </div>
-        <div class="players-grid" id="playersGrid"></div>
+        <div class="table-wrap"><table class="pl-table">
+          <thead id="plHead"></thead>
+          <tbody id="plBody"></tbody>
+        </table></div>
+        <div class="source-note" id="plNote"></div>
       </div>
       <div class="insight" id="playerInsight"></div>
+
+      <details class="card dq" id="glossary">
+        <summary>Stat glossary (what do these abbreviations mean?)</summary>
+        <dl class="glossary">
+          <dt>BPM</dt><dd>Box Plus/Minus. Estimated points per 100 possessions a player adds versus an average D1 player. Above 0 is better than average; 5+ is excellent.</dd>
+          <dt>ORtg / DRtg</dt><dd>Offensive / Defensive Rating. Points produced (ORtg) or allowed (DRtg) per 100 possessions. Higher ORtg is better; lower DRtg is better.</dd>
+          <dt>USG%</dt><dd>Usage. Share of the team's possessions a player ends (shot, turnover, free throws) while on the floor.</dd>
+          <dt>TS%</dt><dd>True shooting. Scoring efficiency counting 2s, 3s and free throws together.</dd>
+          <dt>eFG%</dt><dd>Effective field goal %. Shooting percentage with 3-pointers counted as 1.5 shots.</dd>
+          <dt>TOV%</dt><dd>Turnover rate. Turnovers per 100 offensive plays. Lower is better on offense; forcing a high number is better on defense.</dd>
+          <dt>ORB%</dt><dd>Offensive rebound rate. Share of available offensive rebounds a team grabs.</dd>
+          <dt>FT rate</dt><dd>Free throw attempts per field goal attempt. Shows how often a team gets to the line.</dd>
+          <dt>Net / 40</dt><dd>Points scored minus points allowed per 40 minutes while a lineup was on the floor.</dd>
+        </dl>
+      </details>
     </section>
 
     <!-- ===================== LINEUPS ===================== -->
     <section class="view" id="view-lineups">
-      <div class="card">
+      <div class="lc-mode">
+        <div class="seg" id="lcModeSeg">
+          <button data-mode="browse" class="active">Browse lineups</button>
+          <button data-mode="compare">Compare two lineups</button>
+        </div>
+        <span class="lc-mode-hint">Compare picks one lineup on each side and lines up their stats.</span>
+      </div>
+      <div class="card browse-only">
         <div class="card-title">
           <div class="card-title-copy">
             <h3 id="lineupCardTitle">Five-player lineup usage</h3>
@@ -114,14 +194,13 @@
               <option value="15" selected>15+ minutes</option>
               <option value="40">40+ minutes</option>
             </select>
-            <select id="compareSel"><option value="">Compare vs…</option></select>
           </div>
         </div>
         <div class="lineup-tables" id="lineupTables"></div>
         <div class="source-note" id="lineupNote"></div>
       </div>
 
-      <div class="compare-grid">
+      <div class="compare-grid browse-only">
         <div class="compare-card best">
           <div class="compare-eyebrow">Best net lineup</div>
           <div class="compare-title" id="bestTitle"></div>
@@ -133,6 +212,61 @@
           <div class="compare-title" id="worstTitle"></div>
           <div class="compare-sub" id="worstSub"></div>
           <div id="worstMetrics"></div>
+        </div>
+      </div>
+      <div class="compare-only" id="lcPanel"></div>
+    </section>
+
+    <!-- ===================== MATCHUP / SCOUT ===================== -->
+    <section class="view" id="view-matchup">
+      <div class="card mm-controls">
+        <div class="mm-pickers">
+          <div><label class="vslabel" for="mmA">Your team</label><select id="mmA"></select></div>
+          <button class="btn" id="mmSwap" title="Swap teams">&#8646; Swap</button>
+          <div><label class="vslabel" for="mmB">Scouting</label><select id="mmB"></select></div>
+        </div>
+        <button class="btn primary" id="mmPrint">Print scouting report</button>
+      </div>
+
+      <div class="mm-head" id="mmHead"></div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-copy">
+            <h3>Where the edges are</h3>
+            <div class="hint">Each row pits one side's offense against the other side's defense on a Four Factor. The edge goes to whichever ranks better in the conference; the gap shows how lopsided it is.</div>
+          </div>
+        </div>
+        <div class="insight" id="mmSummary" style="margin-bottom:12px"></div>
+        <div class="table-wrap"><table class="edges">
+          <thead><tr><th>Matchup</th><th class="num">Offense</th><th></th><th class="num">Defense</th><th></th><th>Edge</th></tr></thead>
+          <tbody id="mmEdges"></tbody>
+        </table></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="card-title-copy"><h3 id="mmKeyTitle">Who they run through</h3><div class="hint">Highest-usage players: the ones the offense is built around.</div></div></div>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Player</th><th class="num">PPG</th><th class="num">USG%</th><th class="num">TS%</th><th class="num">BPM</th></tr></thead>
+            <tbody id="mmKeyBody"></tbody>
+          </table></div>
+          <div class="source-note" id="mmKeyNote"></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-title-copy"><h3>Their best and worst lineups</h3><div class="hint">Lineups with 20+ minutes together. Think about which units to force them out of, and which to attack.</div></div></div>
+          <div id="mmLineups"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title"><div class="card-title-copy"><h3>How they play</h3><div class="hint">Style stats with where each ranks in the conference. These describe tendencies rather than good or bad.</div></div></div>
+          <div id="mmStyle"></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-title-copy"><h3>Quarter tendencies</h3><div class="hint">Their average margin in each quarter this season.</div></div></div>
+          <div id="mmQuarters"></div>
         </div>
       </div>
     </section>
