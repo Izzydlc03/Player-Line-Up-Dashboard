@@ -30,6 +30,9 @@ SITES = {
     "sacstate": "hornetsports.com", "csuf": "fullertontitans.com", "csub": "gorunners.com",
     "lmu": "lmulions.com", "nau": "nauathletics.com", "portlandst": "goviks.com",
     "usd": "usdtoreros.com", "usf": "usfdons.com", "washington": "gohuskies.com",
+    # non-conference opponents on UCSD's 2026-27 schedule that the dashboard did not have yet
+    "pacific": "pacifictigers.com", "lasalle": "goexplorers.com",
+    "whittier": "wcpoets.com", "csusm": "csusmcougars.com",
 }
 
 
@@ -196,6 +199,10 @@ def main():
         print(f"{key:11s} {template} players={len(players):>2} jerseys_blank={sum(1 for p in players if not p['jersey'])} "
               f"{'OK' if not problems else 'PROBLEMS: ' + '; '.join(problems)}")
 
+    if args.only and os.path.exists(args.out):
+        prev = json.load(open(args.out, encoding="utf-8"))
+        teams = {**prev.get("teams", {}), **teams}
+        issues = {**prev.get("issues", {}), **issues}
     out = {"meta": {"season": SEASON, "fetched": date.today().isoformat(),
                     "source": "official team athletics websites (SIDEARM roster pages)"},
            "issues": issues, "teams": teams}

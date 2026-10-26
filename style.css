@@ -565,3 +565,6 @@ body[data-view="matchup"] #teamSel, body[data-view="matchup"] label[for="teamSel
 .qbars{ gap:6px; border-bottom:2px solid var(--chart-axis); }
 .bar{ width:46px; }
 .qgroup .qlabel{ margin-top:9px; font-size:12.5px; }
+
+/* 2026-27 (no games yet): show a slim banner above zero-filled stats instead of hiding them */
+.season-empty-note.show{ display:block; background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 45%, transparent); padding:12px 16px; }
