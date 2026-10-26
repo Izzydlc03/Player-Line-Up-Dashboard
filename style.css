@@ -383,3 +383,9 @@ details.dq[open] summary::before{ transform:rotate(90deg); }
   .sidebar{ position:static; height:auto; }
 }
 @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+
+/* Season with no games yet: hide the stats, show one explanatory card */
+.season-empty-note{ display:none; color:var(--ink-muted); line-height:1.5; }
+.season-empty-note b{ color:var(--ink); }
+.view.season-empty > *{ display:none; }
+.view.season-empty > .season-empty-note{ display:block; }

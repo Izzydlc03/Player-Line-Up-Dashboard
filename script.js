@@ -11,6 +11,7 @@
   var state = {
     team: 'ucsd',
     view: 'overview',
+    season: '2025-26',
     compareTeam: '',
     gameSample: 'season',
     minLineupMinutes: 15,
@@ -65,7 +66,32 @@
     var v = VIEW_TITLES[state.view];
     $('#topTitle').textContent = v[0];
     $('#topbarSub').textContent = v[1] + ' · ' + t.name + ' (' + tag + ')';
-    $('#seasonSel').value = state.view === 'roster' ? '2026-27' : '2025-26';
+    applySeason();
+  }
+  /* Season is its own setting, independent of the active tab. Tabs that show
+     game data have nothing to show for a season with no games yet (2026-27),
+     so they get an empty-state card instead of switching the user elsewhere. */
+  var SEASON_LABEL = { '2025-26':'2025\u201326', '2026-27':'2026\u201327' };
+  var DATA_VIEWS = ['overview','players','lineups','conference'];
+  function seasonHasGames(season){ return season === '2025-26'; }
+  function applySeason(){
+    var empty = !seasonHasGames(state.season);
+    $('#seasonSel').value = state.season;
+    DATA_VIEWS.forEach(function(id){
+      var sec = $('#view-'+id);
+      if (!sec) return;
+      var note = $('.season-empty-note', sec);
+      if (!note){
+        note = document.createElement('div');
+        note.className = 'card season-empty-note';
+        sec.insertBefore(note, sec.firstChild);
+      }
+      note.innerHTML = '<b>No ' + SEASON_LABEL[state.season] + ' game stats yet.</b> ' +
+        'Games for this season haven\u2019t been played, so there is nothing to show here. ' +
+        'Switch the season back to ' + SEASON_LABEL['2025-26'] + ' for last season\u2019s numbers, or open the ' +
+        SEASON_LABEL['2026-27'] + ' Roster tab to see who is on the team.';
+      sec.classList.toggle('season-empty', empty);
+    });
   }
   function setView(v){
     state.view = v;
@@ -601,7 +627,8 @@
 
   function wireControls(){
     $('#seasonSel').addEventListener('change', function(){
-      setView(this.value === '2026-27' ? 'roster' : (state.view === 'roster' ? 'overview' : state.view));
+      state.season = this.value;
+      applySeason();
     });
     $('#teamSel').addEventListener('change', function(){
       state.team = this.value;
